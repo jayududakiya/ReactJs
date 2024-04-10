@@ -1,0 +1,14 @@
+.hero-img{
+    width: 20rem;
+    margin: 10px auto;
+    display: block;
+    border-radius: 20px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.text-center {
+    text-align: center;
+}
