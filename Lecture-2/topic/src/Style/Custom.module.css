@@ -1,0 +1,29 @@
+.p{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: yellow;
+    background-color: black;
+}
+
+.p2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+    background-color: black;   
+}
+
+.p3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: orange;
+    background-color: black;   
+}
+
+
+.olList{
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: brown;
+    background-color: cadetblue;
+    padding-block: 1rem;
+}
