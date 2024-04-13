@@ -1,0 +1,27 @@
+body{
+    background-color: #e0e0e0;
+}
+
+
+.emoji-box{
+    height:6rem;
+    width: 6rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #e0e0e0;
+    box-shadow:  18px 18px 36px #c1c1c1,
+                -18px -18px 36px #ffffff;
+
+    transition: 0.5s all linear;
+}
+
+.emoji-box:hover{
+    border-radius: 50%;
+    background: #f87171;
+    box-shadow: inset 18px 18px 36px #d56161,
+                inset -18px -18px 36px #ff8181;
+}
