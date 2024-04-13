@@ -1,0 +1,33 @@
+
+.text-box{
+    font-family:Arial, Helvetica, sans-serif;
+    color: transparent;
+    white-space: 4px;
+    /* -webkit-text-stroke: 3px #800080; */
+    -webkit-text-stroke: 3px #e6e6fa;
+}
+
+.Count-btn{
+    width: 5rem;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-inline:1rem;
+    margin-block:0.5rem;
+    padding: 0.4rem;
+    color:#800080;
+    border-radius: 25px;
+    background: #e6e6fa;
+    box-shadow:  5px 5px 14px #757585,
+                 -5px -5px 14px #ffffff;
+    transition: 0.3s all linear ;
+}
+
+.Count-btn:hover{
+    border-radius: 25px;
+    color:#ffffff;
+    opacity: 0.7    ;
+    background: #800080;
+    box-shadow: inset 5px 5px 14px #660066,
+                inset -5px -5px 14px #9a009a;
+}
