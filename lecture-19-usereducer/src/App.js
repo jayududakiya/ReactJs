@@ -1,11 +1,13 @@
 import './App.css'
-import UReducer from "./useReducers/UReducer";
+import Table from './Components/Table';
+// import UReducer from "./useReducers/UReducer";
 
 
 function App() {
   return (
     <div className="App">
-        <UReducer/>
+        {/* <UReducer/> */}
+        <Table/>
     </div>
   );
 }
