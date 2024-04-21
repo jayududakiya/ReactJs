@@ -2,7 +2,7 @@ import React from 'react';
 
 const CompC = () => {
     return <>
-        <h1>I am Component C</h1>
+        <h1 className='text-center'>I am Component C</h1>
         </>
 }
 
