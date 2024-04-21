@@ -94,14 +94,6 @@ function Table() {
   return (
     <div className="w-[90%] m-auto pt-5">
       <div className="flex flex-wrap items-center justify-around w-full">
-      <button
-          className="text-slate-100 bg-slate-400 font-sans py-1 px-2 rounded-lg my-2 "
-          onClick={() => {
-            dispatch({ type: "All Cars" });
-          }}
-        >
-          All Cars
-        </button>
 
         <button
           className="text-slate-100 bg-slate-400 font-sans py-1 px-2 rounded-lg my-2 "

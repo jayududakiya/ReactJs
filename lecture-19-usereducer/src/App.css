@@ -7,4 +7,20 @@
 th , td {
     padding : 1rem 0.5rem ;
     border: 1px solid violet;
+    animation: show 2s linear 1 forwards;
+}
+
+tr{
+    animation: show 2s linear 1 forwards;
+}
+
+@keyframes show {
+    0%{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
