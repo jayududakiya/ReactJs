@@ -1,0 +1,45 @@
+
+.navbar
+{
+  background-color: var(--bs-gray-900);  
+}
+
+header .slide
+{
+  height: 100%;
+}
+
+header .slide .carousel-inner
+{
+  height: 100%;
+}
+
+header .slide .carousel-inner .carousel-item
+{
+  height:100%;
+}
+
+header .slide .carousel-inner .carousel-item img
+{
+  height: 100%;
+  min-height: 100vh;
+}
+
+
+main .row .col-lg-4 .card img
+{
+  width: calc(100% - 45%);
+  height: 180px;
+}
+
+
+.card-box .col-12 .row .box-image img
+{
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+
+

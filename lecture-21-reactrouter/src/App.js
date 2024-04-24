@@ -1,22 +1,30 @@
-import {BrowserRouter , Routes , Route } from 'react-router-dom'
 import './App.css';
-import Page1 from './ReactRouterDom/Pages/Page1.js'
-import Page2 from './ReactRouterDom/Pages/Page2.js'
-import Page3 from './ReactRouterDom/Pages/Page3.js'
-import Page4 from './ReactRouterDom/Pages/Page4.js'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+
+import ReactRouterDom from './ReactRouterDom/ReactRouterDom';
+import About from './Components/Pages/About/About';
+import ClientReview from './Components/Pages/Client Review/ClientReview';
+import Home from './Components/Pages/Home/Home';
+import Contact from './Components/Pages/Contact/Contact';
+import ShopPage from './Components/Pages/ShopNow/ShopPage';
+
+import NavBar from './Components/Navbar/NavBar';
+import {NavbarBottom} from './Components/Navbar/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Use Of react Router Dom </h1>
-        <BrowserRouter>
-          <Routes>
-              <Route path='/' element={<Page1/>} />
-              <Route path='/page-2' element={<Page2/>} />
-              <Route path='/page-3' element={<Page3/>} />
-              <Route path='/page-4' element={<Page4/>} />
-          </Routes>
-        </BrowserRouter>
+      {/* <ReactRouterDom/> */}
+      <NavBar/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/HomePage' element={<Home/>}/> 
+          <Route path='/About' element={<About/>}/> 
+          <Route path='/Contact' element={<Contact/>}/> 
+          <Route path='/ShopPage' element={<ShopPage/>}/> 
+        </Routes>
+          <NavbarBottom/>
+      </BrowserRouter>
     </div>
   );
 }

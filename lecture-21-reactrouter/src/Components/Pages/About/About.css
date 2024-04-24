@@ -1,0 +1,36 @@
+.text-family
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.t-color
+{
+    color: darkblue;
+}
+
+
+.container-lg  nav .navbar-brand,
+.container-lg .heading-box h5
+{
+    font-weight: 900; 
+}
+
+.container-lg .heading-box .card .card-deta
+{
+    width: 50%;
+}
+
+main .card-wrapper .col-md-6 .card .row .col-md-5 img
+{
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media (max-width:992px) {
+    .container-lg .heading-box .card .card-deta
+    {
+        width: 100%;
+    }
+}

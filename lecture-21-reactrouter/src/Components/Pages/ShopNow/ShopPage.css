@@ -1,0 +1,32 @@
+header.Shop-header
+{
+    min-height:100vh;
+    background-image:linear-gradient(to bottom ,rgba(0,0,0,0.5) , rgba(0,0,0,0.5)) ,url(./Asset/bg-image.jpg) ;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover ;
+}
+header .heading-wraper
+{
+    min-height: 90vh;
+}
+
+main
+{
+    min-height: 84vh;
+}
+
+main .card-box-wrapper
+{
+    width: calc(100% - 10%);
+}
+
+main .card-box-wrapper .col .card
+{
+    height:400px;
+}
+
+main .card-box-wrapper .col .card img
+{
+    min-height: 200px;
+}

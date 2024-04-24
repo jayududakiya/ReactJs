@@ -1,0 +1,9 @@
+.card-wrapper
+{
+  width: calc(100% - 12%);            
+}
+
+.heading-cont,
+footer{
+  width: calc(100% - 25%);            
+}
