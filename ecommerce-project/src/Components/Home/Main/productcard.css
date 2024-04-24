@@ -1,0 +1,188 @@
+@import '../../style/main.css';
+/*   
+@media ADD at Bottom
+*/
+
+
+.col{
+    height: 36rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s linear;
+    border-radius: 10px;
+}
+
+.col:hover{
+    z-index: 12;
+    overflow: visible;
+}
+
+
+@media (min-width:1021px) and (max-width:1240px) {
+    .col{
+        height: 30rem;
+    }
+}
+
+@media (min-width:640px) and (max-width:1020px) {
+    .col{
+        height: 27rem;
+    }
+}
+
+
+
+.PopProducts-card{
+    background-color: #fff;
+    border-radius: 10px; 
+    position: absolute;
+    padding-top: 1rem;
+    z-index: 1;
+    max-width:28rem;
+    min-height: 112%;
+    margin-inline: auto;
+    transition: all 0.3s linear;
+}
+
+
+.col:hover .PopProducts-card{
+    z-index: 12; 
+    box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.2);
+}
+
+.product-details{
+    width:90%;
+    visibility: hidden;
+    margin: auto;
+    transform: translateY(25%);
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.col:hover .product-details{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.PopCard-head,
+.PopCard-body{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+/* PopCard-head */
+
+
+.PopCard-head .Card-btn-wrapper{
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: 0.3s all linear;
+}
+
+.PopCard-head:hover .Card-btn-wrapper{
+    opacity: 1;    
+    visibility: visible;
+}
+
+.Card-btn-wrapper .Card-button-box{
+    transform: translateY(50%);
+    max-width: 180px;
+    height: 45px;
+    padding: 0rem 1rem;
+    transition: 0.3s all linear;
+}
+
+.PopCard-head:hover .Card-btn-wrapper .Card-button-box{
+    transform: translateY(0%);
+}
+
+.Card-btn-wrapper .Card-button-box li button{
+    margin: auto 12px;
+    opacity: 0.5;
+    transition: 0.3s all linear;
+}
+
+.Card-btn-wrapper .Card-button-box li button:hover{
+    opacity: 1;
+}
+
+/* PopCard-body */
+
+
+.card-texts a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #B05C72;
+    display: block;
+}
+
+.card-texts p{
+    margin-block: .3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    font-size: 1.6rem;   
+}
+
+/* PRODUCT DETAILS  */
+
+
+.product-details ul.product-color-link li a{
+    border-radius: 50%;
+    margin-inline: .1rem;
+    border: 2px solid transparent;
+    transition: 0.3s all linear;
+}
+
+.product-details ul.product-color-link li a span{
+    width: 14px;
+    height: 14px;
+    transition: 0.3s all linear;
+}
+
+.product-details ul.product-color-link li:nth-child(1) a span{
+    background-color: #99C4FF;
+}
+.product-details ul.product-color-link li:nth-child(2) a span{
+    background-color: #D51243;
+}
+.product-details ul.product-color-link li:nth-child(3) a span{
+    background-color: #FF7373;
+}
+.product-details ul.product-color-link li:nth-child(4) a span{
+    background-color: #BE9AFF;
+}
+
+
+.product-details ul.product-color-link li:nth-child(1) a:hover{
+    border: 2px solid #99C4FF;
+}
+.product-details ul.product-color-link li:nth-child(2) a:hover{
+    border: 2px solid #D51243;
+}
+.product-details ul.product-color-link li:nth-child(3) a:hover{
+    border: 2px solid #FF7373;
+}
+.product-details ul.product-color-link li:nth-child(4) a:hover{
+    border: 2px solid #BE9AFF;
+}
+
+.product-details ul.product-color-link li a:hover span{
+    transform: scale(0.6);
+}
+
+
+ul.rating-link li a{
+    font-size: 1.4rem;
+    color: #B05C72;
+}
+
+ul.rating-link li p{
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
