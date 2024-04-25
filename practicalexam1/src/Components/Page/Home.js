@@ -28,8 +28,8 @@ function Home() {
 
 
   return (
-    <div className="container mx-auto">
-      <div className="Card-container my-8 container mx-auto grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center content-center justify-center">
+    <div className="container mx-auto py-8">
+      <div className="Card-container container mx-auto grid gap-x-3 md:gap-x-1 gap-y-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center content-center justify-center">
         {Parsons.map((Parson,ind)=>{
             return(
                 <Card key={ind} img={Parson.img} name={Parson.first_name} age={Parson.age} />

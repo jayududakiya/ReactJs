@@ -1,23 +1,33 @@
 import React from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import './Navbar.css'
 
-const NAV = document.getElementById("NAVBAR");
-
-console.log(NAV);
 
 function NavBar() {
-
-
-
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // function ONSCROLL () {
+  //   console.log('SCROLLIN ON');
+  // }
+  window.addEventListener('scroll',(evn)=>{
+    const navbar = document.getElementById("Nav");
+    // const mobileNav = document.getElementById("mobileNav")
+    if(window.scrollY > 50){
+      navbar.classList.add("bg-blur");
+    }else{
+      navbar.classList.remove("bg-blur");
+    }
+  })
+
   return (
-    <nav id="NAVBAR" className="fixed top-0 w-full z-40 mx-auto bg-[#87CEEB]">
+    <nav id="Nav" className="fixed top-0 w-full z-40 mx-auto bg-[#87CEEB]">
+
+      
 
       <div className="flex mx-auto py-4 max-w-[90%] items-center justify-between ">
 
@@ -78,8 +88,8 @@ function NavBar() {
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer text-white hover:text-[#003A6F] transition-colors" />
         </div>
         {isMenuOpen && (
-          <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-[#87CEEB] shadow-lg ring-1 ring-black ring-opacity-5">
+          <div  className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
+            <div  id="mobileNav"  className="divide-y-2 divide-gray-50 rounded-lg bg-[#87CEEB] shadow-lg ring-1 ring-black ring-opacity-5 bg-blur">
               <div className="px-5 pb-6 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">

@@ -3,7 +3,7 @@ import "./Card.css";
 
 function Card({img,name,age}) {
   return (
-    <div className="card-client mx-auto">
+    <div className="card-client mx-auto w-[17rem] sm:w-[80%] md:w-[90%] xl:w-[70%]">
     <div className="user-picture">
       <img src={img} alt={"user"+name} />
     </div>

@@ -5,6 +5,7 @@ import About from './Components/Page/About';
 import NavBar from './Components/NavBar/Navbar';
 import Contact from './Components/Page/Contact';
 
+
 function App() {
   return (
     <div className="App bg-[#E0FFFF] pt-[3rem] min-h-[100vh]">
