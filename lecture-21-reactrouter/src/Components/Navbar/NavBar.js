@@ -20,9 +20,10 @@ function NavBar() {
             style={{ maxHeight: "300px" }}
             navbarScroll
           >
-            <Nav.Link href="/HomePage">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/About">About</Nav.Link>
             <Nav.Link href="/Contact">Contact</Nav.Link>
+            <Nav.Link href="/ClientReview">Client Review</Nav.Link>
             <Nav.Link href="/ShopPage">Shop</Nav.Link>
           </Nav>
           <Form className="d-flex">
@@ -56,13 +57,16 @@ export function NavbarBottom() {
         <Navbar.Collapse id="navbarScroll">
           <ListGroup horizontal className="ms-auto border-0 ">
             <ListGroup.Item  className="border-0">
-                <Link to="/HomePage" className="text-decoration-none accordion-body text-white ">Home</Link>
+                <Link to="/" className="text-decoration-none accordion-body text-white ">Home</Link>
             </ListGroup.Item>
             <ListGroup.Item className="border-0">
                 <Link to="/About">About</Link>
             </ListGroup.Item>
             <ListGroup.Item className="border-0">
                 <Link to="/Contact">Contact</Link>
+            </ListGroup.Item>
+            <ListGroup.Item className="border-0">
+                <Link to="/ClientReview">Client Review</Link>
             </ListGroup.Item>
             <ListGroup.Item className="border-0">
                 <Link to="/ShopPage">Shop</Link>
