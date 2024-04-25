@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "https://xsgames.co/randomusers/assets/avatars/female/46.jpg",
+        "first_name": "Ashli",
+        "age": 27
+    },
+    {
+        "id": 2,
+        "img": "https://xsgames.co/randomusers/assets/avatars/female/73.jpg",
+        "first_name": "Marnie",
+        "age": 25
+    },
+    {
+        "id": 3,
+        "img": "https://xsgames.co/randomusers/assets/avatars/male/70.jpg",
+        "first_name": "Parnell",
+        "age": 21
+    },
+    {
+        "id": 4,
+        "img": "https://xsgames.co/randomusers/assets/avatars/male/34.jpg",
+        "first_name": "Joby",
+        "age": 22
+    },
+    {
+        "id": 5,
+        "img": "https://xsgames.co/randomusers/assets/avatars/male/64.jpg",
+        "first_name": "Roddy",
+        "age": 30
+    },
+    {
+        "id": 6,
+        "img": "https://xsgames.co/randomusers/assets/avatars/male/40.jpg",
+        "first_name": "Hillary",
+        "age": 30
+    }
+]

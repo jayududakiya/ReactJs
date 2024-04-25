@@ -1,0 +1,20 @@
+[
+    {
+        "id  " :" 1",
+        "name " : "Parson 1",
+        "age " : "23",
+        "img " : "https://xsgames.co/randomusers/avatar.php?g=male"
+    },
+    {
+        "id  " : "2",
+        "name " : "Parson 2",
+        "age " : "23",
+        "img " : "https://xsgames.co/randomusers/avatar.php?g=male"
+    },
+    {
+        "id  " : "3",
+        "name " : "Parson 3",
+        "age " : "23",
+        "img " : "https://xsgames.co/randomusers/avatar.php?g=male"
+    }
+]
