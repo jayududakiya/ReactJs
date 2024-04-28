@@ -1,5 +1,9 @@
 import React,{useState,useEffect} from 'react'
-import USER from '../MOCK_DATA.json'
+import USER from '../MOCK_DATA.json';
+
+import Par from '../MOCK_DATA.json';
+
+
 import Card from '../Page Components/Card';
 
 function Home() {
@@ -9,17 +13,43 @@ function Home() {
   useEffect(()=>{
     setParsons(USER)
   },[])
-  console.log(Parsons);
+  // console.log(Parsons);
   
-  //  useEffect(() => {
-  //   fetch(Parsons)
+
+
+  // const fetchInfo = () => {
+  //   return fetch(Par)
   //     .then((res) => {
-  //       // console.log(res);
-  //       return res.json();
+  //       res.json()
+  //       console.log(res,"h");
   //     })
-  //     .then((Data) => {
-  //       console.log(Data);
-  //       setParson(Data);
+  // }
+  const fetchInfo = () => {
+    // return fetch("https://jsonplaceholder.typicode.com/users")
+    return fetch("../MOCK_DATA.json")
+      .then((res) => {
+        // const data = res.json()
+        return res.json()
+      }).then((data)=>{
+        console.log(
+          data
+        );
+      })
+  }
+  
+
+
+  useEffect(() => {
+    fetchInfo();
+  }, []);
+
+
+
+  //  useEffect(() => {
+  //   fetch(Par)
+  //     .then((res) => {
+  //       console.log(res,"data");
+  //       return res.json();
   //     })
   //     .catch((error) => {
   //       new Error("Api is not Working ");
