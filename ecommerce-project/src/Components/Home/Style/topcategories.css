@@ -1,0 +1,163 @@
+.Top-Cate-Heading h1{
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Top-Cate-Heading h1 span{
+    display: block;
+    color: #D51243;
+    margin-left: .6rem;
+    font-weight: 300;
+    position: relative;
+}
+
+.Top-Cate-Heading h1 span::after{
+    position: absolute;
+    z-index: -1;
+    bottom: 0%;
+    left: 0%;
+    background: linear-gradient(to bottom, transparent, transparent ,#FFE6EC) ;
+    content: "";
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+
+    animation: showBorder 1.5s ease-in 1s infinite;
+}
+
+@keyframes showBorder {
+    0%{
+        height: 0%;
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.tpCategories-wrp{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.tpCategories-wrp  img{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.tp-cat-box {
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.tp-Cate-Card{
+    width:calc(100% - 5%);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoriesImg{
+
+    margin-inline: auto;
+    /* width: 70%; */
+    /* height:10rem; */
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: inset 20px 20px 60px #d9d9d9,
+                inset -20px -20px 60px #ffffff;
+
+    position: relative;
+    transition: 0.3s all linear;
+}
+
+.tp-Cate-Card:hover .categoriesImg{
+    box-shadow: inset 20px 20px 60px #d9d9d958,
+                inset -20px -20px 60px #ffffff;
+}
+
+.categoriesImg img{
+    padding: 30px;
+    margin: auto;
+}
+
+
+.Cate-number{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width:38px;
+    height:38px;
+    color: #D51243;
+    font-weight: 500;
+    font-size: 1.4rem;
+    transition: 0.3s all linear;
+}
+
+.tp-Cate-Card:hover .Cate-number{
+    background-color: #D51243;
+    color: #FFFFFF;
+}
+
+.CateBoxLink a{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.CateBoxLink a .bg-underline{
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    position: relative;
+}
+
+.CateBoxLink a .bg-underline::before{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    content: "";
+    display: block;
+    width:0;
+    height: 84% !important;
+    border-bottom:1px solid #D51243;
+    transition: all 0.3s linear;
+}
+
+.CateBoxLink a .bg-underline:nth-child(2)::before{
+    transition-delay: .2s;
+}
+
+.CateBoxLink a:hover .bg-underline::before{
+    width: 100%;
+}
+
+@media (min-width:1020px){
+    
+    .tp-cat-box {
+        border-right: 1px solid rgba(128, 128, 128, 0.804);
+    }
+    .tp-cat-box:last-child{
+        border:none;
+    }
+}
