@@ -1,68 +1,79 @@
-import "./navRows.css";
+import React from "react";
+
 import Logo from "../../Assets/logo.png";
 import UKflag from "../../Assets/United Kingdom.png";
+import NavButton from "./NavButton";
 
-import React from "react";
+import "./navRows.css";
 
 function Navbar() {
   return (
-    <div id="Row-1" className="container mx-auto flex items-center justify-between">
-
-      <div className="logo">
-        <a href="#" className="block h-full">
-          <img src={Logo} className="block w-full h-full object-contain" alt="Web Logo" />
+    <div id="Row-1" className="sm:container mx-auto grid grid-cols-12 gap-x-2 overflow-hidden sm:overflow-visible">
+      <div className="logo col-span-2 flex items-center">
+        <a href="#" className="inline-block">
+          <img
+            src={Logo}
+            className="block object-contain"
+            alt="Web Logo"
+          />
         </a>
       </div>
 
-      <div className="searchBox flex items-center justify-between">
+      <div className="searchBox flex items-center justify-between col-span-8">
 
-        <div className="searchBar flex items-center">
-
-          <label htmlFor="searchBtn" className="flex items-center ">
+        <div className="searchBar mr-auto  rounded-[5px] outline outline-[1px] outline-gray-700 px-2.5 py-2 flex items-center w-[55%]">
+          <label htmlFor="searchBtn" className="flex items-center mr-1.5">
             <i className="fa-solid fa-magnifying-glass"></i>
           </label>
 
           <input
             type="text"
             name=""
-            id="searchBtn" 
+            id="searchBtn"
             placeholder="Search products... "
           />
         </div>
 
-        <div className="selectBtn flex items-center justify-end">
-          <div className="select-Lang flex items-center relative pr-2 mr-8">
-            <a href="#" className="flex items-center justify-center p-[.5rem]">
+        <div className="selectBtn flex items-center mr-auto">
+
+          <div className="select-Lang flex items-center mx-2 relative p-1.5 rounded-[5px] outline outline-[1px] outline-gray-700 ">
+
+            <a href="#" className="flex items-center justify-center ">
+
               <img
                 src={UKflag}
                 alt="Uk flag"
                 className="block w-[34px] h-[30px] object-cover rounded-md"
               />
-              <p className="font-bold text-[1.3rem] px-2 ">English</p>
+
+              <p className="font-bold text-[1rem] px-2 ">English</p>
+
+              <span className="down-arrow transition-All">
+              <i className="fa-solid fa-angle-down text-[1.1rem]"></i>
+              </span>
+
             </a>
 
-            <ul className="lang-list text-center w-full absolute">
-              <li className="py-2 text-[1.8rem] hover:opacity-70 transition cursor-pointer">
+            <ul className="lang-list text-center w-full  absolute top-[100%] left-0 shadow-sm bg-white">
+
+              <li className="py-2 text-[1.1rem] hover:opacity-70 transition cursor-pointer">
                 Arabic
               </li>
-              <li className="py-2 text-[1.8rem] hover:opacity-70 transition cursor-pointer">
+              <li className="py-2 text-[1.1rem] hover:opacity-70 transition cursor-pointer">
                 Spanish
               </li>
-              <li className="py-2 text-[1.8rem] hover:opacity-70 transition cursor-pointer">
+              <li className="py-2 text-[1.1rem] hover:opacity-70 transition cursor-pointer">
                 Mandarin
               </li>
             </ul>
 
-            <span className="down-arrow">
-              <i className="fa-solid fa-angle-down text-[1.6rem] text-gray-800"></i>
-            </span>
           </div>
 
-          <div className="select-currency flex items-center">
+          <div className="select-currency flex items-center  rounded-[5px] outline outline-[1px] outline-gray-700">
             <select
               name="currency"
               id="currency"
-              className="block h-full text-[2rem] px-1"
+              className="block h-full text-[1.3rem] p-1.5"
             >
               <option defaultValue value="USD">
                 USD
@@ -72,33 +83,12 @@ function Navbar() {
             </select>
           </div>
         </div>
+
       </div>
 
-      <ul className="navButton flex items-center">
-        <li>
-          <button type="button" id="cartBtn">
-            <i className="fa-solid fa-cart-shopping"></i>
-            <span id="cartCount" className="flex items-center justify-center">
-              0
-            </span>
-          </button>
-        </li>
-
-        <li>
-          <button type="button">
-            <i className="fa-regular fa-user"></i>
-          </button>
-        </li>
-
-        <li>
-          <button type="button" id="likeBtn">
-            <i className="fa-regular fa-heart"></i>
-            <span id="likeCount" className="flex items-center justify-center">
-              0
-            </span>
-          </button>
-        </li>
-      </ul>
+      <div className="col-span-2 flex items-stretch">
+        <NavButton/>
+      </div>
     </div>
   );
 }

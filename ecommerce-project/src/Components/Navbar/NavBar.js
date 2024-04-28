@@ -5,10 +5,10 @@ import TopShopLink from './TopShopLink';
 
 function NavBar() {
   return (
-    <div>
-       <TopShopLink/>
-        <NavRow1/>
-        <NavRow2/>
+    <div className=''>
+      <TopShopLink/>
+      <NavRow1/>
+      <NavRow2/>
     </div>
   )
 }

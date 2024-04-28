@@ -12,14 +12,14 @@ import FollowOnSection from './Components/Home/Main/FollowOnSection'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-[100vh] min-w-[100%]">
       {/* <NavBar/> */}
       <Header/>
       <TopCategories/>
       <PopularProducts/>
-      <OfferSection/>
-      <FollowOnSection/>
-      <Footer/>
+      {/* <OfferSection/> */}
+      {/* <FollowOnSection/> */}
+      {/* <Footer/> */}
     </div>
   );
 }

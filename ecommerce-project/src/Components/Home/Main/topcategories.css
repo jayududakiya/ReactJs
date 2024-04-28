@@ -1,16 +1,6 @@
-@import '../../style/main.css';
-
-
-img{
-    display: block;
-    object-fit: contain;
-}
-
 .Top-Cate-Heading h1{
-    font-family: "Poppins", sans-serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 700;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -20,7 +10,6 @@ img{
     display: block;
     color: #D51243;
     margin-left: .6rem;
-    font-size: 2.5rem;
     font-weight: 300;
     position: relative;
 }
@@ -56,9 +45,14 @@ img{
     border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+.tpCategories-wrp  img{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
 
 .tp-cat-box {
-    height: 22rem;
+    height: 18rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,24 +60,8 @@ img{
 
 
 
-
-@media (min-width:1020px){
-    
-.tp-cat-box {
-    border-right: 1px solid rgba(128, 128, 128, 0.804);
-}
-.tp-cat-box:last-child{
-    border:none;
-}
-.categoriesImg{
-    margin-inline: auto;
-    width: 80%;
-    height:10rem;
-}
-}
-
 .tp-Cate-Card{
-    width:15rem;
+    width:calc(100% - 5%);
     background-color: #FFFFFF;
     display: flex;
     flex-flow: column wrap;
@@ -92,10 +70,13 @@ img{
 }
 
 .categoriesImg{
+
     margin-inline: auto;
-    width: 80%;
-    height:12rem;
-    margin-bottom: 2rem;
+    /* width: 70%; */
+    /* height:10rem; */
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1rem;
     border-radius: 50%;
     background: #ffffff;
     box-shadow: inset 20px 20px 60px #d9d9d9,
@@ -111,7 +92,7 @@ img{
 }
 
 .categoriesImg img{
-    width: 5rem;
+    padding: 30px;
     margin: auto;
 }
 
@@ -123,11 +104,10 @@ img{
     background-color: #FFFFFF;
     border-radius: 50%;
     width:38px;
-    padding: 0.5rem 0rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1.8rem;
+    height:38px;
     color: #D51243;
+    font-weight: 500;
+    font-size: 1.4rem;
     transition: 0.3s all linear;
 }
 
@@ -147,7 +127,7 @@ img{
 
 .CateBoxLink a .bg-underline{
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 400;
     position: relative;
 }
@@ -170,4 +150,14 @@ img{
 
 .CateBoxLink a:hover .bg-underline::before{
     width: 100%;
+}
+
+@media (min-width:1020px){
+    
+    .tp-cat-box {
+        border-right: 1px solid rgba(128, 128, 128, 0.804);
+    }
+    .tp-cat-box:last-child{
+        border:none;
+    }
 }

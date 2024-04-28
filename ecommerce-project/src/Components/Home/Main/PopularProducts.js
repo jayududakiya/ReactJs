@@ -14,8 +14,9 @@ import Product10 from '../../../Assets/Popular Products Img/product19.jpg'
 
 function PopularProducts() {
   return (
-    <section className="container py-10 mx-auto">
-      <div className="Top-Cate-Heading mb-10 flex flex-wrap  items-center justify-between">
+    <section className="sm:container mx-auto">
+
+      <div className="Top-Cate-Heading my-10 flex flex-wrap  items-center justify-between">
         <h1 className="">
           Popular
           <span>Products</span>
@@ -23,31 +24,35 @@ function PopularProducts() {
 
         <ul className="PopProducts-link flex items-center justify-center">
           <li>
-            <a href="#" className="text-[1.8rem] mx-3">
+            <a href="#" className="text-[1.3rem] mx-3">
               All
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.8rem] mx-3">
+            <a href="#" className="text-[1.3rem] mx-3">
               Popular
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.8rem] mx-3">
+            <a href="#" className="text-[1.3rem] mx-3">
               On Sale
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.8rem] mx-3">
+            <a href="#" className="text-[1.3rem] mx-3">
               Bast Rated
             </a>
           </li>
         </ul>
       </div>
 
-      <div className="PopProducts-wrapper my-[7rem]">
+      <div className="PopProducts-wrapper  my-[7rem]">
 
-        <div className="mx-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-y-0 gap-x-8 justify-center justify-items-stretch content-center">
+        <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
+        // justify-center 
+        // justify-items-stretch 
+        // content-center
+        ">
 
           <ProductCard ProductImg={Product1}  productName="Bradley Burgess 2" Price="$20.00"  />
           <ProductCard ProductImg={Product2}  productName="Allie Sharp" Price="$30.00"  />
@@ -58,12 +63,15 @@ function PopularProducts() {
           <ProductCard ProductImg={Product7}  productName="Sally Ray" Price="$70.00"  />
           <ProductCard ProductImg={Product8}  productName="Ora Bowman" Price="$80.00"  />
           <ProductCard ProductImg={Product9}  productName="Frederick Valdez" Price="$90.00"  />
-          <ProductCard ProductImg={Product10}  productName="Terry Byrd" Price="$100.00"  />
-
+        <ProductCard ProductImg={Product10}  productName="Terry Byrd" Price="$100.00"  /> 
+          {/* 
+        */}
+          
 
         </div> {/* END OF GRID */}
 
       </div>
+
     </section>
   );
 }

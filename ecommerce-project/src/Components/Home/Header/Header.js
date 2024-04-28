@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 
 // import required modules
 
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import slider_1 from "../../../Assets/Images/banner-1.png";
 import slider_2 from "../../../Assets/Images/banner-2.png";
@@ -25,9 +25,9 @@ import "./header.css";
 function Header() {
 
   return (
-      <header className="container mx-auto">
-        <div className="main-box w-full flex flex-wrap items-stretch justify-between">
-          <div className="slider-wrapper max-w-[70%] min-h-[inherit] mx-2">
+      <header className="container mx-auto my-20">
+        <div className="main-box w-full grid grid-cols-1 lg:grid-cols-12 gap-y-4 md:gap-x-4">
+          <div className="slider-wrapper lg:col-span-9">
             <Swiper
               spaceBetween={30}
               centeredSlides={true}
@@ -39,115 +39,141 @@ function Header() {
                 clickable: true,
               }}
               navigation={false}
-              modules={[Autoplay, Pagination, Navigation]}
+              modules={[Autoplay, Pagination]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <div className="slide relative h-full">
+              <SwiperSlide className="">
+
+                <div className="slide min-h-[inherit]">
+
                   <img
                     src={slider_1}
                     alt="slid-1"
-                    className="min-h-[inherit] "
+                    className="slide-img"
                   />
 
-                  <div className="slide-text flex flex-col justify-center absolute">
-                    <p>Accessories</p>
+                  <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <h1>
+                    <p className="slide-sub-heading">Accessories</p>
+
+                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
                       Up To
                       <span>45% Off</span>
-                      latest Creations
+                      latest <br /> Creations
                     </h1>
 
                     <a
                       href="#"
-                      id="shopLink"
-                      className="flex items-center justify-center"
+                      id="slide-shopLink"
+                      className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
                     </a>
+                
                   </div>
+                
                 </div>
+
               </SwiperSlide>
 
-              <SwiperSlide>
-                <div className="slide relative h-full">
+              <SwiperSlide className="">
+
+                <div className="slide min-h-[inherit]">
+
                   <img
                     src={slider_2}
-                    alt="slid-1"
-                    className="min-h-[inherit] "
+                    alt="slid-2"
+                    className="slide-img"
                   />
 
-                  <div className="slide-text flex flex-col justify-center absolute">
-                    <p>Accessories</p>
+                  <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <h1>
+                    <p className="slide-sub-heading">Accessories</p>
+
+                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
                       Up To
                       <span>45% Off</span>
-                      latest Creations
+                      latest <br /> Creations
                     </h1>
 
                     <a
                       href="#"
-                      id="shopLink"
-                      className="flex items-center justify-center"
+                      id="slide-shopLink"
+                      className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
                     </a>
+                
                   </div>
+                
                 </div>
+
               </SwiperSlide>
 
-              <SwiperSlide>
-                <div className="slide relative h-full">
+              <SwiperSlide className="">
+
+                <div className="slide min-h-[inherit]">
+
                   <img
                     src={slider_3}
-                    alt="slid-1"
-                    className="min-h-[inherit] "
+                    alt="slid-3"
+                    className="slide-img"
                   />
 
-                  <div className="slide-text flex flex-col justify-center absolute">
-                    <p>Accessories</p>
+                  <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <h1>
+                    <p className="slide-sub-heading">Accessories</p>
+
+                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
                       Up To
                       <span>45% Off</span>
-                      latest Creations
+                      latest <br /> Creations
                     </h1>
 
                     <a
                       href="#"
-                      id="shopLink"
-                      className="flex items-center justify-center"
+                      id="slide-shopLink"
+                      className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
                     </a>
+                
                   </div>
+                
                 </div>
+
               </SwiperSlide>
 
+              
+
+            
+
             </Swiper>
-          </div>
 
-          <div className="side-images max-w-[28%] flex flex-col items-center justify-between">
-            <a href="" className="block banner banner-1 relative">
-              <img src={banner01} alt="Hand Mande" />
-              <div className="Img-text absolute">
+          </div>{/*END of slider-wrapper */}
+
+          <div className="aside-img-bar col-auto lg:col-span-3  grid grid-cols-1 md:grid-cols-2  md:gap-x-5 lg:grid-cols-1 gap-y-4">
+          <div className="img-box overflow-hidden rounded-md">
+            <a href="" className="block h-full banner banner-1 relative">
+              <img src={banner01} alt="Hand Mande" className="block min-h-full w-full object-cover" />
+              <div className="Img-text absolute top-0 left-0 p-2">
                 <h3>Hand made</h3>
-                <h1>New Modern stylist Craft</h1>
+                <h1>New Modern <br /> stylist Craft</h1>
               </div>
             </a>
-
-            <a href="" className="block banner banner-2 relative">
-              <img src={banner02} alt="Popular" />
-              <div className="Img-text absolute">
-                <h3>Popular</h3>
-                <h1>Energy with our newest collection</h1>
+            </div>
+            <div className="img-box overflow-hidden rounded-md">
+            <a href="" className="block h-full  banner banner-1 relative">
+              <img src={banner02} alt="Hand Mande" className="block min-h-full w-full object-fill" />
+              <div className="Img-text absolute top-0 left-0 p-2">
+              <h3>Popular</h3>
+                <h1>Energy with our <br /> newest collection</h1>
               </div>
             </a>
+            </div>
           </div>
         </div>
       </header>

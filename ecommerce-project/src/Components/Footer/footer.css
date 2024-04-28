@@ -1,4 +1,4 @@
-@import '../style/main.css';
+
 
 
 
@@ -90,6 +90,8 @@
 .footBtn .Btn:hover i{
     transform:  translateX(5px);
 }
+
+
 
 
 .contact-bar{

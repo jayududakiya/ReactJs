@@ -1,170 +1,123 @@
-@import '../../style/main.css';
-
-img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .swiper{
     width: 100%;
     height: 100%;
 }
 
-.slider-wrapper {
-    overflow: hidden;
-    border-radius: 8px;
+
+.swiper-pagination-bullet{
+    height: 6px;
+    padding-inline: 1rem;
+    border-radius: 0%;
 }
 
-.slide{
-    min-height: 260px;
-}
-
-.slide-text{
-    top: 0%;
-    left: 0%;
-    font-family: "Poppins", sans-serif;
-    padding-left: 2.4rem;
-    width: 70%;
-    height: 100%;
-}
-
-.slide-text p{
-    font-size: 2rem;
-    font-weight: 500;
-    color: #ff2d61;
-    animation: Text_show 0.5s linear 0s 1 forwards;
-}
-
-.slide-text h1{
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 1.2rem 0%;
-    animation: Text_show 1s linear 0.5s 1 forwards;
-}
-
-.slide-text h1 span{
-    font-size: 4.5rem;
-    font-weight: 700;
-    padding: 0px 0.8rem ;
-    color: #ff2d61;
-}
-
-.slide-text #shopLink{
-    width: calc(100% - 60%);
-    font-weight: 500;
-    padding: 1.5rem;
-    border-radius: 6px;
-    font-size: 1.4rem;
-    background-color: #fff;
-    transition: all 0.3s linear;
-    animation: Text_show 1s linear 1s 1 forwards;
-}
-
-.slide-text #shopLink:hover{
-    color: #fff;
+.swiper-pagination-bullet-active{
     background-color: #D51243;
 }
 
-.slide-text p ,
-.slide-text h1 ,
-.slide-text #shopLink{
-    transform:translateY(100%);
-    opacity: 0;
-    filter: blur(3px);
-} 
-
-@keyframes Text_show{
-    0%{
-        transform:translateY(100%);
-        opacity: 0;
-        filter: blur(3px);
-    }
-    100%{
-        transform:translateY(0%);
-        opacity: 1;
-        filter: blur(0px);
-    }
+.slide{
+    position: relative;
 }
 
-
-.side-images .banner{
-    overflow: hidden;
-    border-radius: 8px;
+.slide .slide-img{
+    display: block;
+    margin: auto;
     width: 100%;
-    min-height:48%;
+    height: 480px;
+    aspect-ratio:16/9;
+    object-fit: cover;    
+    border-radius: 5px;
 }
 
-.side-images .banner:hover img{
+
+.slide .slide-text{
+    position: absolute;
+    inset: 0%;
+    margin: auto;
+    width: 96%;
+    height: 80%;
+
+    display: flex;
+    flex-flow: column ;
+    align-items: start;
+    justify-content: center;
+}
+
+.slide .slide-text p.slide-sub-heading{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color:#D51243 ;
+}
+
+.slide .slide-text h1.slide-heading{
+    text-transform: capitalize;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.slide .slide-text h1.slide-heading span{
+    color: #D51243;
+    font-size: 3rem;
+    display: inline-block;
+    padding: 0px 0.5rem;
+}
+
+.slide .slide-text #slide-shopLink{
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+.slide .slide-text #slide-shopLink:hover{
+    background-color: #D51243;
+    color: #FFFFFF;
+}
+
+@media (max-width:768px){
+    .slide .slide-img{
+        height: 100%;
+    }
+    .slide .slide-text p.slide-sub-heading{font-size: 1.2rem;}
+    .slide .slide-text h1.slide-heading{font-size: 2.3rem;}
+    .slide .slide-text h1.slide-heading span{font-size: 1.8rem;}
+    .slide .slide-text  #slide-shopLink{padding: .7rem 1rem;}
+}
+
+@media (max-width:576px){
+    .slide .slide-text p.slide-sub-heading{font-size: 1rem;}
+    .slide .slide-text h1.slide-heading{font-size: 2rem;}
+    .slide .slide-text h1.slide-heading span{font-size: 1.4rem;}
+    .slide .slide-text  #slide-shopLink{
+        font-size: .9rem;
+        padding: .4rem .5rem;}
+}
+
+
+/* Slider banner img */
+
+.aside-img-bar .img-box .banner img{
+    aspect-ratio: 2/1;
+}
+
+.aside-img-bar .img-box:hover .banner img{
     transform: scale(1.1);
     transition: all 0.3s linear;
 }
 
-.side-images .banner .Img-text{
-    font-family: "Poppins", sans-serif;
-    top: 0%;
-    left: 0%;
-    padding: 1.2rem 1.8rem;
-    width: 100%;
-    height: 100%;
-}
 
 .banner .Img-text h3{
     color:#E17F98;
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 .banner .Img-text h1{
     color:#222;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 
-
-@media (max-width:992px) {
-    .main-box{
-        flex-flow: column ;
-    }
-
-    .slider-wrapper{
-        max-width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .side-images{
-        margin: 0rem 0.5rem;
-        flex-flow: row wrap;
-        max-width: 100% ;
-    }
-    .side-images .banner{
-        width: 48%;
-        margin: 0% ; 
-    }
-}
-
-@media (max-width:768px) {
-
-    .slide-text h1{
-        font-size: 2rem;
-    }
-    
-    .slide-text h1 span{
-        font-size: 2.5rem;
-    }
-
-    .slide-text #shopLink{
-        padding: 1rem;
-        font-size: 1.2rem;
-    }
-
-    .side-images{
-        margin: 0rem 0.5rem;
-    }
-    .side-images .banner{
-        width: 100%;
-        margin: 1rem 0% ; 
-    }
-}

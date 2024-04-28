@@ -13,8 +13,8 @@ function NavLinks() {
         href="#home"
         className="head-link poppins-regular flex items-center transition-all"
       >
-        {" "}
-        Home <i className="ml-2 fa-solid fa-angle-down text-[1.2rem]"></i>{" "}
+        
+        Home <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
       </a>
       <ul className="links-warp link-box ">
         <li>
@@ -42,7 +42,7 @@ function NavLinks() {
         href="#shop"
         className="head-link poppins-regular flex items-center transition-all"
       >
-        Shop <i className="ml-2 fa-solid fa-angle-down text-[1.2rem]"></i>{" "}
+        Shop <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
       </a>
       <ul className="links-warp link-box">
         <li>
@@ -85,7 +85,7 @@ function NavLinks() {
         href="#pages"
         className="head-link poppins-regular flex items-center transition-all"
       >
-        Pages <i className="ml-2 fa-solid fa-angle-down text-[1.2rem]"></i>{" "}
+        Pages <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
       </a>
       <div className="link-box ">
         {/* Page layout 2  */}
@@ -160,7 +160,7 @@ function NavLinks() {
         href="#blog"
         className="head-link poppins-regular flex items-center transition-all"
       >
-        Blog <i className="ml-2 fa-solid fa-angle-down text-[1.2rem]"></i>{" "}
+        Blog <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
       </a>
       <ul className="links-warp link-box ">
         <li>

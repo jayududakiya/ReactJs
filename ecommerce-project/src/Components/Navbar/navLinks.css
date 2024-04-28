@@ -1,5 +1,3 @@
-@import '../style/main.css';
-
 #NavLink-wrapper .Nav-link{
     margin: 0% 1rem;
     display: flex;
@@ -14,6 +12,8 @@
     padding: 0px 1.3rem;
     box-shadow: 3px 3px 6px 2px rgba(0,0,0,0.2);
     top: 250%;
+    height: 100%;
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s linear;
@@ -23,8 +23,10 @@
     visibility: visible;
     display: block;
     top: 50px;
+    height: auto;
+    overflow:visible;
     opacity: 1;
-    z-index: 4 !important;
+    z-index: 12 !important;
 }
 
 
@@ -34,6 +36,7 @@
 
 #pages.Nav-link .link-box .links-warp{
     padding-top:2rem ;
+    width: 15rem;
     border: none !important;
 }
 
@@ -45,7 +48,7 @@
 
 
 #NavLink-wrapper .Nav-link .head-link{
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     font-weight: 600;
     
 }
@@ -62,14 +65,14 @@
 
 
 .Nav-link .links-warp {
-    width: 24rem;
+    width: 18rem;
     border-top: 2px solid #D51243;
 }
 .Nav-link .links-warp li a{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
-    padding: 1rem 8rem 1rem 0.3rem;
+    font-size: 1rem;
+    padding: 1rem 4rem 1rem 0.3rem;
     display: block;
     transition: all 0.2s linear;
 }
@@ -81,7 +84,7 @@
 
 .Nav-link .links-warp li h3{
     margin: 1rem 0px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }

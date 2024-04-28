@@ -9,28 +9,32 @@ import cateImg6 from '../../../Assets/Categories/cat06.svg'
 
 function TopCategories() {
   return (
-    <section className="container my-10 mx-auto">
-      <div className="Top-Cate-Heading mb-10">
+    <section className="sm:container mx-auto">
+      <div className="Top-Cate-Heading">
         <h1>
           Top
           <span>Categories</span>
         </h1>
       </div>
 
-      <div className="tpCategories-wrp pt-[4rem] pb-[8rem] grid grid-cols-2  md:grid-cols-[repeat(4,minmax(0,19rem))]  lg:grid-cols-[repeat(6,minmax(0,19rem))] items-center justify-center">
+      <div className="tpCategories-wrp pt-[4rem] pb-[8rem] grid grid-cols-2 md:grid-cols-[repeat(4,minmax(0,19rem))]  lg:grid-cols-[repeat(6,minmax(0,19rem))] items-center justify-center">
 
         <div className="tp-cat-box">
+
           <div className="tp-Cate-Card">
+
             <div className="categoriesImg">
               <img src={cateImg1} alt="categories 01" />
               <p className="Cate-number flex items-center justify-center">20</p>
             </div>
+
             <div className="CateBoxLink" >
               <a href="#">
                 <span className="bg-underline">Driftwood</span>
                 <span className="bg-underline">Table Decor</span>
               </a>
             </div>
+
           </div>
         </div>
 
