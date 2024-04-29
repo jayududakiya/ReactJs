@@ -21,11 +21,11 @@
 }
 
 .foot-list li a{
-    font-weight: 300;
+    font-weight: 400;
     display: flex;
     align-items: center;
     color: #8e8e8e;
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 1rem 0rem;
     transition: all 0.3s linear;
 }
@@ -59,22 +59,65 @@
 .footBtn .Btn{
     font-weight: 500;
     margin-top: 1rem;
-    width:160px;
+    width:180px;
+    min-height: 55px;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: #D51243;
     color: #F8F8F8;
+    position: relative;
+    text-transform: capitalize;
+}    
+
+
+
+.footBtn .Btn::after{
+    position: absolute;
+    content: " ";
+    display: block;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background:linear-gradient(to right , transparent 50% ,transparent 80%,rgb(255,230,236,0.6));
+    animation:  0.4s linear  alternate forwards;
 }
+
+.footBtn .Btn:hover::after{
+    animation-name:ButtonSlide;
+}
+
+
+@keyframes ButtonSlide {
+    0%{
+        width: 0%;
+    }
+    90%{
+        width:100%;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 
 
 .footBtn .Btn i{
-    font-size: 1.1rem;
-    padding-left: 0.5rem;
-    transition: all 0.3s linear;
+    animation: 0.4s linear alternate backwards;
+
 }
 
-.footBtn .Btn:hover i{
-    transform:  translateX(5px);
+.footBtn .Btn:hover i.fa-arrow-right-long{
+    animation-name: MoveBtnArrow;
+}
+
+@keyframes MoveBtnArrow {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(4px);
+        opacity: 0;
+    }
 }
 
 

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Categories.css";
+import { Link } from "react-router-dom";
 
 function Categories() {
   const [toggle, setToggle] = useState(true);
@@ -25,103 +26,94 @@ function Categories() {
       {toggle ? (
         <ul ref={ref} id="cateList" className="showList">
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-regular fa-user"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-regular fa-user"></i>
               Candles
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
+          <Link to="/shop" className="cateLink flex items-center" >
               <i className="fa-solid fa-fan block"></i>
               <p className="">Handmade</p>
               <i className="fa-solid fa-arrow-right-long block ml-auto"></i>
-            </a>
+          </Link>
             <ul className="Handmade-list">
               <li>
-                <a href="#">Chair</a>
+                <Link to="/*">Chair</Link>
               </li>
               <li>
-                <a href="#">Table</a>
+                <Link to="/*">Table</Link>
               </li>
               <li>
-                <a href="#">Wooden</a>
+                <Link to="/*">Wooden</Link>
               </li>
               <li>
-                <a href="#">Furniture</a>
+                <Link to="/*">Furniture</Link>
               </li>
               <li>
-                <a href="#">Clock</a>
+                <Link to="/*">Clock</Link>
               </li>
               <li>
-                <a href="#">Gift</a>
+                <Link to="/*">Gift</Link>
               </li>
               <li>
-                <a href="#">Cart</a>
+                <Link to="/*">Cart</Link>
               </li>
             </ul>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-solid fa-shoe-prints"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-solid fa-shoe-prints"></i>
               Gift Sets
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-regular fa-face-smile"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-regular fa-face-smile"></i>
               Plastic Gifts
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-regular fa-futbol"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-regular fa-futbol"></i>
               Handy Cream
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-solid fa-crown"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-solid fa-crown"></i>
               Cosmetics
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="cateLink flex items-center">
-              <i className="fa-solid fa-gift"></i>
+            <Link to="/shop" className="cateLink flex items-center" >
+            <i className="fa-solid fa-gift"></i>
               Silk Accessories
-            </a>
+            </Link>
           </li>
 
           <li>
             <ul className="cate-sub-Link">
               <li>
-                <a
-                  href="#"
-                  className="sub-link flex flex-col items-start justify-center"
-                >
-                  Value of the Day
-                </a>
+                <Link to="*" className="sub-link flex flex-col items-start justify-center">
+                Value of the Day
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="sub-link flex flex-col items-start justify-center"
-                >
-                  Top 100 Offers
-                </a>
+                <Link to="*"   className="sub-link flex flex-col items-start justify-center">
+                Top 100 Offers
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="sub-link flex flex-col items-start justify-center"
-                >
-                  New Arrivals
-                </a>
+                <Link to="*"  className="sub-link flex flex-col items-start justify-center">
+                New Arrivals
+                </Link>
               </li>
             </ul>
           </li>

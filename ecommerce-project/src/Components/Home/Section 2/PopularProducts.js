@@ -22,7 +22,7 @@ function PopularProducts() {
     
     <section className="">
 
-      <div className="Popular-Products-Heading mb-5 grid grid-cols-1 sm:grid-cols-12">
+      <div className="Popular-Products-Heading mb-5 grid grid-cols-1 sm:grid-cols-12 pt-[7rem]">
        
         <h1 className="Section-Heading col-auto sm:col-span-2 pl-0 md:pl-10">
           Popular
@@ -31,22 +31,22 @@ function PopularProducts() {
 
         <ul className="PopProducts-link col-start-auto sm:col-start-6 lg:col-start-8 xl:col-start-9 sm:col-end-[-1] flex items-center justify-around">
           <li>
-            <a href="#" className="text-[1.3rem] font-semibold">
+            <a href="#All" className="text-[1.3rem] font-semibold">
               All
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.3rem] font-semibold">
+            <a href="#Popular" className="text-[1.3rem] font-semibold">
               Popular
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.3rem] font-semibold">
+            <a href="#onSale" className="text-[1.3rem] font-semibold">
               On Sale
             </a>
           </li>
           <li>
-            <a href="#" className="text-[1.3rem] font-semibold">
+            <a href="#bastRated" className="text-[1.3rem] font-semibold">
               Bast Rated
             </a>
           </li>

@@ -3,6 +3,7 @@ import OfferPoster from '../../../Assets/Offer Poster.png'
 
 import '../Style/Home.css'
 import '../Style/HomeResponsive.css'
+import { Link } from 'react-router-dom'
 
 
 function OfferBanner() {
@@ -39,9 +40,9 @@ function OfferBanner() {
               
               <div className='Offer-link-wrp'>
 
-                <a href="#" className='OfferLink'>
+                <Link to="/shopDetails" className='OfferLink'>
                   <h1>Pro2 Abstract Folded Pots</h1>
-                </a>
+                </Link>
                 <p>Elegant pink origami design three-dimensional view and decoration co-exist. Great for adding a decorative touch to any room's decor. Wonderful accent piece for coffee tables or side tables.</p>
               </div>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavLinks.css'
+import { Link } from 'react-router-dom'
 
 function NavLinks() {
   return (
@@ -9,28 +10,22 @@ function NavLinks() {
   >
     {/* Link box 1  */}
     <div id="home" className="Nav-link">
-      <a
-        href="#home"
-        className="head-link poppins-regular flex items-center transition-all"
-      >
-        
-        Home <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
-      </a>
+        <Link to="/"   className="head-link poppins-regular flex items-center transition-all" >Home <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i></Link>
       <ul className="links-warp link-box ">
         <li>
-          <a href="#">Wooden Home</a>
+          <Link to="/">Wooden Home</Link>
         </li>
         <li>
-          <a href="#">Fashion Home</a>
+          <Link to="/">Fashion Home</Link>
         </li>
         <li>
-          <a href="#">Furniture Home</a>
+          <Link to="/">Furniture Home</Link>
         </li>
         <li>
-          <a href="#">Cosmetics Home</a>
+          <Link to="/">Cosmetics Home</Link>
         </li>
         <li>
-          <a href="#">Food Grocery</a>
+          <Link to="/">Food Grocery</Link>
         </li>
       </ul>
     </div>
@@ -38,42 +33,42 @@ function NavLinks() {
     {/* link box 2 */}
 
     <div id="shop" className="Nav-link">
-      <a
-        href="#shop"
+      <Link
+        to="/shop"
         className="head-link poppins-regular flex items-center transition-all"
       >
         Shop <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
-      </a>
+      </Link>
       <ul className="links-warp link-box">
         <li>
-          <a href="#">Shop</a>
+          <Link to="/shop">Shop</Link>
         </li>
         <li>
-          <a href="#">shop 2</a>
+          <Link to="/shop2">shop 2</Link>
         </li>
         <li>
-          <a href="#">Shop details</a>
+          <Link to="/shopDetails">Shop details</Link>
         </li>
         <li>
-          <a href="#">Shop details 2</a>
+          <Link to="/shopDetails2">Shop details 2</Link>
         </li>
         <li>
-          <a href="#">Shop Location</a>
+          <Link to="/shopLocation">Shop Location</Link>
         </li>
         <li>
-          <a href="#">Cart</a>
+          <Link to="/cart">Cart</Link>
         </li>
         <li>
-          <a href="#">sign in</a>
+          <Link to="/signIn">sign in</Link>
         </li>
         <li>
-          <a href="#">checkout</a>
+          <Link to="/checkOut">checkout</Link>
         </li>
         <li>
-          <a href="#">whishList</a>
+          <Link to="/whishList">whishList</Link>
         </li>
         <li>
-          <a href="#">Product Track</a>
+          <Link to="/productTrack">Product Track</Link>
         </li>
       </ul>
     </div>
@@ -81,12 +76,12 @@ function NavLinks() {
     {/* link box 3 */}
 
     <div id="pages" className="Nav-link">
-      <a
-        href="#pages"
+      <Link
+        to="/pages"
         className="head-link poppins-regular flex items-center transition-all"
       >
         Pages <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
-      </a>
+      </Link>
       <div className="link-box ">
         {/* Page layout 2  */}
         <ul className="links-warp">
@@ -94,19 +89,19 @@ function NavLinks() {
             <h3>PAGE LAYOUT</h3>
           </li>
           <li>
-            <a href="#">Shop Filter V1</a>
+            <Link to="/shopFilterV1">Shop Filter V1</Link>
           </li>
           <li>
-            <a href="#">Shop Filter V2</a>
+            <Link to="/shopFilterV2">Shop Filter V2</Link>
           </li>
           <li>
-            <a href="#">Shop Sidebar</a>
+            <Link to="/shopSidebar">Shop Sidebar</Link>
           </li>
           <li>
-            <a href="#">Shop Right Sidebar</a>
+            <Link to="/shopRightSidebar">Shop Right Sidebar</Link>
           </li>
           <li>
-            <a href="#">Shop list View</a>
+            <Link to="/shopListView">Shop list View</Link>
           </li>
         </ul>
         {/* Page layout 2  */}
@@ -115,19 +110,19 @@ function NavLinks() {
             <h3>PAGE LAYOUT 2</h3>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="#">Cart</a>
+            <Link to="/cart">Cart</Link>
           </li>
           <li>
-            <a href="#">Checkout</a>
+            <Link to="/checkOut">Checkout</Link>
           </li>
           <li>
-            <a href="#">Sign In</a>
+            <Link to="/signIn">Sign In</Link>
           </li>
           <li>
-            <a href="#">Log In</a>
+            <Link to="/logIn">Log In</Link>
           </li>
         </ul>
 
@@ -138,16 +133,16 @@ function NavLinks() {
             <h3>PAGE TYPE </h3>
           </li>
           <li>
-            <a href="#">Product Track</a>
+            <Link to="/productTrack">Product Track</Link>
           </li>
           <li>
-            <a href="#">Wishlist</a>
+            <Link to="/wishlist">Wishlist</Link>
           </li>
           <li>
-            <a href="#">404 / Error</a>
+            <Link to="*">404 / Error</Link>
           </li>
           <li>
-            <a href="#">Coming Soon</a>
+            <Link to="/comingSoon">Coming Soon</Link>
           </li>
         </ul>
       </div>
@@ -156,18 +151,18 @@ function NavLinks() {
     {/* link box 4 */}
 
     <div id="blog" className="Nav-link">
-      <a
-        href="#blog"
+      <Link
+        to="/blog"
         className="head-link poppins-regular flex items-center transition-all"
       >
         Blog <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
-      </a>
+      </Link>
       <ul className="links-warp link-box ">
         <li>
-          <a href="#">Blog</a>
+          <Link to="/blog">Blog</Link>
         </li>
         <li>
-          <a href="#">Blog Details</a>
+          <Link to="/blogDetails">Blog Details</Link>
         </li>
       </ul>
     </div>
@@ -175,12 +170,9 @@ function NavLinks() {
     {/* link box 5 */}
 
     <div id="contact" className="Nav-link">
-      <a
-        href="#contact"
-        className="head-link poppins-regular flex items-center transition-all"
-      >
+      <Link to="/contact" className="head-link poppins-regular flex items-center transition-all">
         Contact
-      </a>
+      </Link>
     </div>
   </section>
   )

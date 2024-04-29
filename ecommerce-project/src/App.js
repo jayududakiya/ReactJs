@@ -1,21 +1,24 @@
-// import Footer from './Components/Footer/Footer'
-// import NavBar from './Components/Navbar/NavBar';
-// import Header from './Components/Home/Header/Header'
-// import TopCategories from './Components/Home/Main/TopCategories'
-// import PopularProducts from './Components/Home/Main/PopularProducts'
-// import OfferSection from './Components/Home/Main/OfferSection';
-// import FollowOnSection from './Components/Home/Main/FollowOnSection'
+import {BrowserRouter , Routes ,Route} from 'react-router-dom'
 
 import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/Navbar/NavBar";
 import WoodenHome from './Components/Home/WoodenHome'
-
+import Error from './Components/Error Page/ErrorPage'
+import Contact from './Components/Contact/Contact'
+import Shop from './Components/Shop/Shop';
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
         <NavBar/>
-        <WoodenHome/>
+        <Routes>
+          <Route path="/" element={<WoodenHome/>}/>
+          <Route path="/shop" element={<Shop/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="*" element={<Error/>}/>
+        </Routes>
         <Footer/>
+      </BrowserRouter>
     </div>
   );
 }

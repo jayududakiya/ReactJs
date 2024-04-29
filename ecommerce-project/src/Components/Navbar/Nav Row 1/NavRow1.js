@@ -7,23 +7,25 @@ import NavButton from "../Nav Button/NavButton";
 
 import "../Style/NavBar.css";
 import "../Style/NavBarResponsive.css";
+import { Link } from "react-router-dom";
 
 function NavRow1() {
   return (
     <div id="Row-1" className="sm:container mx-auto grid grid-cols-12 gap-x-2 overflow-hidden sm:overflow-visible">
       <div className="logo col-span-2 flex items-center">
-        <a href="#" className="inline-block">
+        {/* LINK  */}
+        <Link to="/" className="inline-block">
           <img
             src={Logo}
             className="block object-contain"
             alt="Web Logo"
           />
-        </a>
+        </Link>
       </div>
 
       <div className="searchBox flex items-center justify-between col-span-8">
 
-        <div className="searchBar mr-auto  rounded-[5px] outline outline-[1px] outline-gray-700 px-2.5 py-2 flex items-center w-[55%]">
+        <div className="searchBar mr-auto  rounded-[5px] outline outline-[1px] outline-gray-700 px-2.5 py-3 flex items-center w-[55%]">
           <label htmlFor="searchBtn" className="flex items-center mr-1.5">
             <i className="fa-solid fa-magnifying-glass"></i>
           </label>
@@ -40,7 +42,7 @@ function NavRow1() {
 
           <div className="select-Lang flex items-center mx-2 relative p-1.5 rounded-[5px] outline outline-[1px] outline-gray-700 ">
 
-            <a href="#" className="flex items-center justify-center ">
+            <Link to="/" className="flex items-center justify-center ">
 
               <img
                 src={UKflag}
@@ -54,7 +56,7 @@ function NavRow1() {
               <i className="fa-solid fa-angle-down text-[1.1rem]"></i>
               </span>
 
-            </a>
+            </Link>
 
             <ul className="lang-list text-center w-full  absolute top-[100%] left-0 shadow-sm bg-white">
 

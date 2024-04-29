@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import cateImg1 from '../../../Assets/Top Categories Img/cat01.svg'
 import cateImg2 from '../../../Assets/Top Categories Img/cat02.svg'
@@ -32,10 +33,10 @@ function TopCategories() {
             </div>
 
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Driftwood</span>
                 <span className="bg-underline">Table Decor</span>
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -49,10 +50,10 @@ function TopCategories() {
               <p className="Cate-number flex items-center justify-center">12</p>
             </div>
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Floor Driftwood</span>
                 <span className="bg-underline">Sculpture</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -64,10 +65,10 @@ function TopCategories() {
               <p className="Cate-number flex items-center justify-center">03</p>
             </div>
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Driftwood</span>
                 <span className="bg-underline">Christmas Tree</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -79,10 +80,10 @@ function TopCategories() {
               <p className="Cate-number flex items-center justify-center">09</p>
             </div>
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Wooden</span>
                 <span className="bg-underline">Bluetooth Speaker</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -94,10 +95,10 @@ function TopCategories() {
               <p className="Cate-number flex items-center justify-center">10</p>
             </div>
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Receivers</span>
                 <span className="bg-underline">Amplifiers</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -109,10 +110,10 @@ function TopCategories() {
               <p className="Cate-number flex items-center justify-center">05</p>
             </div>
             <div className="CateBoxLink" >
-              <a href="#">
+              <Link to="/shop">
                 <span className="bg-underline">Appetizer</span>
                 <span className="bg-underline">Plate Set</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

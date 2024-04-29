@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 // Import Swiper React components
 
@@ -65,14 +66,14 @@ function Header() {
                       latest <br /> Creations
                     </h1>
 
-                    <a
-                      href="#"
+                    <Link
+                      to="/shop"
                       id="slide-shopLink"
                       className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
-                    </a>
+                    </Link>
                 
                   </div>
                 
@@ -100,14 +101,14 @@ function Header() {
                       latest <br /> Creations
                     </h1>
 
-                    <a
-                      href="#"
+                    <Link
+                      to="/shop"
                       id="slide-shopLink"
                       className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
-                    </a>
+                    </Link>
                 
                   </div>
                 
@@ -135,14 +136,14 @@ function Header() {
                       latest <br /> Creations
                     </h1>
 
-                    <a
-                      href="#"
+                    <Link
+                      to="/shop"
                       id="slide-shopLink"
                       className="transition"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
-                    </a>
+                    </Link>
                 
                   </div>
                 
@@ -160,22 +161,22 @@ function Header() {
 
           <div className="aside-img-bar col-auto lg:col-span-3  grid grid-cols-1 md:grid-cols-2  md:gap-x-5 lg:grid-cols-1 gap-y-4">
           <div className="img-box overflow-hidden rounded-md">
-            <a href="" className="block h-full banner banner-1 relative">
+            <Link to="/shop" className="block h-full banner banner-1 relative">
               <img src={banner01} alt="Hand Mande" className="block min-h-full w-full object-cover" />
               <div className="Img-text absolute top-0 left-0 p-2">
                 <h3>Hand made</h3>
                 <h1>New Modern <br /> stylist Craft</h1>
               </div>
-            </a>
+            </Link>
             </div>
             <div className="img-box overflow-hidden rounded-md">
-            <a href="" className="block h-full  banner banner-1 relative">
+            <Link to="/shop" className="block h-full  banner banner-1 relative">
               <img src={banner02} alt="Hand Mande" className="block min-h-full w-full object-fill" />
               <div className="Img-text absolute top-0 left-0 p-2">
               <h3>Popular</h3>
                 <h1>Energy with our <br /> newest collection</h1>
               </div>
-            </a>
+            </Link>
             </div>
           </div>
         </div>

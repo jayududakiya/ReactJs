@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Logo from "../../Assets/Logos Img/logo.png";
 import playStore from '../../Assets/Logos Img/PlayStore.jpg'
 import appStore from '../../Assets/Logos Img/AppStore.jpg'
@@ -9,19 +10,19 @@ import './footer.css'
 function Footer() {
   return (
     <footer className="footer-wrapper m-auto bg-[#F8F8F8]">
-      <div className="sm:container py-10 mx-auto">
+      <div className="sm:container py-10 mx-auto capitalize">
 
         <div className="mb-8 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 justify-stretch gap-[3rem]">
           <div className="lg:col-span-2">
-            <a href="#" className="footer-logo mb-8">
+            <Link to="/" className="footer-logo mb-8">
               <img
                 src={Logo}
                 className="block w-full h-full object-contain"
                 alt="logo"
               />
-            </a>
+            </Link>
 
-            <p className="poppins-regular pr-[4rem]  text-[#8e8e8e] text-[1.2rem] text-left leading-8">
+            <p className="font-normal pr-[4rem]  text-[#8e8e8e] text-[1.2rem] text-left leading-8">
               Elegant pink origami design three dimensional view and decoration
               co-exist. Great for adding a decorative touch to any room's decor.
             </p>
@@ -31,19 +32,19 @@ function Footer() {
             <h3 className="">Information</h3>
             <ul className="foot-list">
               <li>
-                <a href="#">Custom Service</a>
+                <Link to="/">Custom Service</Link>
               </li>
               <li>
-                <a href="#">FAQs</a>
+                <Link to="/">FAQs</Link>
               </li>
               <li>
-                <a href="#">Ordering Tracking</a>
+                <Link to="/orderingTracking">Ordering Tracking</Link>
               </li>
               <li>
-                <a href="#">Contacts</a>
+                <Link to="/contact">Contacts</Link>
               </li>
               <li>
-                <a href="#">Events</a>
+                <Link to="/">Events</Link>
               </li>
             </ul>
           </div>
@@ -52,19 +53,19 @@ function Footer() {
             <h3>My Account</h3>
             <ul className="foot-list">
               <li>
-                <a href="#">Delivery Information</a>
+                <Link to="/">Delivery Information</Link>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <Link to="/">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#">Discount</a>
+                <Link to="/">Discount</Link>
               </li>
               <li>
-                <a href="#">Custom Service</a>
+                <Link to="/">Custom Service</Link>
               </li>
               <li>
-                <a href="#">Terms Condition</a>
+                <Link to="/">Terms Condition</Link>
               </li>
             </ul>
           </div>
@@ -73,34 +74,34 @@ function Footer() {
             <h3>Social Network</h3>
             <ul className="foot-list">
               <li>
-                <a href="#">
+                <Link to="/">
                   <i className="fa-brands fa-facebook-f"></i>
                   Facebook
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="/">
                   <i className="fa-brands fa-dribbble"></i>
                   Dribbble
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="/">
                   <i className="fa-brands fa-twitter"></i>
                   Twitter
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="/">
                   <i className="fa-brands fa-behance"></i>
                   Behance
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="/">
                   <i className="fa-brands fa-youtube"></i>
                   Youtube
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -110,7 +111,7 @@ function Footer() {
               Get Newsletter
             </h3>
 
-            <p className="poppins-regular text-[#8e8e8e] text-[1.2rem] text-left mb-8">
+            <p className="font-normal text-[#8e8e8e] text-[1.2rem] text-left mb-8">
               Get on the list and get 10% off your first order!
             </p>
 
@@ -121,7 +122,7 @@ function Footer() {
                 id="email-fild"
                 placeholder="Enter email address"
               />
-              <button className="Btn flex items-center justify-center px-2 py-4">
+              <button className="Btn transition-all flex items-center justify-evenly">
                 Subscribe Now
                 <i className="fa-solid fa-arrow-right-long block"></i>
               </button>
@@ -138,8 +139,8 @@ function Footer() {
             </span>
 
             <p className='contact-text'>
-              <a href="tel:" className='block poppins-semibold text-[1.2rem] uppercase'>980.029.666.99</a>
-              <span className='block  poppins-light text-[0.9rem]'>Working 8:00-22:00</span>
+              <a href="tel:980.029.666.99" className='block font-semibold text-[1.3rem] uppercase'>980.029.666.99</a>
+              <span className='block  font-light text-[1rem]'>Working 8:00-22:00</span>
             </p>
 
           </div>
@@ -147,12 +148,12 @@ function Footer() {
           <div className='appInfo'>
             <ul className='flex flex-wrap items-center'>
               <li className=' mb-4 sm:mb-0'>
-                <h3 className=' poppins-semibold text-[1.2rem]' >Download App on Mobile</h3>
-                <p className=' poppins-light text-[0.8rem] text-[#8e8e8e]' >15% discount on your first purchase</p>
+                <h3 className=' font-semibold text-[1.3rem]' >Download App on Mobile</h3>
+                <p className=' font-light text-[1rem] text-[#8e8e8e]' >15% discount on your first purchase</p>
               </li>
               <li className='flex flex-wrap sm:flex-nowrap items-center ml-0 sm:ml-6'>
-                <img src={playStore} className='inline-block w-[120px] sm:w-full mr-2'    alt="Android App" />
-                <img src={appStore}  className='inline-block w-[120px] sm:w-full' alt="IOS App" />
+                <img src={playStore} className='inline-block w-[120px] sm:w-full mr-2 cursor-pointer'    alt="Android App" />
+                <img src={appStore}  className='inline-block w-[120px] sm:w-full cursor-pointer' alt="IOS App" />
               </li>
             </ul>
           </div>
@@ -164,8 +165,8 @@ function Footer() {
       <div className="copyRight-bar">
 
         <div className='w-[90%] grid grid-cols-1 md:grid-cols-3 justify-between p-8 mx-auto '>
-        <p className='poppins-regular md:col-span-2  mb-4 sm:mb-0 text-[1.2rem] text-[#8e8e8e]'>
-          Copyright 2024 <a href="#"> ©Ninico.</a> All rights reserved. Developed by <a href="#">AliThemes.</a>
+        <p className='font-normal md:col-span-2  mb-4 sm:mb-0 text-[1.2rem] text-[#8e8e8e]'>
+          Copyright 2024 <Link to="/"> ©Ninico.</Link> All rights reserved. Developed by <Link to="/">AliThemes.</Link>
         </p>
           <img src={logoBar} className='block md:col-start-3 md:col-end-3 object-contain ' alt="Logo bar" />
         </div>

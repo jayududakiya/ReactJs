@@ -1,12 +1,13 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import {Autoplay, Pagination } from "swiper/modules";
+import {Autoplay } from "swiper/modules";
 
 // import "./FollowOnSection.css";
 import  '../Style/Home.css'
@@ -68,34 +69,34 @@ function FollowOnSwiper() {
             className="mySwiper"
           >
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram01} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram02} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram03} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram04} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram05} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <a href="#" className="flex items-center inst-link">
+              <Link to="/" className="flex items-center inst-link">
                 <img src={instagram06} alt="Follow-post-1" />
-              </a>
+              </Link>
             </SwiperSlide>
           </Swiper>
         </div>
