@@ -1,13 +1,21 @@
 import React from 'react'
 
+
+//  
+import { BsCart3 } from "react-icons/bs";
+// import { HiOutlineUserCircle } from "react-icons/hi2";
+import { CiUser } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+
 import './NavButton.css'
 
-function NavButton() {
+function NavButton({className}) {
+  const Classes = "navButton w-full flex items-center justify-around " + className;
   return (
-    <ul className="navButton w-full flex items-center justify-evenly ">
+    <ul className={Classes}>
         <li>
           <button type="button" id="cartBtn">
-            <i className="fa-solid fa-cart-shopping"></i>
+            <BsCart3 className='react-i'/>
             <span id="cartCount" className="flex items-center justify-center ">
               0
             </span>
@@ -16,13 +24,13 @@ function NavButton() {
 
         <li>
           <button type="button">
-            <i className="fa-regular fa-user"></i>
+            <CiUser className='react-i'/>
           </button>
         </li>
 
-        <li>
+        <li className='hidden md:block'>
           <button type="button" id="likeBtn">
-            <i className="fa-regular fa-heart"></i>
+            <CiHeart className='react-i'/>
             <span id="likeCount" className="flex items-center justify-center ">
               0
             </span>

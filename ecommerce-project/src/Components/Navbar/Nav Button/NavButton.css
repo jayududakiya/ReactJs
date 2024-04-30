@@ -2,8 +2,11 @@
 
 .navButton li  button {
     display: flex;
-    font-size: 1.6rem;
     position: relative;
+}
+
+.navButton li  button .react-i{
+    font-size: 1.7rem;    
 }
 
 .navButton li button span{

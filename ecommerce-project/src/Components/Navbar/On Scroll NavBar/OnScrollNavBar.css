@@ -1,0 +1,55 @@
+#OnScrollNavBar{
+ /* background-color: #FFFFFF; */
+ min-height: 100px;
+}
+
+#OnScrollNavBar-warp{
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,.2);
+    background-color: #FFFFFF;
+}
+
+
+.On-Scroll-NavBar{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 14;
+    transition: all 1s linear;
+}
+
+#OnScrollNavBar-warp.Off-Scroll-Nav{
+    top: -100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+#OnScrollNavBar-warp.On-Scroll-Nav{
+    top:0%;
+    opacity: 1;
+    visibility:visible;
+}
+
+
+/* @media (max-width:1280px){
+    #OnScrollNavBar-warp.Off-Scroll-Nav{
+        top: 0%;
+        opacity: 1;
+        visibility:visible;
+    }
+    .OnScroll-navLink{
+        display: flex;
+    }
+} */
+
+
+@media (max-width:1280px) {
+    #OnScrollNavBar-warp.Off-Scroll-Nav{
+        top: 0%;
+        opacity: 1;
+        visibility:visible;
+    }
+    .OnScroll-navLink{
+        display: none;
+    }
+}

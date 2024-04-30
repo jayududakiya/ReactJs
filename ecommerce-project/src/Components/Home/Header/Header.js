@@ -22,7 +22,6 @@ import slider_3 from "../../../Assets/Swiper-Img/banner-3.png";
 import banner01 from "../../../Assets/Swiper-Img/banner-slider-01.png";
 import banner02 from "../../../Assets/Swiper-Img/banner-slider-02.png";
 
-// import "./header.css";
 import '../Style/Home.css'
 import '../Style/HomeResponsive.css'
 
@@ -58,18 +57,18 @@ function Header() {
 
                   <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <p className="slide-sub-heading">Accessories</p>
+                    <p className="slide-sub-heading slide-text-animation">Accessories</p>
 
-                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
+                    <h1 className="slide-heading  slide-text-animation my-0 sm:my-3 md:my-6">
                       Up To
-                      <span>45% Off</span>
+                      <span>40% Off</span>
                       latest <br /> Creations
                     </h1>
 
                     <Link
                       to="/shop"
                       id="slide-shopLink"
-                      className="transition"
+                      className="transition slide-text-animation"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
@@ -93,18 +92,18 @@ function Header() {
 
                   <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <p className="slide-sub-heading">Accessories</p>
+                    <p className="slide-sub-heading slide-text-animation">Accessories</p>
 
-                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
+                    <h1 className="slide-heading slide-text-animation my-0 sm:my-3 md:my-6">
                       Up To
-                      <span>45% Off</span>
+                      <span>35% Off</span>
                       latest <br /> Creations
                     </h1>
 
                     <Link
                       to="/shop"
                       id="slide-shopLink"
-                      className="transition"
+                      className="transition slide-text-animation"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>
@@ -128,9 +127,9 @@ function Header() {
 
                   <div className="slide-text  pl-1 sm:pl-4 md:pl-8">
 
-                    <p className="slide-sub-heading">Accessories</p>
+                    <p className="slide-sub-heading slide-text-animation">Accessories</p>
 
-                    <h1 className="slide-heading my-0 sm:my-3 md:my-6">
+                    <h1 className="slide-heading slide-text-animation my-0 sm:my-3 md:my-6">
                       Up To
                       <span>45% Off</span>
                       latest <br /> Creations
@@ -139,7 +138,7 @@ function Header() {
                     <Link
                       to="/shop"
                       id="slide-shopLink"
-                      className="transition"
+                      className="transition slide-text-animation"
                     >
                       Shop Now
                       <i className="fa-solid fa-arrow-right block ml-3"></i>

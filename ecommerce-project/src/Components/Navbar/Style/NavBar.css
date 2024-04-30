@@ -9,14 +9,15 @@
 
 #Row-1{
     min-height: 60px;
+    padding-block:0.3rem;
 }
 
-.searchBar label{
-    font-size: 1.1rem;
+.searchBar label .react-i{
+    font-size: 1.6rem;
 }
 
 .searchBar #searchBtn{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     padding-inline: 0.4rem;
     outline: none;
     display: block;
@@ -39,7 +40,8 @@
 /* ====== NavBar Row 2 ===== */
 
 #Row-2{
-    min-height: 50px;
+    min-height: 60px;
+    padding-block: 0.2rem;
 }
 
 .content-links li a:hover{

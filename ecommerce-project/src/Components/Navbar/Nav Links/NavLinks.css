@@ -22,11 +22,15 @@
 #NavLink-wrapper .Nav-link:hover .link-box{
     visibility: visible;
     display: block;
-    top: 50px;
+    top: 45px;
     height: auto;
     overflow:visible;
     opacity: 1;
     z-index: 12 !important;
+}
+
+#OnScrollNavBar #NavLink-wrapper .Nav-link:hover .link-box{
+    top: 100px;
 }
 
 
@@ -48,7 +52,7 @@
 
 
 #NavLink-wrapper .Nav-link .head-link{
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     
 }

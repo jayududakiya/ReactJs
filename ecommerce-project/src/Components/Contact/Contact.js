@@ -90,12 +90,14 @@ function Contact() {
                 id="large-input"
                 className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
                 placeholder="Full name"
+                title="Please fill out this field"
               />
               <input
                 type="email"
                 id="large-input"
                 className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
                 placeholder="Email address"
+                title="Please fill out this field"
               />
             </div>
 
@@ -105,12 +107,14 @@ function Contact() {
                 id="large-input"
                 className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
                 placeholder="Phone number"
+                title="Please fill out this field"
               />
               <input
                 type="text"
                 id="large-input"
                 className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
                 placeholder="Subject"
+                title="Please fill out this field"
               />
             </div>
 
@@ -120,6 +124,7 @@ function Contact() {
                 rows="7"
                 className="block px-5 py-[18px] w-full text-[1.2rem] border rounded-lg"
                 placeholder="Enter massage"
+                title="Please fill out this field"
               ></textarea>
             </div>
 

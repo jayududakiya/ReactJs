@@ -2,11 +2,12 @@ import React from 'react'
 import './NavLinks.css'
 import { Link } from 'react-router-dom'
 
-function NavLinks() {
+function NavLinks({className}) {
+  const Classes = "flex flex-row items-stretch min-h-[inherit] " + className;
   return (
     <section
     id="NavLink-wrapper"
-    className="flex flex-row items-stretch min-h-[inherit]"
+    className={Classes}
   >
     {/* Link box 1  */}
     <div id="home" className="Nav-link">

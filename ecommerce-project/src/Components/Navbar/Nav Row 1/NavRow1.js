@@ -1,5 +1,8 @@
 import React from "react";
 
+// Import ICON 
+import { IoSearchOutline } from "react-icons/io5";
+
 import Logo from "../../../Assets/Logos Img/logo.png";
 import UKflag from "../../../Assets/Logos Img/United Kingdom.png";
 
@@ -11,7 +14,7 @@ import { Link } from "react-router-dom";
 
 function NavRow1() {
   return (
-    <div id="Row-1" className="sm:container mx-auto grid grid-cols-12 gap-x-2 overflow-hidden sm:overflow-visible">
+    <div id="Row-1" className="sm:container mx-auto grid grid-cols-12 gap-x-6">
       <div className="logo col-span-2 flex items-center">
         {/* LINK  */}
         <Link to="/" className="inline-block">
@@ -23,36 +26,38 @@ function NavRow1() {
         </Link>
       </div>
 
-      <div className="searchBox flex items-center justify-between col-span-8">
+      <div className="searchBox col-span-8 flex  justify-between">
 
-        <div className="searchBar mr-auto  rounded-[5px] outline outline-[1px] outline-gray-700 px-2.5 py-3 flex items-center w-[55%]">
+        <div className="searchBar bg-[#F3F4F7] flex rounded-md border px-2 min-w-[60%]">
+
           <label htmlFor="searchBtn" className="flex items-center mr-1.5">
-            <i className="fa-solid fa-magnifying-glass"></i>
+          <IoSearchOutline className="react-i"/>
           </label>
 
           <input
             type="text"
             name=""
             id="searchBtn"
+            className="px-2.5 bg-[#F3F4F7]"
             placeholder="Search products... "
           />
         </div>
 
-        <div className="selectBtn flex items-center mr-auto">
+        <div className="selectBtn flex items-stretch gap-x-3 min-w-[30%]">
 
-          <div className="select-Lang flex items-center mx-2 relative p-1.5 rounded-[5px] outline outline-[1px] outline-gray-700 ">
+          <div className="select-Lang flex items-center rounded-md relative border min-w-[145px]">
 
-            <Link to="/" className="flex items-center justify-center ">
+            <Link to="/" className="flex items-center justify-around w-full">
 
               <img
                 src={UKflag}
                 alt="Uk flag"
-                className="block w-[34px] h-[30px] object-cover rounded-md"
+                className="block w-[40px] h-[40px] object-cover rounded-md"
               />
 
-              <p className="font-bold text-[1rem] px-2 ">English</p>
+              <p className="font-bold text-[1rem]">English</p>
 
-              <span className="down-arrow transition-All">
+              <span className="down-arrow transition-All opacity-60">
               <i className="fa-solid fa-angle-down text-[1.1rem]"></i>
               </span>
 
@@ -73,11 +78,11 @@ function NavRow1() {
 
           </div>
 
-          <div className="select-currency flex items-center  rounded-[5px] outline outline-[1px] outline-gray-700">
+          <div className="select-currency flex items-center rounded-md border">
             <select
               name="currency"
               id="currency"
-              className="block h-full text-[1.3rem] p-1.5"
+              className="block h-full rounded-md text-[1.3rem] p-1.5"
             >
               <option defaultValue value="USD">
                 USD

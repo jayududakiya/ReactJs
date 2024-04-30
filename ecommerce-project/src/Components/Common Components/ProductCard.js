@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ProductCard({ ProductImg, productName, Price }) {
   return (
-    <div className="ProductCard-box">
+    <div className="ProductCard-box ">
       {/* PRODUCT */}
 
       <div className="PopProducts-card p-3 rounded-md">

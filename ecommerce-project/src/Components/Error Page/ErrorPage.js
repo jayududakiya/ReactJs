@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 import PageHeading from '../Common Components/PageHeading/PageHeading'
 
 import ErrorLogo from "../../Assets/Logos Img/error.webp";
@@ -6,6 +7,9 @@ import ErrorLogo from "../../Assets/Logos Img/error.webp";
 import './ErrorPage.css'
 
 function ErrorPage() {
+ const backToHome =  useNavigate();
+
+
   return (
     <section className="mx-auto">
       
@@ -28,7 +32,7 @@ function ErrorPage() {
             that <br /> you return to homepage.
           </p>
 
-          <button className="Back-HomeBtn transition-all flex items-center justify-evenly mx-auto">
+          <button className="Back-HomeBtn transition-all flex items-center justify-evenly mx-auto" onClick={()=> backToHome("/")}>
             <i className="fa-solid fa-arrow-left-long"></i>
             Back To Home
           </button>

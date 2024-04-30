@@ -106,7 +106,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="col-auto lg:col-span-2">
             <h3 className="text-[1.1rem] font-semibold underline mb-[2.5rem]">
               Get Newsletter
             </h3>

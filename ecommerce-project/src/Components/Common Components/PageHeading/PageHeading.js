@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 import './PageHeading.css'
 function PageHeading({pageTitle,goBackLink}) {
   return (
@@ -10,7 +10,7 @@ function PageHeading({pageTitle,goBackLink}) {
           <ul className="Nave-GetLinks flex items-center mb-2.5">
 
             <li>
-              <a className="back-Link transition-all  flex items-center justify-center" href="#">{goBackLink}</a>
+              <Link to="/" className="back-Link transition-all  flex items-center justify-center" >{goBackLink}</Link>
             </li>
 
             <li>

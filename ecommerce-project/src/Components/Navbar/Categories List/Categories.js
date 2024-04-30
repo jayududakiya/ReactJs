@@ -1,16 +1,12 @@
-import React, { useRef, useState } from "react";
+import React from 'react'
 import "./Categories.css";
 import { Link } from "react-router-dom";
 
 function Categories() {
-  const [toggle, setToggle] = useState(true);
-  const ref = useRef(0);
 
   function handleClick() {
-    setToggle(!toggle);
-    // const categoriesWrap = document.querySelector("#cateList");
-    // categoriesWrap.classNameList.toggle("hidden");
-    // console.log(categoriesWrap);
+    const categoriesWrap = document.getElementById("cateList");
+    categoriesWrap.classList.toggle("hidden");
   }
 
   return (
@@ -23,8 +19,7 @@ function Categories() {
         <i className="fa-solid fa-bars"></i>
         Categories
       </button>
-      {toggle ? (
-        <ul ref={ref} id="cateList" className="showList">
+        <ul id="cateList" className="showList ">
           <li>
             <Link to="/shop" className="cateLink flex items-center" >
             <i className="fa-regular fa-user"></i>
@@ -118,7 +113,6 @@ function Categories() {
             </ul>
           </li>
         </ul>
-      ) : (<></>)}
     </div>
   );
 }
