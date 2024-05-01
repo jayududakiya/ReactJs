@@ -1,21 +1,11 @@
 import React from "react";
-import ProductCard from '../../Common Components/ProductCard'
-
-
-import Product1 from '../../../Assets/Products Img/product1.jpg'
-import Product2 from '../../../Assets/Products Img/product3.jpg'
-import Product3 from '../../../Assets/Products Img/product5.jpg'
-import Product4 from '../../../Assets/Products Img/product7.jpg'
-import Product5 from '../../../Assets/Products Img/product9.jpg'
-import Product6 from '../../../Assets/Products Img/product11.jpg'
-import Product7 from '../../../Assets/Products Img/product13.jpg'
-import Product8 from '../../../Assets/Products Img/product15.jpg'
-import Product9 from '../../../Assets/Products Img/product17.jpg'
-import Product10 from '../../../Assets/Products Img/product19.jpg'
-
+// import ProductCard from '../../Common Components/ProductCard'
+import ProductsData from "../../Data/ProductsData";
+import ProductsCard from '../../Common Components/ProductsCard/ProductsCard'
 
 import '../Style/Home.css'
 import '../Style/HomeResponsive.css'
+
 
 function PopularProducts() {
   return (
@@ -55,18 +45,15 @@ function PopularProducts() {
 
       <div className="PopProducts-wrapper pt-16 pb-24">
 
-        <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  justify-center gap-x-5 justify-items-center"> */}
+        <div className="mx-auto flex flex-wrap items-center justify-between xl:justify-evenly gap-x-[2rem]">
 
-          <ProductCard ProductImg={Product1}  productName="Bradley Burgess 2" Price="$20.00"  />
-          <ProductCard ProductImg={Product2}  productName="Allie Sharp" Price="$30.00"  />
-          <ProductCard ProductImg={Product3}  productName="Nathaniel Baldwin" Price="$40.00"  />
-          <ProductCard ProductImg={Product4}  productName="Effie Rios" Price="$40.00"  />
-          <ProductCard ProductImg={Product5}  productName="Carolyn Goodwin" Price="$50.00"  />
-          <ProductCard ProductImg={Product6}  productName="Evelyn Patton" Price="$60.00"  />
-          <ProductCard ProductImg={Product7}  productName="Sally Ray" Price="$70.00"  />
-          <ProductCard ProductImg={Product8}  productName="Ora Bowman" Price="$80.00"  />
-          <ProductCard ProductImg={Product9}  productName="Frederick Valdez" Price="$90.00"  />
-          <ProductCard ProductImg={Product10}  productName="Terry Byrd" Price="$100.00"  /> 
+          {ProductsData.map((Product,ind)=>{
+            return(
+              // <ProductCard key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price}  />  
+              <ProductsCard  key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price} />
+            )
+          })}
 
         </div> {/* END OF GRID */}
 

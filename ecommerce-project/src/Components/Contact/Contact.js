@@ -13,7 +13,7 @@ function Contact() {
       <div className="sm:container mx-auto Contact-data-box grid grid-cols-1 lg:grid-cols-12 gap-x-7 gap-y-6 lg:gap-y-0 mb-32">
 
         <div className="Contact-details col-auto lg:col-span-4 ">
-          <div className="contact-link-wrap border border-gray-500 rounded-md py-9 px-9 mb-3.5">
+          <div className="contact-link-wrap border rounded-md py-9 px-9 mb-3.5">
             <h1 className="Contact-details-heading text-[2rem] capitalize font-bold mb-5">
               Get In Touch
             </h1>
@@ -54,7 +54,7 @@ function Contact() {
           </div>
 
           <div className="contact-btn-wrap flex flex-col items-center justify-center">
-            <a href="tel:6 - 146 - 389 - 5748" className="contact-btn">
+            <a href="tel:6 - 146 - 389 - 5748" className="contact-btn border">
               <p>Get Support On Call </p>
               <span className="icons ml-4">
                 <img src={HeadPhone} alt="HeadPhone icons" />
@@ -63,7 +63,7 @@ function Contact() {
             <a
               href="https://www.google.com/maps/@36.963672,-119.2249843,7.17z"
               target="_blank"
-              className="contact-btn"
+              className="contact-btn border"
             >
               <p>Get Direction</p>
               <span className="icons ml-4">

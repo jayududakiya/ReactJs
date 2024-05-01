@@ -22,7 +22,7 @@ import instagram06 from "../../../Assets/Follow-Swiper Img/instagram06.jpg";
 
 function FollowOnSwiper() {
   return (
-    <section className="FollowOnSection pt-16 pb-20">
+    <section className="FollowOnSection 2xl:container 2xl:mx-auto pt-16 pb-20">
 
       <div className="follow-On-wrapper mb-9">
         <div className="follow-hading text-center">
@@ -34,7 +34,7 @@ function FollowOnSwiper() {
         </div>
       </div>
 
-      <div className="follow-swiper-box">
+      <div className="follow-swiper-box ">
         <div className="follow-swiper ">
           <Swiper
             slidesPerView={1}
@@ -60,7 +60,7 @@ function FollowOnSwiper() {
                 slidesPerView: 5,
                 spaceBetween: 10,
               },
-              1400: {
+              1980: {
                 slidesPerView: 6,
                 spaceBetween: 10,
               },

@@ -1,24 +1,28 @@
 import {BrowserRouter , Routes ,Route} from 'react-router-dom'
 
-import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/Navbar/NavBar";
-import WoodenHome from './Components/Home/WoodenHome'
-import Error from './Components/Error Page/ErrorPage'
-import Contact from './Components/Contact/Contact'
-import Shop from './Components/Shop/Shop';
+import Footer from "./Components/Footer/Footer";
+import WoodenHome from './Pages/Home page/WoodenHome'
+import ContactPages from './Pages/Contact page/ContactPages';
+import ShopPages from './Pages/Shop page/ShopPages'
+import ErrorPages from './Pages/Error page/ErrorPages';
+
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+       <BrowserRouter>
+      
         <NavBar/>
         <Routes>
           <Route path="/" element={<WoodenHome/>}/>
-          <Route path="/shop" element={<Shop/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="*" element={<Error/>}/>
+          <Route path="/shop" element={<ShopPages/>}/>
+          <Route path="/contact" element={<ContactPages/>}/>
+          <Route path="*" element={<ErrorPages/>}/>
         </Routes>
         <Footer/>
-      </BrowserRouter>
+     
+      </BrowserRouter> 
     </div>
   );
 }

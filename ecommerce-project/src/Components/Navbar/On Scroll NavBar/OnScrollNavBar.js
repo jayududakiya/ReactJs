@@ -9,6 +9,7 @@ import './OnScrollNavBar.css'
 import NavLogo from '../../../Assets/Logos Img/logo.png'
 
 function OnScrollNavBar() {
+    
   return (
     <div id='OnScrollNavBar' className='sm:container mx-auto grid grid-cols-12'>
         <div className='OnScroll-Logo-box flex items-center col-span-7 md:col-span-3 xl:col-span-2  justify-between md:justify-start'>

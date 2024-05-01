@@ -6,7 +6,7 @@ import ErrorLogo from "../../Assets/Logos Img/error.webp";
 
 import './ErrorPage.css'
 
-function ErrorPage() {
+function ErrorPage1() {
  const backToHome =  useNavigate();
 
 
@@ -43,4 +43,4 @@ function ErrorPage() {
   );
 }
 
-export default ErrorPage;
+export default ErrorPage1;

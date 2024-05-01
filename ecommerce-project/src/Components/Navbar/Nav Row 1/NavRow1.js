@@ -26,7 +26,7 @@ function NavRow1() {
         </Link>
       </div>
 
-      <div className="searchBox col-span-8 flex  justify-between">
+      <div className="searchBox col-span-8 flex justify-between  ml-0 xl:ml-6">
 
         <div className="searchBar bg-[#F3F4F7] flex rounded-md border px-2 min-w-[60%]">
 

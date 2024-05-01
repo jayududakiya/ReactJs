@@ -30,7 +30,7 @@ function Header() {
   return (
       <header className="mb-10">
         <div className="main-box w-full grid grid-cols-1 lg:grid-cols-12 gap-y-4 md:gap-x-4">
-          <div className="slider-wrapper lg:col-span-9">
+          <div className="slider-wrapper col-auto lg:col-span-9 xl:col-start-3 xl:col-end-10 ml-0 xl:ml-6">
             <Swiper
               spaceBetween={30}
               centeredSlides={true}
@@ -158,7 +158,7 @@ function Header() {
 
           </div>{/*END of slider-wrapper */}
 
-          <div className="aside-img-bar col-auto lg:col-span-3  grid grid-cols-1 md:grid-cols-2  md:gap-x-5 lg:grid-cols-1 gap-y-4">
+          <div className="aside-img-bar col-auto lg:col-span-3  xl:col-start-10 xl:col-end-[-1] grid grid-cols-1 md:grid-cols-2  md:gap-x-5 lg:grid-cols-1 gap-y-4">
           <div className="img-box overflow-hidden rounded-md">
             <Link to="/shop" className="block h-full banner banner-1 relative">
               <img src={banner01} alt="Hand Mande" className="block min-h-full w-full object-cover" />

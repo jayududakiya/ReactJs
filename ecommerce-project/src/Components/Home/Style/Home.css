@@ -49,14 +49,14 @@
     font-size: 1.6rem;
     font-weight: 600;
     color:#D51243 ;
-    animation-delay: 1s;
+    animation-delay: 0.8s;
 }
 
 .slide .slide-text h1.slide-heading{
     text-transform: capitalize;
     font-size: 3.2rem;
     font-weight: 700;
-    animation-delay: 1.1s;
+    animation-delay: 0.9s;
 }
 
 .slide .slide-text h1.slide-heading span{
@@ -88,7 +88,7 @@
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    animation-delay: 1.2s;
+    animation-delay: 1s;
 }
 
 .slide .slide-text #slide-shopLink:hover{
@@ -107,7 +107,7 @@
 
 
 .slide-text-animation {
-    animation-duration: 1.3s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     transform:  translateY(200px);

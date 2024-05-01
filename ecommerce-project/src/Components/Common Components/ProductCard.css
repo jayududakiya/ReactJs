@@ -1,12 +1,12 @@
 .ProductCard-box{
     position: relative;
-    min-height: 28rem;
+    min-height: 26rem;
     overflow-y: hidden;
 }
 
 @media(min-width:1499px) {
     .ProductCard-box{
-        min-height: 32rem;
+        min-height: 30rem;
     }
 }
 @media(max-width:1299px){
@@ -80,6 +80,23 @@
     visibility: hidden;
     overflow: hidden;
 }
+
+.PopCard-head img:nth-child(1){
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+
+.PopCard-head img:nth-child(2){
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+}
+
+.PopCard-head:hover img:nth-child(1){
+    opacity: 0;
+}
+
 
 .PopCard-head:hover .Card-btn-wrapper{
     opacity: 1;    

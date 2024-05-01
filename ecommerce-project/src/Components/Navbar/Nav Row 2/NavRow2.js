@@ -18,7 +18,7 @@ function NavRow2() {
       <Categories/>
     </div>
  
-    <div className="col-span-7 flex items-center ">
+    <div className="col-span-7 flex items-stretch py-1 ml-0 xl:ml-6">
       <NavLinks />
     </div>
 

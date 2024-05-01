@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
 
-function ProductCard({ ProductImg, productName, Price }) {
+function ProductCard({ FirstProductImg, SecondeProductImg, productName, Price }) {
   return (
     <div className="ProductCard-box ">
       {/* PRODUCT */}
@@ -11,9 +11,10 @@ function ProductCard({ ProductImg, productName, Price }) {
 
         <Link to="/shopDetails" className="PopCard-head mx-auto mb-3 rounded-xl overflow-hidden relative">
           
-          <img src={ProductImg} alt={productName + "img"} className="" />
+          <img src={FirstProductImg} alt={productName + "img"} className="block w-full" />
+          <img src={SecondeProductImg} alt={productName + "img"} className="block  w-full" />
 
-          <div className="Card-btn-wrapper transition-all absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <div className="Card-btn-wrapper transition-all absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
             
             <ul className="Card-button-box transition-all flex items-center justify-around bg-white rounded-xl">
               <li>

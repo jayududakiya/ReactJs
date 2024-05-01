@@ -3,8 +3,7 @@ import React from 'react'
 
 //  
 import { BsCart3 } from "react-icons/bs";
-// import { HiOutlineUserCircle } from "react-icons/hi2";
-import { CiUser } from "react-icons/ci";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 import { CiHeart } from "react-icons/ci";
 
 import './NavButton.css'
@@ -24,7 +23,7 @@ function NavButton({className}) {
 
         <li>
           <button type="button">
-            <CiUser className='react-i'/>
+            <HiOutlineUserCircle className='react-i'/>
           </button>
         </li>
 
