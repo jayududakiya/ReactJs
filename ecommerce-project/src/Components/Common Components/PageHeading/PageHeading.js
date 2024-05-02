@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './PageHeading.css'
-function PageHeading({pageTitle,goBackLink}) {
+function PageHeading({pageTitle="pageTitle",goBackLink="goBackLink"}) {
   return (
     <div className="PageHeading-wrapper">
         {/* background */}

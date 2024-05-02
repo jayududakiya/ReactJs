@@ -44,7 +44,7 @@ function FollowOnSwiper() {
                 disableOnInteraction: false,
             }}
             breakpoints={{
-              575: {
+              640: {
                 slidesPerView: 2,
                 spaceBetween: 10,
               },
@@ -52,11 +52,11 @@ function FollowOnSwiper() {
                 slidesPerView: 3,
                 spaceBetween: 10,
               },
-              992: {
+              1024: {
                 slidesPerView: 4,
                 spaceBetween: 10,
               },
-              1200: {
+              1280: {
                 slidesPerView: 5,
                 spaceBetween: 10,
               },

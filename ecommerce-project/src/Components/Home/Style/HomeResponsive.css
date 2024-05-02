@@ -51,6 +51,6 @@
 
 @media (max-width:1537px){
     .sm\:container {
-        max-width: calc(100% - 10%);
+        max-width: calc(100% - 5%);
     }
 }

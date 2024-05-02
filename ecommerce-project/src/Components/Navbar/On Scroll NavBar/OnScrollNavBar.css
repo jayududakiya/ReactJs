@@ -1,3 +1,4 @@
+/* ON SCROLL BAR CSS */
 #OnScrollNavBar{
  min-height: 120px;
 }
@@ -7,14 +8,11 @@
     background-color: #FFFFFF;
 }
 
-
-
 .Set-On-NavBar{
-    border: 1px solid blue;
     position: fixed;
     top: 0%;
     width: 100%;
-    z-index: 14;
+    z-index:15;
     transition: all 1s linear;
 }
 
@@ -31,13 +29,15 @@
     visibility:visible;
 }
 
+/*  MOBILE MENU CSS */
+
 #mobile-menu-warp{
     position: fixed;
     top: 0%;
     left: 0%;
     height: 100vh;
     width: 100%;
-    z-index: 15;
+    z-index: 16;
     transform: translateX(-100%);
     transition: all 0.3s linear;
 }
@@ -52,7 +52,14 @@
 }
 
 
+/* ON SCROLL BAR CSS  */
+
 @media (max-width:1280px) {
+    #Row-1,
+    #Row-2,
+    .TopShopLink{
+        display: none ;
+    }
     #OnScrollNavBar-warp.Off-Scroll-Nav{
         top: 0%;
         opacity: 1;
@@ -62,3 +69,4 @@
         display: none;
     }
 }
+

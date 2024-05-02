@@ -253,8 +253,6 @@ h1.Section-Heading span::after{
 .categoriesImg{
 
     margin-inline: auto;
-    /* width: 70%; */
-    /* height:10rem; */
     width: 8rem;
     height: 8rem;
     margin-bottom: 1rem;

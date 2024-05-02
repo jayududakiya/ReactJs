@@ -1,5 +1,5 @@
 import React from "react";
-// import ProductCard from '../../Common Components/ProductCard'
+
 import ProductsData from "../../Data/ProductsData";
 import ProductsCard from '../../Common Components/ProductsCard/ProductsCard'
 
@@ -45,12 +45,11 @@ function PopularProducts() {
 
       <div className="PopProducts-wrapper pt-16 pb-24">
 
-        {/* <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  justify-center gap-x-5 justify-items-center"> */}
-        <div className="mx-auto flex flex-wrap items-center justify-between xl:justify-evenly gap-x-[2rem]">
+        
+        <div className="mx-auto flex flex-wrap items-center justify-center ">
 
           {ProductsData.map((Product,ind)=>{
             return(
-              // <ProductCard key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price}  />  
               <ProductsCard  key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price} />
             )
           })}

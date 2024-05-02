@@ -10,18 +10,6 @@
     box-shadow: 0px -6px 10px 4px rgba(0,0,0,0.1);
 }
 
-@media (max-width:710px) {
-    #PRODUCTCARD{
-        margin-inline: auto;
-    }
-}
-
-@media (min-width:1457px) {
-    #PRODUCTCARD:nth-last-child(1){
-        margin-right: auto;
-        margin-left: 1.4rem;
-    }
-}
 
 .ProductCard-Head #ProductCard-link img:nth-child(2){
     opacity: 0;   
@@ -50,9 +38,6 @@
     visibility:visible;
 }
 
-
-
-
 #PRODUCTCARD .ProductCard-Review{
     opacity: 0;
     visibility: hidden;
@@ -75,5 +60,3 @@
 #PRODUCTCARD .ProductCard-Review .ProductCard-Colors a:hover span{
     transform: scale(0.7);   
 }
-
-

@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom'
 import { FaStar } from "react-icons/fa6";
 import { CiStar } from "react-icons/ci";
 import { CiShoppingBasket } from "react-icons/ci";
-import { HiOutlineArrowsRightLeft } from "react-icons/hi2";
+import { LuArrowDownUp } from "react-icons/lu";
 import { ImEye } from "react-icons/im";
 import { CiHeart } from "react-icons/ci";
 
 import './ProductsCard.css'
 
-function ProductsCard({firstProductImg,secondeProductImg,productName,Price}) {
+function ProductsCard({firstProductImg,secondeProductImg,productName,Price,className}) {
+    let  Classes = className += "ProductCard w-[20rem] h-[26rem]"
   return (
-    <div id='PRODUCTCARD' className='ProductCard w-[19rem] h-[26rem]'>
+    <div id='PRODUCTCARD' className={Classes}>
         <div className='ProductCard-Head mx-3.5 my-3 relative'>
             <Link id='ProductCard-link' to='/shop' className='block rounded-md overflow-hidden relative '>
                 <img src={firstProductImg} alt={productName + "image"} className='black object-contain w-full h-full mx-auto ' />
@@ -28,7 +29,7 @@ function ProductsCard({firstProductImg,secondeProductImg,productName,Price}) {
                     </li>
                     <li className='flex items-center justify-center'>
                         <button className='flex items-center justify-center hover:text-[#D51243] transition-all'>
-                            <HiOutlineArrowsRightLeft className='text-2xl' />
+                        <LuArrowDownUp className='text-2xl rotate-90' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>

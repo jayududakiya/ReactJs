@@ -3,7 +3,7 @@ import React from 'react'
 
 //  
 import { BsCart3 } from "react-icons/bs";
-import { HiOutlineUserCircle } from "react-icons/hi2";
+import { RiUserLine } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 
 import './NavButton.css'
@@ -12,7 +12,7 @@ function NavButton({className}) {
   const Classes = "navButton w-full flex items-center justify-around " + className;
   return (
     <ul className={Classes}>
-        <li>
+        <li className='mx-1.5 lg:mx-0'>
           <button type="button" id="cartBtn">
             <BsCart3 className='react-i'/>
             <span id="cartCount" className="flex items-center justify-center ">
@@ -21,13 +21,13 @@ function NavButton({className}) {
           </button>
         </li>
 
-        <li>
+        <li className='mx-1.5 lg:mx-0'>
           <button type="button">
-            <HiOutlineUserCircle className='react-i'/>
+          <RiUserLine className='react-i' />
           </button>
         </li>
 
-        <li className='hidden md:block'>
+        <li className='hidden md:block mx-1.5 lg:mx-0'>
           <button type="button" id="likeBtn">
             <CiHeart className='react-i'/>
             <span id="likeCount" className="flex items-center justify-center ">

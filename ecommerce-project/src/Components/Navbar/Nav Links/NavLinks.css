@@ -23,7 +23,7 @@
 #NavLink-wrapper .Nav-link:hover .link-box{
     visibility: visible;
     display: block;
-    top: 45px;
+    top: 47px;
     height: auto;
     overflow:visible;
     opacity: 1;
@@ -71,13 +71,14 @@
 
 .Nav-link .links-warp {
     width: 18rem;
+    padding-top: 1rem !important;
     border-top: 2px solid #D51243;
 }
 .Nav-link .links-warp li a{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    padding: 1rem 4rem 1rem 0.3rem;
+    padding: 0.5rem 4rem 1rem 0.3rem;
     display: block;
     transition: all 0.2s linear;
 }

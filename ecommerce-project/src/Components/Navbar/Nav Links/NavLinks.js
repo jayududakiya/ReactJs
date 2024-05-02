@@ -90,7 +90,7 @@ function NavLinks({className}) {
             <h3>PAGE LAYOUT</h3>
           </li>
           <li>
-            <Link to="/shopFilterV1">Shop Filter V1</Link>
+            <Link to="/shop">Shop Filter V1</Link>
           </li>
           <li>
             <Link to="/shopFilterV2">Shop Filter V2</Link>
