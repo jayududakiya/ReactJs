@@ -48,28 +48,28 @@ function NavLinks({className}) {
           <Link to="/shop2">shop 2</Link>
         </li>
         <li>
-          <Link to="/shopDetails">Shop details</Link>
+          <Link to="/shop-details">Shop details</Link>
         </li>
         <li>
-          <Link to="/shopDetails2">Shop details 2</Link>
+          <Link to="/shop-details2">Shop details 2</Link>
         </li>
         <li>
-          <Link to="/shopLocation">Shop Location</Link>
+          <Link to="/shop-location">Shop Location</Link>
         </li>
         <li>
           <Link to="/cart">Cart</Link>
         </li>
         <li>
-          <Link to="/signIn">sign in</Link>
+          <Link to="/sign-in">sign in</Link>
         </li>
         <li>
-          <Link to="/checkOut">checkout</Link>
+          <Link to="/checkout">checkout</Link>
         </li>
         <li>
-          <Link to="/whishList">whishList</Link>
+          <Link to="/wishlist">whishList</Link>
         </li>
         <li>
-          <Link to="/productTrack">Product Track</Link>
+          <Link to="/product-track">Product Track</Link>
         </li>
       </ul>
     </div>
@@ -93,16 +93,16 @@ function NavLinks({className}) {
             <Link to="/shop">Shop Filter V1</Link>
           </li>
           <li>
-            <Link to="/shopFilterV2">Shop Filter V2</Link>
+            <Link to="/shop-filterV2">Shop Filter V2</Link>
           </li>
           <li>
-            <Link to="/shopSidebar">Shop Sidebar</Link>
+            <Link to="/shop-sidebar">Shop Sidebar</Link>
           </li>
           <li>
-            <Link to="/shopRightSidebar">Shop Right Sidebar</Link>
+            <Link to="/shop-right-sidebar">Shop Right Sidebar</Link>
           </li>
           <li>
-            <Link to="/shopListView">Shop list View</Link>
+            <Link to="/shop-listview">Shop list View</Link>
           </li>
         </ul>
         {/* Page layout 2  */}
@@ -117,13 +117,13 @@ function NavLinks({className}) {
             <Link to="/cart">Cart</Link>
           </li>
           <li>
-            <Link to="/checkOut">Checkout</Link>
+            <Link to="/checkout">Checkout</Link>
           </li>
           <li>
-            <Link to="/signIn">Sign In</Link>
+            <Link to="/sign-in">Sign In</Link>
           </li>
           <li>
-            <Link to="/logIn">Log In</Link>
+            <Link to="/login">Log In</Link>
           </li>
         </ul>
 
@@ -134,7 +134,7 @@ function NavLinks({className}) {
             <h3>PAGE TYPE </h3>
           </li>
           <li>
-            <Link to="/productTrack">Product Track</Link>
+            <Link to="/product-track">Product Track</Link>
           </li>
           <li>
             <Link to="/wishlist">Wishlist</Link>
@@ -143,7 +143,7 @@ function NavLinks({className}) {
             <Link to="*">404 / Error</Link>
           </li>
           <li>
-            <Link to="/comingSoon">Coming Soon</Link>
+            <Link to="/coming-soon">Coming Soon</Link>
           </li>
         </ul>
       </div>
@@ -163,7 +163,7 @@ function NavLinks({className}) {
           <Link to="/blog">Blog</Link>
         </li>
         <li>
-          <Link to="/blogDetails">Blog Details</Link>
+          <Link to="/blog-details">Blog Details</Link>
         </li>
       </ul>
     </div>

@@ -5,12 +5,13 @@ import Footer from "./Components/Footer/Footer";
 import WoodenHome from './Pages/Home page/WoodenHome'
 import ContactPages from './Pages/Contact page/ContactPages';
 import ShopPages from './Pages/Shop page/ShopPages'
-import ErrorPages from './Pages/Error page/ErrorPages';
-import RegistrationPage from './Pages/Registration Page/RegistrationPage'
+import ErrorPage from './Components/Page Type/Error Page/ErrorPage';
+import RegistrationPage from './Pages/Layout Pages/RegistrationPage'
+import WishListPage from './Pages/Types Pages/WishListPage'
 
 function App() {
   return (
-    <div className="App mt-[90px] xl:mt-0">
+    <div className="App mt-[124px] xl:mt-0">
 
        <BrowserRouter>
       
@@ -20,8 +21,10 @@ function App() {
           <Route path="/" element={<WoodenHome/>}/>
           <Route path="/shop" element={<ShopPages/>}/>
           <Route path="/contact" element={<ContactPages/>}/>
-          <Route path="/signIn" element={<RegistrationPage/>}/>
-          <Route path="*" element={<ErrorPages/>}/>
+          <Route path="/sign-in" element={<RegistrationPage/>}/>
+          <Route path="/login" element={<RegistrationPage/>}/>
+          <Route path="/wishlist" element={<WishListPage/>}/>
+          <Route path="*" element={<ErrorPage/>}/>
         </Routes>
         
         <Footer/>

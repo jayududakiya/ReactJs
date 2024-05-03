@@ -1,8 +1,8 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import PageHeading from '../Common Components/PageHeading/PageHeading'
+import PageHeading from '../../Common Components/PageHeading/PageHeading'
 
-import ErrorLogo from "../../Assets/Logos Img/error.webp";
+import ErrorLogo from "../../../Assets/Logos Img/error.webp";
 
 import './ErrorPage.css'
 

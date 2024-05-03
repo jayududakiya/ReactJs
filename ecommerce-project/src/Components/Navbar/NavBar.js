@@ -27,7 +27,7 @@ function NavBar() {
         <NavRow1/>
         <NavRow2/>
       </div>
-      <div id='OnScrollNavBar-warp' className='Set-On-NavBar Off-Scroll-Nav hidden'>
+      <div id='OnScrollNavBar-warp' className='Set-On-NavBar Off-Scroll-Nav'>
         <OnScrollNavBar/>
       </div>
     </div>

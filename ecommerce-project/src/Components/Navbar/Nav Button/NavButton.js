@@ -7,8 +7,13 @@ import { RiUserLine } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 
 import './NavButton.css'
+import { useNavigate } from 'react-router-dom';
 
 function NavButton({className}) {
+
+  const neviGetSignIn = useNavigate();
+  const neviGetWishlist = useNavigate();
+
   const Classes = "navButton w-full flex items-center justify-around " + className;
   return (
     <ul className={Classes}>
@@ -22,13 +27,13 @@ function NavButton({className}) {
         </li>
 
         <li className='mx-1.5 lg:mx-0'>
-          <button type="button">
-          <RiUserLine className='react-i' />
+          <button type="button" onClick={()=> {neviGetSignIn("/sign-in")}}>
+          <RiUserLine className='react-i'  />
           </button>
         </li>
 
         <li className='hidden md:block mx-1.5 lg:mx-0'>
-          <button type="button" id="likeBtn">
+          <button type="button" id="likeBtn" onClick={()=> {neviGetWishlist("/wishlist")}}>
             <CiHeart className='react-i'/>
             <span id="likeCount" className="flex items-center justify-center ">
               0
