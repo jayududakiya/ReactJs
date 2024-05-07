@@ -1,6 +1,7 @@
 import React from "react";
-
+// Data 
 import ProductsData from "../../Data/ProductsData";
+// Data Card
 import ProductsCard from '../../Common Components/ProductsCard/ProductsCard'
 
 import '../Style/Home.css'
@@ -46,11 +47,11 @@ function PopularProducts() {
       <div className="PopProducts-wrapper pt-16 pb-24">
 
         
-        <div className="mx-auto flex flex-wrap items-center justify-center ">
+        <div className="mx-auto flex flex-wrap items-center justify-center lg:grid lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-4 lg:gap-x-6">
 
           {ProductsData.map((Product,ind)=>{
             return(
-              <ProductsCard  key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price} />
+              <ProductsCard  key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price} className={" h-[26rem] w-[20rem] "} />
             )
           })}
 

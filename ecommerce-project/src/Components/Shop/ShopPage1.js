@@ -1,14 +1,16 @@
 import React from "react";
 import PageHeading from "../Common Components/PageHeading/PageHeading";
-import ProductsCard from "../Common Components/ProductsCard/ProductsCard";
+// Data 
 import ProductsData from "../Data/ProductsData"
+// Data Card
+import ProductsCard from "../Common Components/ProductsCard/ProductsCard";
 
-import './Shop.css'
-
+import './ShopPage.css'
+//ICONS
 import { IoListOutline } from "react-icons/io5";
 import { BsGrid3X3 } from "react-icons/bs";
 
-function ShopP1() {
+function ShopPage1() {
   return (
     <section className="">
       <PageHeading goBackLink="Home" pageTitle="Shop" />
@@ -48,10 +50,10 @@ function ShopP1() {
             </li>
           </ul>
         </div>
-      <div className="ShopP1-card-warp py-20 flex flex-wrap items-center justify-center">
+      <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-4 lg:gap-x-6">
           {ProductsData.map((Product,ind)=>{
             return(
-              <ProductsCard key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={''} />
+              <ProductsCard key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={" h-[26rem] w-[20rem]  "} />
             )
           })}
       </div>
@@ -60,4 +62,4 @@ function ShopP1() {
   );
 }
 
-export default ShopP1;
+export default ShopPage1;

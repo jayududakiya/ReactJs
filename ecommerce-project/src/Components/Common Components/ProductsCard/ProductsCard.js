@@ -12,7 +12,7 @@ import { CiHeart } from "react-icons/ci";
 import './ProductsCard.css'
 
 function ProductsCard({firstProductImg,secondeProductImg,productName,Price,className}) {
-    let  Classes = className += "ProductCard w-[20rem] h-[26rem]"
+    let  Classes = className += " ProductCard "
   return (
     <div id='PRODUCTCARD' className={Classes}>
         <div className='ProductCard-Head mx-3.5 my-3 relative'>

@@ -16,10 +16,15 @@ const wishItems = [
     itemName: "Carolyn Goodwin",
     itemPrice: 50,
   },
+  {
+    img: WishListImg2,
+    itemName: "Carolyn Goodwin",
+    itemPrice: 10,
+  },
 ];
 
 function WishListTb() {
-    let [total , setTotal] = useState(null)
+    let [total , setTotal] = useState([])
     const QuantityCount = useRef(null)
     
 
