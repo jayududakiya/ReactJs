@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function NavButton({className}) {
 
+  const neviGetCart = useNavigate();
   const neviGetSignIn = useNavigate();
   const neviGetWishlist = useNavigate();
 
@@ -18,7 +19,7 @@ function NavButton({className}) {
   return (
     <ul className={Classes}>
         <li className='mx-1.5 lg:mx-0'>
-          <button type="button" id="cartBtn">
+          <button type="button" onClick={()=>neviGetCart("/cart")} id="cartBtn">
             <BsCart3 className='react-i'/>
             <span id="cartCount" className="flex items-center justify-center ">
               0

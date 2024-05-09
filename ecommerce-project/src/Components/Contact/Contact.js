@@ -62,7 +62,7 @@ function Contact() {
             </a>
             <a
               href="https://www.google.com/maps/@36.963672,-119.2249843,7.17z"
-              target="_blank"
+              // target="_blank"
               className="contact-btn border"
             >
               <p>Get Direction</p>
@@ -82,12 +82,17 @@ function Contact() {
               Must-have pieces selected every month want style Ideas and Treats?
             </p>
           </div>
-          <form action="" className="">
+          {/* Form  */}
+          <form 
+           action="https://formspree.io/f/mdoqbrjo"
+           method="POST"
+           className="">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-0 lg:gap-x-6 gap-y-6 lg:gap-y-0 py-6">
               <input
                 type="text"
                 id="large-input"
+                name="Name"
                 className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
                 placeholder="Full name"
                 title="Please fill out this field"
@@ -95,6 +100,7 @@ function Contact() {
               <input
                 type="email"
                 id="large-input"
+                name="Email"
                 className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
                 placeholder="Email address"
                 title="Please fill out this field"
@@ -105,6 +111,7 @@ function Contact() {
               <input
                 type="number"
                 id="large-input"
+                name="Number"
                 className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
                 placeholder="Phone number"
                 title="Please fill out this field"
@@ -112,6 +119,7 @@ function Contact() {
               <input
                 type="text"
                 id="large-input"
+                name="Subject"
                 className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
                 placeholder="Subject"
                 title="Please fill out this field"
@@ -121,6 +129,7 @@ function Contact() {
             <div className="pb-8">
               <textarea
                 id="message"
+                name="Review"
                 rows="7"
                 className="block px-5 py-[18px] w-full text-[1.2rem] border rounded-lg"
                 placeholder="Enter massage"
@@ -131,6 +140,7 @@ function Contact() {
             <button className="bg-[#D51243] form-button flex items-center justify-evenly text-[#FFFFFF] font-bold text-[1.1rem] min-w-[185px] min-h-[55px] px-2 rounded-[5px]">
                 Get A Quote <span className="icons"><img src={RightArrow} alt="Right Arrow" /></span>
             </button>
+
           </form>
         </div>
 
@@ -138,7 +148,7 @@ function Contact() {
 
       <div id="address-Map" className="address-map-container">
 
-      <iframe className="w-full min-h-[550px]" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d772784.5275147371!2d-74.254797!3d40.834782!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1714412516192!5m2!1sen!2sbd" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="map" className="w-full min-h-[550px]" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d772784.5275147371!2d-74.254797!3d40.834782!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1714412516192!5m2!1sen!2sbd" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
       </div>
 

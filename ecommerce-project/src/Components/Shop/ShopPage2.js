@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+// import from Next Ui
+import { Slider } from "@nextui-org/slider";
+
 import PageHeading from "../Common Components/PageHeading/PageHeading";
 import ProductsData from "../Data/ProductsData";
 import ProductsCard from "../Common Components/ProductsCard/ProductsCard";
@@ -10,12 +13,13 @@ import { IoListOutline } from "react-icons/io5";
 import { BsGrid3X3 } from "react-icons/bs";
 
 function ShopPage2() {
+  const [value , setValue] = useState([9, 100])
   return (
     <section className="">
       <PageHeading goBackLink="Home" pageTitle="Shop 2" />
 
       <div className="ShopP2 sm:container mx-auto grid grid-cols-12 gap-x-3 pt-20">
-        <div className="ShopP2-Card-warp col-span-12 lg:col-span-10 outline">
+        <div className="ShopP2-Card-warp col-span-12 lg:col-span-10 ">
           <div className="ShopP2-Item-Bar flex flex-wrap justify-between items-stretch ">
             <h1 className="text-xl flex items-center justify-center gap-x-2 ">
               10
@@ -59,6 +63,7 @@ function ShopPage2() {
               return (
                 <ProductsCard
                   key={ind}
+                  id={Product.id} 
                   firstProductImg={Product.FirstImg}
                   secondeProductImg={Product.SecondeImg}
                   productName={Product.name}
@@ -70,7 +75,7 @@ function ShopPage2() {
           </div>
         </div>
 
-        <aside className="col-span-12 lg:col-span-2 outline">
+        <aside className="col-span-12 lg:col-span-2 ">
           {/* Category UL */}
           <ul className="Category-list flex flex-col items-start justify-stretch w-full gap-y-3">
             <li className="w-full">
@@ -79,7 +84,7 @@ function ShopPage2() {
               </h1>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-kid"
                 type="checkbox"
@@ -94,7 +99,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-men"
                 type="checkbox"
@@ -109,7 +114,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-women"
                 type="checkbox"
@@ -127,13 +132,31 @@ function ShopPage2() {
 
           {/* Range Box  */}
           <ul className="Filter-list flex flex-col items-start justify-stretch w-full gap-y-3">
-          <li className="w-full">
+            <li className="w-full">
               <h1 className="text-base font-semibold border-b px-2 py-3">
                 Filter
               </h1>
             </li>
-            <li>
-              
+            <li className="w-full py-3">
+            <div className="flex flex-col gap-2 w-full h-full max-w-md items-start justify-center">
+      <Slider 
+        formatOptions={{style: "currency", currency: "USD"}}
+        size="sm"
+        step={10}
+        maxValue={100}
+        minValue={10}
+        value={value} 
+        onChange={setValue}
+        className={{
+          base: "max-w-md gap-3",
+          filler: "bg-gradient-to-r from-pink-300 to-cyan-300",
+        }}
+      />
+      <p className="font-bold text-lg ">
+       {/* {Array.isArray(value) && value.map((b) => `$ ${b}`) .join(" ")} */}
+       {value.map((b) => `$ ${b} | `).join(" ")}
+      </p>
+    </div>
             </li>
           </ul>
           {/* First Color UL */}
@@ -144,7 +167,7 @@ function ShopPage2() {
               </h1>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-black"
                 type="checkbox"
@@ -159,7 +182,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-blue"
                 type="checkbox"
@@ -174,7 +197,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-gray"
                 type="checkbox"
@@ -189,7 +212,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-green"
                 type="checkbox"
@@ -204,7 +227,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-red"
                 type="checkbox"
@@ -228,7 +251,7 @@ function ShopPage2() {
               </h1>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-Adidas"
                 type="checkbox"
@@ -243,7 +266,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-Balenciaga"
                 type="checkbox"
@@ -258,7 +281,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-Balmain"
                 type="checkbox"
@@ -273,7 +296,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-Burberry"
                 type="checkbox"
@@ -288,7 +311,7 @@ function ShopPage2() {
               </label>
             </li>
 
-            <li class="flex items-center">
+            <li className="flex items-center">
               <input
                 id="checkbox-Chloe"
                 type="checkbox"

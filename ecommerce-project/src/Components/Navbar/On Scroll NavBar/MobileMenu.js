@@ -215,41 +215,20 @@ function MobileMenu({refs}) {
         </AccordionBody>
       </Accordion>
 
-      {/* LINK 4 */}
-      <Accordion
-        open={open === 4}
-        icon={
-<span className="flex items-center justify-center outline outline-[1px] h-[30px] w-[30px] "   onClick={() => handleOpen(4)}>
-            <AiOutlinePlus className="hover:text-[#D51243] transition-all text-2xl" />
-          </span>      
-        }
-      >
-        <AccordionHeader className="border-b-[1px]" >
-        <Link
-            to="/blog"
-            className="block w-full  hover:text-[#D51243] transition-all"
-          >
-            Blog
-          </Link>
-        </AccordionHeader>
-        <AccordionBody className="Accord-body">
-        <ul className="m-MenuLink">
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/blogDetails">Blog Details</Link>
-        </li>
-        </ul>
-        </AccordionBody>
-      </Accordion>
-
       {/* LINK 5 */}
+      <h1 className="flex justify-between items-center w-full py-4 font-sans text-xl text-left font-semibold leading-snug border-b-[1px]">
+        <Link to="/about" className="block w-full  hover:text-[#D51243] transition-all">
+            About
+        </Link>
+      </h1>
+
+      {/* LINK 6 */}
       <h1 className="flex justify-between items-center w-full py-4 font-sans text-xl text-left font-semibold leading-snug border-b-[1px]">
         <Link to="/contact" className="block w-full  hover:text-[#D51243] transition-all">
             Contact
         </Link>
       </h1>
+
 
       <h1 className="flex justify-between items-center w-full py-4 font-sans text-xl text-left font-semibold leading-snug ">
         <Link to="/sign-in" className="flex items-center hover:text-[#D51243] transition-all">

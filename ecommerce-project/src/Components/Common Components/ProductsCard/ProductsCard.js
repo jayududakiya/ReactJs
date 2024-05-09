@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
 
 // icons import
 import { FaStar } from "react-icons/fa6";
@@ -11,12 +11,14 @@ import { CiHeart } from "react-icons/ci";
 
 import './ProductsCard.css'
 
-function ProductsCard({firstProductImg,secondeProductImg,productName,Price,className}) {
-    let  Classes = className += " ProductCard "
+function ProductsCard({id=1,firstProductImg,secondeProductImg,productName,Price,className}) {
+    let  Classes = className += " ProductCard ";
+    const shopDetailsPage = useNavigate();
+    const ChangePage = useNavigate();
   return (
     <div id='PRODUCTCARD' className={Classes}>
         <div className='ProductCard-Head mx-3.5 my-3 relative'>
-            <Link id='ProductCard-link' to='/shop' className='block rounded-md overflow-hidden relative '>
+            <Link id='ProductCard-link' to={`/shop-details2/${id}`} className='block rounded-md overflow-hidden relative '>
                 <img src={firstProductImg} alt={productName + "image"} className='black object-contain w-full h-full mx-auto ' />
                 <img src={secondeProductImg} alt={productName + "image"} className='black object-contain mx-auto absolute top-0 z-[1]' />
             </Link>
@@ -28,12 +30,12 @@ function ProductsCard({firstProductImg,secondeProductImg,productName,Price,class
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
-                        <button className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>ChangePage("/wishlist")} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
                         <LuArrowDownUp className='text-2xl rotate-90' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
-                        <button className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>shopDetailsPage(`/shop-details2/${id}`)} className='flex items-center justify-center hover:text-[#D51243] transition-all' >
                             <ImEye className='text-2xl' />
                         </button>
                     </li>
@@ -46,7 +48,7 @@ function ProductsCard({firstProductImg,secondeProductImg,productName,Price,class
             </div>
         </div>
         <div className='ProductCard-body mx-3.5'>
-            <Link to="/shop" className='text-[1rem] capitalize block text-gray-400 ' >{productName}</Link>
+            <Link to={`/shop-details2/${id}`} className='text-[1rem] capitalize block text-gray-400 ' >{productName}</Link>
             <p className='text-[1.1rem] font-bold mt-1'>{Price}</p>
         </div>
         <div className='ProductCard-Review flex items-center justify-between mt-1 px-3.5'>

@@ -45,13 +45,13 @@ function NavLinks({className}) {
           <Link to="/shop">Shop</Link>
         </li>
         <li>
-          <Link to="/shop2">shop 2</Link>
+          <Link to="/shop2">Shop 2</Link>
         </li>
         <li>
           <Link to="/shop-details">Shop details</Link>
         </li>
         <li>
-          <Link to="/shop-details2">Shop details 2</Link>
+          <Link to="/shop-details2/1">Shop details 2</Link>
         </li>
         <li>
           <Link to="/shop-location">Shop Location</Link>
@@ -99,7 +99,7 @@ function NavLinks({className}) {
             <Link to="/shop-sidebar">Shop Sidebar</Link>
           </li>
           <li>
-            <Link to="/shop-right-sidebar">Shop Right Sidebar</Link>
+            <Link to="/shop-right-sidebar/1">Shop Right Sidebar</Link>
           </li>
           <li>
             <Link to="/shop-listview">Shop list View</Link>
@@ -152,20 +152,9 @@ function NavLinks({className}) {
     {/* link box 4 */}
 
     <div id="blog" className="Nav-link">
-      <Link
-        to="/blog"
-        className="head-link poppins-regular flex items-center transition-all"
-      >
-        Blog <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
+    <Link to="/about" className="head-link poppins-regular flex items-center transition-all">
+        About
       </Link>
-      <ul className="links-warp link-box ">
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/blog-details">Blog Details</Link>
-        </li>
-      </ul>
     </div>
 
     {/* link box 5 */}

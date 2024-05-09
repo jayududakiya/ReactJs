@@ -19,7 +19,7 @@ function Categories() {
         <i className="fa-solid fa-bars"></i>
         Categories
       </button>
-        <ul id="cateList" className="showList ">
+        <ul id="cateList" className="showList hidden">
           <li>
             <Link to="/shop" className="cateLink flex items-center" >
             <i className="fa-regular fa-user"></i>

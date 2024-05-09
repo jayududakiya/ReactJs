@@ -1,6 +1,6 @@
 
 
-.addToCart-btn::after{
+.BtnCase::after{
     content: "";
     display: block;
     width: 0%;
@@ -15,7 +15,7 @@
     animation: 0.5s ease-out 1 alternate ;
 }
 
-.addToCart-btn:hover::after{
+.BtnCase:hover::after{
     animation-name: BtnCase;
 }
 

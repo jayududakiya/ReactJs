@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
-import "./WishListTb.css";
+import React , { useRef, useState } from 'react'
 
-import WishListImg1 from "../../../Assets/Products Img/product17.jpg";
-import WishListImg2 from "../../../Assets/Products Img/product9.jpg";
+import './Cart.css'
+
+import WishListImg1 from "../../Assets/Products Img/product17.jpg";
+import WishListImg2 from "../../Assets/Products Img/product9.jpg";
 
 
 const wishItems = [
@@ -16,26 +17,26 @@ const wishItems = [
     itemName: "Carolyn Goodwin",
     itemPrice: 50,
   },
-  {
-    img: WishListImg2,
-    itemName: "Carolyn Goodwin",
-    itemPrice: 10,
-  },
 ];
 
-function WishListTb() {
-    let [total , setTotal] = useState([])
-    const QuantityCount = useRef(null)
-    
 
+function Cart() {
+  let [total , setTotal] = useState([])
+  const QuantityCount = useRef(null)
   return (
     <div className="sm:container mx-auto">
       <section className="mx-auto w-full py-20">
+
         <div className="mt-6 flex flex-col">
+
           <div className="overflow-x-auto ">
+
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+
               <div className="overflow-hidden border border-gray-200 ">
+
                 <table className="min-w-full divide-y divide-gray-200">
+
                   <thead>
                     <tr className="divide-x divide-gray-200">
                       <th
@@ -69,12 +70,6 @@ function WishListTb() {
                         className="px-4 py-3.5 text-center text-lg capitalize font-medium"
                       >
                         Total
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-4 py-3.5 text-center text-lg capitalize font-medium"
-                      >
-                        Add To Cart
                       </th>
                       <th
                         scope="col"
@@ -137,13 +132,6 @@ function WishListTb() {
                         </td>
                         <td className="whitespace-nowrap ">
                             <div className="flex items-center justify-center">
-                                <button id="addToCart-btn" className="BtnCase inline-block border h-14 w-[150px] rounded-md bg-[#D51243] text-white font-medium text-base relative">
-                                    Add To Cart
-                                </button>
-                            </div>
-                        </td>
-                        <td className="whitespace-nowrap ">
-                            <div className="flex items-center justify-center">
                                 <a href="/">
                                     Remove
                                 </a>
@@ -153,14 +141,53 @@ function WishListTb() {
                       )
                     })}
                   </tbody>
+
                 </table>
+
+
               </div>
+
+            </div>
+
+          </div>
+          {/* End For Table Div */}
+          <div className='sm:container mx-auto pt-8'>
+            <ul className='flex flex-col md:flex-row items-stretch justify-between gap-y-3'>
+              <li className='flex flex-col sm:flex-row items-stretch justify-start gap-x-3 gap-y-3'>
+                <input type="text" name="" id="" placeholder='Coupon code' className='text-black text-xl py-2.5 pl-2  rounded-md outline-none border ' />
+                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-2.5 rounded-md py-2.5 '>
+                  Apply Coupon
+                </button>
+              </li>
+              <li className='flex items-stretch justify-start'>
+                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                  Update cart
+                </button>
+              </li>
+            </ul>
+            <div className='CartTotals pt-5 grid grid-cols-12 '>
+              <ul className='col-span-12 md:col-start-8 md:col-end-[-1]'>
+                <li>
+                    <h1 className='font-normal text-2xl py-4'>Cart Totals</h1>
+                </li>
+                <li className='border '>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ 70.00</span></p>
+                </li>
+                <li className='border'>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ 70.00</span></p>
+                </li>
+                <li className='mt-4'>
+                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                  Proceed to Checkout 
+                </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default WishListTb;
+export default Cart

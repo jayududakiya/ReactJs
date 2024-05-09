@@ -14,19 +14,20 @@ import { HiArrowLongRight } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  
   const NavigateHome = useNavigate() 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   // const [FormData,setFormData] = useState([]);
   // const [UserData,setUserData] = useState([]);
 
-  function RegisterNow(evn) {
+  function registerNow(evn) {
     evn.preventDefault();
     localStorage.setItem("email", Email);
     localStorage.setItem("password", Password);
   }
 
-  function LoginNow(evn) {
+  function loginNow(evn) {
     evn.preventDefault();
     const logEmail = localStorage.getItem("email");
     const LogPass = localStorage.getItem("password");
@@ -79,7 +80,7 @@ function SignIn() {
               </div>
             </div>
             {/* Form  */}
-            <form id="Login-Form" onSubmit={LoginNow} className="">
+            <form id="Login-Form" onSubmit={loginNow} className="">
               {/* User Email */}
               <div className="relative my-3">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
@@ -179,7 +180,7 @@ function SignIn() {
               </div>
             </div>
             {/* Form  */}
-            <form id="Sign-Up-Form" onSubmit={RegisterNow} className="">
+            <form id="Sign-Up-Form" onSubmit={registerNow} className="">
               {/* User Email */}
               <div className="relative my-3">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">

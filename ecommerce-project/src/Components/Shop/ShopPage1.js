@@ -50,10 +50,10 @@ function ShopPage1() {
             </li>
           </ul>
         </div>
-      <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-4 lg:gap-x-6">
+      <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-4 xl:grid-cols-5 justify-items-center gap-x-4 lg:gap-x-6">
           {ProductsData.map((Product,ind)=>{
             return(
-              <ProductsCard key={ind} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={" h-[26rem] w-[20rem]  "} />
+              <ProductsCard key={ind} id={Product.id} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={" h-[24rem] w-[18rem]  "} />
             )
           })}
       </div>

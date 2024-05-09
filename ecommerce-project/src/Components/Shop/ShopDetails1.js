@@ -9,7 +9,7 @@ import product_det_2  from "../../Assets/Icons/product-det-2.png"
 import product_det_3  from "../../Assets/Icons/product-det-3.png"
 import product_det_4  from "../../Assets/Icons/product-det-4.png"
 
-import "./ShopDetails1.css";
+import "./ShopDetails.css";
 
 // ICONS
 import { FaStar } from "react-icons/fa6";
@@ -75,7 +75,7 @@ function ShopDetails1() {
 
             <div className="info-heading-box mb-5">
               <div className="ShopD1-links flex items-center justify-start gap-x-2 mb-2">
-                <span class="bg-red-100 text-red-800 text-base font-semibold me-2 px-2.5 py-0.5 rounded">
+                <span className="bg-red-100 text-red-800 text-base font-semibold me-2 px-2.5 py-0.5 rounded">
                   Dress
                 </span>
 
@@ -94,7 +94,7 @@ function ShopDetails1() {
 
               <h1 className="text-3xl capitalize font-bold flex flex-wrap items-center justify-start gap-x-2 mb-2">
               Bradley Burgess 2
-                <span class="block mt-2 text-xs text-[#d51243] font-bold px-2.5 py-0.6 rounded border border-gray-500">
+                <span className="block mt-2 text-xs text-[#d51243] font-bold px-2.5 py-0.6 rounded border border-gray-500">
                   in Stock
                 </span>
               </h1>
