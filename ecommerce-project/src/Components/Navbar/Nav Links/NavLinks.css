@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    min-height: 52px;
 }
 
 #NavLink-wrapper .Nav-link .link-box{
@@ -23,7 +24,7 @@
 #NavLink-wrapper .Nav-link:hover .link-box{
     visibility: visible;
     display: block;
-    top: 47px;
+    top: 52px;
     height: auto;
     overflow:visible;
     opacity: 1;
@@ -55,7 +56,6 @@
 #NavLink-wrapper .Nav-link .head-link{
     font-size: 1rem;
     font-weight: 600;
-    
 }
 
 #NavLink-wrapper .Nav-link .head-link i{
@@ -77,6 +77,7 @@
 .Nav-link .links-warp li a{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
+    text-transform: capitalize !important;
     font-size: 1rem;
     padding: 0.5rem 4rem 1rem 0.3rem;
     display: block;
@@ -90,7 +91,7 @@
 
 .Nav-link .links-warp li h3{
     margin: 1rem 0px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }

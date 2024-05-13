@@ -4,25 +4,26 @@ import './Cart.css'
 
 import WishListImg1 from "../../Assets/Products Img/product17.jpg";
 import WishListImg2 from "../../Assets/Products Img/product9.jpg";
+import { BsArrowLeft } from "react-icons/bs";
 
 
-const wishItems = [
-  {
-    img: WishListImg1,
-    itemName: "Frederick Valdez",
-    itemPrice: 90,
-  },
-  {
-    img: WishListImg2,
-    itemName: "Carolyn Goodwin",
-    itemPrice: 50,
-  },
-];
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
+import { REMOVE_CART }  from '../../redux/actions/action'
+import { useDispatch } from 'react-redux';
 
 function Cart() {
-  let [total , setTotal] = useState([])
-  const QuantityCount = useRef(null)
+
+  const backToHome = useNavigate()
+  const dispatch = useDispatch()
+  function remove_cart (id) {
+    // console.log("id",id);
+    dispatch(REMOVE_CART(id))
+  }
+
+  const CartItems = useSelector((state)=> state.cartreducer.cartList )
+  console.log(CartItems);
   return (
     <div className="sm:container mx-auto">
       <section className="mx-auto w-full py-20">
@@ -80,15 +81,8 @@ function Cart() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {wishItems.map((WItem, ind) => {
-                                        
-                        function QuantityCountPrice () {
-                            const QInput = QuantityCount.current;
-                            let QValue =  QInput.value;
-                            let Total = QValue * WItem.itemPrice;
-                            setTotal(total = Total)
-                        }
-
+                    {CartItems.map((item, ind) => {
+                        let {firstProductImg,productName,Price,id} = item
                       return (
                         <tr key={ind} className="divide-x divide-gray-200">
                         <td className="whitespace-nowrap px-2 py-4">
@@ -96,20 +90,20 @@ function Cart() {
                             <div className="h-32 w-32 flex-shrink-0 mx-auto">
                               <img
                                 className="h-full w-full block mx-auto  object-cover"
-                                src={WItem.img}
-                                alt={WItem.itemName + "Img"}
+                                src={firstProductImg}
+                                alt={"Img"}
                               />
                             </div>
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-base font-semibold text-center">
-                            {WItem.itemName}
+                            {productName}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-center text-base font-medium">
-                            $ {WItem.itemPrice}
+                            {Price}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
@@ -119,22 +113,20 @@ function Cart() {
                               id="InputQuantity"
                               min={1}
                               defaultValue={1}
-                              ref={QuantityCount}
-                              onChange={QuantityCountPrice}
                               className="block InputQuantitys mx-auto outline-none py-4 px-3 font-semibold border border-gray-300 rounded-md text-lg"
                             />
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                         <h1 className="text-center text-base font-medium">
-                            $ {(total == null) ? WItem.itemPrice : total}
-                          </h1>
+                          {Price}
+                        </h1>
                         </td>
                         <td className="whitespace-nowrap ">
                             <div className="flex items-center justify-center">
-                                <a href="/">
+                                <button onClick={()=> remove_cart(id)}>
                                     Remove
-                                </a>
+                                </button>
                             </div>
                         </td>
                       </tr>
@@ -143,11 +135,14 @@ function Cart() {
                   </tbody>
 
                 </table>
-
-
               </div>
 
             </div>
+              
+              {!CartItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
+                            <BsArrowLeft />
+                            Back To Home
+              </button> : ""}
 
           </div>
           {/* End For Table Div */}
@@ -155,12 +150,12 @@ function Cart() {
             <ul className='flex flex-col md:flex-row items-stretch justify-between gap-y-3'>
               <li className='flex flex-col sm:flex-row items-stretch justify-start gap-x-3 gap-y-3'>
                 <input type="text" name="" id="" placeholder='Coupon code' className='text-black text-xl py-2.5 pl-2  rounded-md outline-none border ' />
-                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-2.5 rounded-md py-2.5 '>
+                <button id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-2.5 rounded-md py-2.5 '>
                   Apply Coupon
                 </button>
               </li>
               <li className='flex items-stretch justify-start'>
-                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                <button id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
                   Update cart
                 </button>
               </li>
@@ -177,7 +172,7 @@ function Cart() {
                   <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ 70.00</span></p>
                 </li>
                 <li className='mt-4'>
-                <button id='Coupon-BTN' className='BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                <button id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
                   Proceed to Checkout 
                 </button>
                 </li>

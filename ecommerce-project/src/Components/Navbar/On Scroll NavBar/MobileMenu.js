@@ -123,28 +123,28 @@ function MobileMenu({refs}) {
           <Link to="/shop2">shop 2</Link>
         </li>
         <li>
-          <Link to="/shopDetails">Shop details</Link>
+          <Link to="/shop-details">Shop details</Link>
         </li>
         <li>
-          <Link to="/shopDetails2">Shop details 2</Link>
+          <Link to="/shop-details2/1">Shop details 2</Link>
         </li>
         <li>
-          <Link to="/shopLocation">Shop Location</Link>
+          <Link to="/shop-location">Shop Location</Link>
         </li>
         <li>
           <Link to="/cart">Cart</Link>
         </li>
         <li>
-          <Link to="/signIn">sign in</Link>
+          <Link to="/sign-in">sign in</Link>
         </li>
         <li>
-          <Link to="/checkOut">checkout</Link>
+          <Link to="/checkout">checkout</Link>
         </li>
         <li>
-          <Link to="/whishList">whishList</Link>
+          <Link to="/wishlist">whishList</Link>
         </li>
         <li>
-          <Link to="/productTrack">Product Track</Link>
+          <Link to="/product-track">Product Track</Link>
         </li>
       </ul>
         </AccordionBody>
@@ -161,7 +161,7 @@ function MobileMenu({refs}) {
       >
         <AccordionHeader className="border-b-[1px]" >
         <Link
-            to="/pages"
+            to="/about"
             className="block w-full  hover:text-[#D51243] transition-all"
           >
             Pages
@@ -170,19 +170,19 @@ function MobileMenu({refs}) {
         <AccordionBody className="Accord-body pt-0" >
         <ul className="m-MenuLink">
           <li>
-            <Link to="/shopFilterV1">Shop Filter V1</Link>
+            <Link to="/shop">Shop Filter V1</Link>
           </li>
           <li>
-            <Link to="/shopFilterV2">Shop Filter V2</Link>
+            <Link to="/shop2">Shop Filter V2</Link>
           </li>
           <li>
-            <Link to="/shopSidebar">Shop Sidebar</Link>
+            <Link to="/shop-details">Shop Sidebar</Link>
           </li>
           <li>
-            <Link to="/shopRightSidebar">Shop Right Sidebar</Link>
+            <Link to="/shop-details2/1">Shop Right Sidebar</Link>
           </li>
           <li>
-            <Link to="/shopListView">Shop list View</Link>
+            <Link to="/shop-location">Shop list View</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
@@ -191,16 +191,16 @@ function MobileMenu({refs}) {
             <Link to="/cart">Cart</Link>
           </li>
           <li>
-            <Link to="/checkOut">Checkout</Link>
+            <Link to="/checkout">Checkout</Link>
           </li>
           <li>
-            <Link to="/signIn">Sign In</Link>
+            <Link to="/sign-in">Sign In</Link>
           </li>
           <li>
-            <Link to="/logIn">Log In</Link>
+            <Link to="/login">Log In</Link>
           </li>
           <li>
-            <Link to="/productTrack">Product Track</Link>
+            <Link to="/product-track">Product Track</Link>
           </li>
           <li>
             <Link to="/wishlist">Wishlist</Link>

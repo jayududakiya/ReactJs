@@ -8,12 +8,16 @@ import { CiHeart } from "react-icons/ci";
 
 import './NavButton.css'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function NavButton({className}) {
 
   const neviGetCart = useNavigate();
   const neviGetSignIn = useNavigate();
   const neviGetWishlist = useNavigate();
+
+  const Cart_count = useSelector((state)=> state.cartreducer.cartList );
+  const Wish_count = useSelector((state)=> state.cartreducer.wishList );
 
   const Classes = "navButton w-full flex items-center justify-around " + className;
   return (
@@ -22,7 +26,7 @@ function NavButton({className}) {
           <button type="button" onClick={()=>neviGetCart("/cart")} id="cartBtn">
             <BsCart3 className='react-i'/>
             <span id="cartCount" className="flex items-center justify-center ">
-              0
+              {Cart_count.length}
             </span>
           </button>
         </li>
@@ -37,7 +41,7 @@ function NavButton({className}) {
           <button type="button" id="likeBtn" onClick={()=> {neviGetWishlist("/wishlist")}}>
             <CiHeart className='react-i'/>
             <span id="likeCount" className="flex items-center justify-center ">
-              0
+            {Wish_count.length}
             </span>
           </button>
         </li>

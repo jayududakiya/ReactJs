@@ -15,13 +15,14 @@ function ShopPage1() {
     <section className="">
       <PageHeading goBackLink="Home" pageTitle="Shop" />
       <div className="ShopP1 sm:container mx-auto">
-        <div className="ShopP1-Item-Bar flex flex-wrap justify-between items-stretch mt-20 ">
+        <div className="ShopP1-Item-Bar flex flex-wrap gap-y-4 justify-between items-stretch mt-20 ">
+
           <h1 className="text-xl flex items-center justify-center gap-x-2 ">
             10
             <p className="text-slate-300  capitalize">Item On List</p>
           </h1>
 
-          <ul className="Shop-item-btn-box flex flex-wrap items-stretch justify-between gap-x-4">
+          <ul className="Shop-item-btn-box flex flex-col justify-center items-end gap-y-4 sm:flex-row sm:gap-y-0 sm:items-stretch sm:justify-between gap-x-4">
             <li>
               <button  className="clearAll text-white bg-[#D93444] rounded-md">Clear All</button>
             </li>
@@ -50,7 +51,7 @@ function ShopPage1() {
             </li>
           </ul>
         </div>
-      <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-4 xl:grid-cols-5 justify-items-center gap-x-4 lg:gap-x-6">
+      <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center gap-x-4 lg:gap-x-6">
           {ProductsData.map((Product,ind)=>{
             return(
               <ProductsCard key={ind} id={Product.id} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={" h-[24rem] w-[18rem]  "} />

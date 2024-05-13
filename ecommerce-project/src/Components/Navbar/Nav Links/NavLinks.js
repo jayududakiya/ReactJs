@@ -78,7 +78,7 @@ function NavLinks({className}) {
 
     <div id="pages" className="Nav-link">
       <Link
-        to="/pages"
+        to="/about"
         className="head-link poppins-regular flex items-center transition-all"
       >
         Pages <i className="ml-2 fa-solid fa-angle-down text-[1.1rem]"></i>
@@ -93,16 +93,16 @@ function NavLinks({className}) {
             <Link to="/shop">Shop Filter V1</Link>
           </li>
           <li>
-            <Link to="/shop-filterV2">Shop Filter V2</Link>
+            <Link to="/shop2">Shop Filter V2</Link>
           </li>
           <li>
-            <Link to="/shop-sidebar">Shop Sidebar</Link>
+            <Link to="/shop-details">Shop Sidebar</Link>
           </li>
           <li>
-            <Link to="/shop-right-sidebar/1">Shop Right Sidebar</Link>
+            <Link to="/shop-details2/1">Shop Right Sidebar</Link>
           </li>
           <li>
-            <Link to="/shop-listview">Shop list View</Link>
+            <Link to="/shop-location">Shop list View</Link>
           </li>
         </ul>
         {/* Page layout 2  */}

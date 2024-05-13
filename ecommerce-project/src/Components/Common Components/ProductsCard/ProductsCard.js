@@ -9,12 +9,30 @@ import { LuArrowDownUp } from "react-icons/lu";
 import { ImEye } from "react-icons/im";
 import { CiHeart } from "react-icons/ci";
 
+import { useDispatch } from 'react-redux';
+import {ADD_CART , ADD_WISHLIST} from '../../../redux/actions/action'
+
 import './ProductsCard.css'
 
-function ProductsCard({id=1,firstProductImg,secondeProductImg,productName,Price,className}) {
+function ProductsCard(Product_data) {
+
+    let {id=1,firstProductImg,secondeProductImg,productName,Price,className} = Product_data;
+
+    const dispatch = useDispatch()
+
+    const Cart_Data = (Product_data) =>{
+        dispatch(ADD_CART(Product_data))
+    }
+
+    const Wish_Data = (Product_data) =>{
+        dispatch(ADD_WISHLIST(Product_data))
+    }
+
     let  Classes = className += " ProductCard ";
+
     const shopDetailsPage = useNavigate();
-    const ChangePage = useNavigate();
+    const neviGetWishlist = useNavigate();
+
   return (
     <div id='PRODUCTCARD' className={Classes}>
         <div className='ProductCard-Head mx-3.5 my-3 relative'>
@@ -25,12 +43,12 @@ function ProductsCard({id=1,firstProductImg,secondeProductImg,productName,Price,
             <div className='ProductCard-Buttons mx-auto flex items-stretch justify-center rounded-md absolute '>
                     <ul className='bg-white w-full flex items-center justify-evenly rounded-md'>
                     <li className='flex items-center justify-center'>
-                        <button className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>Cart_Data(Product_data)} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
                             <CiShoppingBasket  className='text-2xl' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
-                        <button onClick={()=>ChangePage("/wishlist")} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>neviGetWishlist("/wishlist")} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
                         <LuArrowDownUp className='text-2xl rotate-90' />
                         </button>
                     </li>
@@ -40,7 +58,7 @@ function ProductsCard({id=1,firstProductImg,secondeProductImg,productName,Price,
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
-                        <button className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>Wish_Data(Product_data)}  className='flex items-center justify-center hover:text-[#D51243] transition-all'>
                             <CiHeart className='text-2xl' />
                         </button>
                     </li>

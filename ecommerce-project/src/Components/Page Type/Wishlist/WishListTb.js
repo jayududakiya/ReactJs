@@ -1,32 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./WishListTb.css";
 
 import WishListImg1 from "../../../Assets/Products Img/product17.jpg";
 import WishListImg2 from "../../../Assets/Products Img/product9.jpg";
 
+import { useSelector } from "react-redux";
 
-const wishItems = [
-  {
-    img: WishListImg1,
-    itemName: "Frederick Valdez",
-    itemPrice: 90,
-  },
-  {
-    img: WishListImg2,
-    itemName: "Carolyn Goodwin",
-    itemPrice: 50,
-  },
-  {
-    img: WishListImg2,
-    itemName: "Carolyn Goodwin",
-    itemPrice: 10,
-  },
-];
+import { REMOVE_WISHLIST } from "../../../redux/actions/action";
+import { useDispatch } from "react-redux";
+
 
 function WishListTb() {
-    let [total , setTotal] = useState([])
-    const QuantityCount = useRef(null)
-    
+
+  const wishItems = useSelector(state => state.cartreducer.wishList)
+  const dispatch = useDispatch()
+  const Remove_list = (id) => {
+    // console.log(id);
+    dispatch(REMOVE_WISHLIST(id))
+  }
 
   return (
     <div className="sm:container mx-auto">
@@ -85,36 +76,31 @@ function WishListTb() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {wishItems.map((WItem, ind) => {
-                                        
-                        function QuantityCountPrice () {
-                            const QInput = QuantityCount.current;
-                            let QValue =  QInput.value;
-                            let Total = QValue * WItem.itemPrice;
-                            setTotal(total = Total)
-                        }
 
+                    {wishItems.map((item , ind) => {
+                      let {firstProductImg,productName,Price,id} = item
                       return (
+
                         <tr key={ind} className="divide-x divide-gray-200">
                         <td className="whitespace-nowrap px-2 py-4">
                           <div className="flex items-center">
                             <div className="h-32 w-32 flex-shrink-0 mx-auto">
                               <img
                                 className="h-full w-full block mx-auto  object-cover"
-                                src={WItem.img}
-                                alt={WItem.itemName + "Img"}
+                                src={firstProductImg}
+                                alt={productName + "Img"}
                               />
                             </div>
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-base font-semibold text-center">
-                            {WItem.itemName}
+                            {productName}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-center text-base font-medium">
-                            $ {WItem.itemPrice}
+                            $ {Price}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
@@ -124,15 +110,13 @@ function WishListTb() {
                               id="InputQuantity"
                               min={1}
                               defaultValue={1}
-                              ref={QuantityCount}
-                              onChange={QuantityCountPrice}
                               className="block InputQuantitys mx-auto outline-none py-4 px-3 font-semibold border border-gray-300 rounded-md text-lg"
                             />
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                         <h1 className="text-center text-base font-medium">
-                            $ {(total == null) ? WItem.itemPrice : total}
+                          {Price}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap ">
@@ -144,14 +128,17 @@ function WishListTb() {
                         </td>
                         <td className="whitespace-nowrap ">
                             <div className="flex items-center justify-center">
-                                <a href="/">
-                                    Remove
-                                </a>
+                              <button onClick={()=> Remove_list(id)}>
+                                  Remove
+                              </button>
                             </div>
                         </td>
                       </tr>
+
                       )
+
                     })}
+
                   </tbody>
                 </table>
               </div>

@@ -20,13 +20,13 @@ function ShopPage2() {
 
       <div className="ShopP2 sm:container mx-auto grid grid-cols-12 gap-x-3 pt-20">
         <div className="ShopP2-Card-warp col-span-12 lg:col-span-10 ">
-          <div className="ShopP2-Item-Bar flex flex-wrap justify-between items-stretch ">
+          <div className="ShopP2-Item-Bar flex flex-wrap gap-y-4 justify-between items-stretch ">
             <h1 className="text-xl flex items-center justify-center gap-x-2 ">
               10
               <p className="text-slate-300  capitalize">Item On List</p>
             </h1>
 
-            <ul className="Shop-item-btn-box flex flex-wrap items-stretch justify-between gap-x-4">
+            <ul className="Shop-item-btn-box flex  flex-col justify-center items-end gap-y-4  sm:flex-row sm:gap-y-0 sm:items-stretch sm:justify-between gap-x-4">
               <li>
                 <button className="clearAll text-white bg-[#D93444] rounded-md">
                   Clear All
@@ -47,7 +47,7 @@ function ShopPage2() {
                   <option>30 Per Page</option>
                 </select>
               </li>
-              <li className="item-show-btn flex flex-col sm:flex-row items-stretch justify-center gap-x-2">
+              <li className="item-show-btn flex flex-col sm:flex-row gap-y-2 items-stretch justify-center gap-x-2">
                 <button className="flex items-center justify-center">
                   <IoListOutline className="text-2xl" />
                 </button>
@@ -58,7 +58,7 @@ function ShopPage2() {
             </ul>
           </div>
 
-          <div className="ShopP2-card-warp py-10  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-2">
+          <div className="ShopP2-card-warp py-10  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-x-2">
             {ProductsData.map((Product, ind) => {
               return (
                 <ProductsCard
