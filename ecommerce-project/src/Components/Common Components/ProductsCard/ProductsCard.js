@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link ,useNavigate } from 'react-router-dom'
+
 
 // icons import
 import { FaStar } from "react-icons/fa6";
@@ -9,12 +10,60 @@ import { LuArrowDownUp } from "react-icons/lu";
 import { ImEye } from "react-icons/im";
 import { CiHeart } from "react-icons/ci";
 
-import { useDispatch } from 'react-redux';
+// REDUX
+import { useDispatch , useSelector} from 'react-redux';
 import {ADD_CART , ADD_WISHLIST} from '../../../redux/actions/action'
 
+// STYLE
 import './ProductsCard.css'
 
+// ALERT 
+import {toast} from "react-toastify";
+
+const showSuccessMessage = (text) => {
+  toast.success(text, {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+};
+
+const showErrorMessage = (text) => {
+  toast.error(text, {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+};
+
+const showMessage = (text) => {
+  toast(text, {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+};
+
 function ProductsCard(Product_data) {
+    const cartItems = useSelector(state =>  state.cartReducer.cartList)
+    const [cartCount,setCartCount] = useState(null)
+    const wishItem = useSelector(state =>  state.cartReducer.wishList)
+    const [wishCount,setWishCount] = useState(null)
 
     let {id=1,firstProductImg,secondeProductImg,productName,Price,className} = Product_data;
 
@@ -22,13 +71,27 @@ function ProductsCard(Product_data) {
 
     const Cart_Data = (Product_data) =>{
         dispatch(ADD_CART(Product_data))
+        setCartCount(cartItems.length)
+        if(cartCount === null){
+            showSuccessMessage("this Item Was Added In Cart")
+        }
+        else{
+            showErrorMessage("This Item Is Already In The Cart")
+        }
     }
 
     const Wish_Data = (Product_data) =>{
         dispatch(ADD_WISHLIST(Product_data))
+        setWishCount(wishItem.length)
+        if(wishCount === null){
+            showSuccessMessage("this Item Was Added In WishList")
+        }
+        else{
+            showMessage("❤ This Item Is Already In The WishList")
+        }
     }
 
-    let  Classes = className += " ProductCard ";
+    let  Classes = className += " ProductCard  PRODUCTCARD  ";
 
     const shopDetailsPage = useNavigate();
     const neviGetWishlist = useNavigate();
@@ -41,15 +104,15 @@ function ProductsCard(Product_data) {
                 <img src={secondeProductImg} alt={productName + "image"} className='black object-contain mx-auto absolute top-0 z-[1]' />
             </Link>
             <div className='ProductCard-Buttons mx-auto flex items-stretch justify-center rounded-md absolute '>
-                    <ul className='bg-white w-full flex items-center justify-evenly rounded-md'>
+                    <ul id={id} className='bg-white w-full flex items-center justify-evenly rounded-md'>
                     <li className='flex items-center justify-center'>
-                        <button onClick={()=>Cart_Data(Product_data)} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                        <button onClick={()=>Cart_Data(Product_data)} className='flex items-stretch justify-center hover:text-[#D51243] transition-all'>
                             <CiShoppingBasket  className='text-2xl' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
                         <button onClick={()=>neviGetWishlist("/wishlist")} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
-                        <LuArrowDownUp className='text-2xl rotate-90' />
+                        <LuArrowDownUp className='text-2xl rotate-90 ' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
@@ -57,9 +120,9 @@ function ProductsCard(Product_data) {
                             <ImEye className='text-2xl' />
                         </button>
                     </li>
-                    <li className='flex items-center justify-center'>
-                        <button onClick={()=>Wish_Data(Product_data)}  className='flex items-center justify-center hover:text-[#D51243] transition-all'>
-                            <CiHeart className='text-2xl' />
+                    <li className='flex items-center justify-center '>
+                        <button  onClick={()=>Wish_Data(Product_data)}  className='flex items-center justify-center hover:text-[#D51243] transition-all'>
+                            <CiHeart className='text-2xl ' />
                         </button>
                     </li>
                     </ul>

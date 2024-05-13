@@ -3,11 +3,17 @@ const initial_state = {
     wishList : []
 }
 
-export const cartreducer = (state=initial_state,action) => {
+export const cartReducer = (state=initial_state,action) => {
     switch (action.type) {
-        case "ADD_TO_CART" : return {
-            ...state,
-            cartList:[...state.cartList,action.payload]
+        case "ADD_TO_CART" : { 
+            let FindCart = state.cartList.find(data => data.id == action.payload.id)
+            if(FindCart == undefined){
+                return {
+                ...state,
+                cartList:[...state.cartList,action.payload]}
+            }else{
+                return state
+            }
         }
         case "REMOVE_TO_CART" : {
             state.cartList = state.cartList.filter((data)=>data.id !== action.payload)
@@ -16,9 +22,22 @@ export const cartreducer = (state=initial_state,action) => {
                 cartList:[...state.cartList]
             }
         }
-        case "ADD_TO_WISHLIST" : return {
-            ...state,
-            wishList:[...state.wishList,action.payload]
+        default : return state;
+    }
+}
+
+
+export const wishReducer = (state=initial_state,action) => {
+    switch (action.type) {
+        case "ADD_TO_WISHLIST" :{
+            let FindWish = state.wishList.find(data => data.id == action.payload.id)  
+            if(FindWish == undefined){ 
+                return {
+                ...state,
+                wishList:[...state.wishList,action.payload]}
+            }else{
+                return state
+            }
         }
         case "REMOVE_TO_WISHLIST" : {
             state.wishList = state.wishList.filter((data)=>data.id !== action.payload)
@@ -27,6 +46,6 @@ export const cartreducer = (state=initial_state,action) => {
                 wishList:[...state.wishList]
             }
         }
-        default : return state;
+        default : return state ;
     }
 }

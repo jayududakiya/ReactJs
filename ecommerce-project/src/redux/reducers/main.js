@@ -1,10 +1,11 @@
 // combine all the reducer here and then send to store 
 
 import { combineReducers } from "redux";
-import { cartreducer } from "./reducer";
+import { cartReducer , wishReducer } from "./reducer";
 
 const rootreducer = combineReducers({
-    cartreducer
+    cartReducer,
+    wishReducer
 })
 
 

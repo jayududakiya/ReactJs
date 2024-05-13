@@ -30,7 +30,6 @@ import ScrollToTop from './Components/Common Components/Scroll To Top/ScrollToTo
 import { Provider } from 'react-redux';
 import Store from './store'
 
-console.log(Store);
 function App() {
   return (
     <div className="App mt-[124px] xl:mt-0">

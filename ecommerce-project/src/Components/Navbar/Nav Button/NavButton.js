@@ -16,8 +16,8 @@ function NavButton({className}) {
   const neviGetSignIn = useNavigate();
   const neviGetWishlist = useNavigate();
 
-  const Cart_count = useSelector((state)=> state.cartreducer.cartList );
-  const Wish_count = useSelector((state)=> state.cartreducer.wishList );
+  const Cart_count = useSelector((state)=> state.cartReducer.cartList );
+  const Wish_count = useSelector((state)=> state.wishReducer.wishList );
 
   const Classes = "navButton w-full flex items-center justify-around " + className;
   return (

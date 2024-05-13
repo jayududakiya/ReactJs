@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./WishListTb.css";
 
-import WishListImg1 from "../../../Assets/Products Img/product17.jpg";
-import WishListImg2 from "../../../Assets/Products Img/product9.jpg";
-
 import { useSelector } from "react-redux";
-
+import { BsArrowLeft } from "react-icons/bs";
 import { REMOVE_WISHLIST } from "../../../redux/actions/action";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 function WishListTb() {
 
-  const wishItems = useSelector(state => state.cartreducer.wishList)
+  const backToHome = useNavigate()
+
+  const wishItems = useSelector(state => state.wishReducer.wishList)
   const dispatch = useDispatch()
   const Remove_list = (id) => {
     // console.log(id);
@@ -142,6 +142,11 @@ function WishListTb() {
                   </tbody>
                 </table>
               </div>
+
+              {!wishItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
+                            <BsArrowLeft />
+                            Back To Home
+              </button> : ""}
             </div>
           </div>
         </div>

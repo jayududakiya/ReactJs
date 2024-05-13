@@ -2,8 +2,6 @@ import React , { useRef, useState } from 'react'
 
 import './Cart.css'
 
-import WishListImg1 from "../../Assets/Products Img/product17.jpg";
-import WishListImg2 from "../../Assets/Products Img/product9.jpg";
 import { BsArrowLeft } from "react-icons/bs";
 
 
@@ -22,7 +20,8 @@ function Cart() {
     dispatch(REMOVE_CART(id))
   }
 
-  const CartItems = useSelector((state)=> state.cartreducer.cartList )
+  const CartItems = useSelector((state)=> state.cartReducer.cartList )
+  
   console.log(CartItems);
   return (
     <div className="sm:container mx-auto">
