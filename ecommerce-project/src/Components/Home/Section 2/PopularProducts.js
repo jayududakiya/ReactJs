@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React from "react";
 
 // Data 
 import ProductsData from "../../Data/ProductsData";
@@ -13,49 +13,8 @@ import '../Style/HomeResponsive.css'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-// const showToastMessage = (text) => {
-//   toast.success(text, {
-//     position: "bottom-right",
-//     autoClose: 2000,
-//     hideProgressBar: false,
-//     closeOnClick: true,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-//     theme: "colored",
-//     });
-// };
-
-// window.addEventListener('click',(evn)=>{
-//   let Elem = evn.target;
-//   if(Elem.classList.contains("Cart_icon")){
-//     showToastMessage('This Item Added To Cart')
-//   }else{
-//     console.log("hello")
-//     console.log(Elem);
-//   }
-// },true)
-
 
 function PopularProducts() {
-
-
-  // useEffect(()=>{
-  //   if(CartItems.length <= 0){
-  //     console.log("NO Alert ");
-  //   }else{
-  //     // showToastMessage(' This Item Added To Cart')
-  //     // showToastMessage(' This Item Added To Cart')
-  //   }
-  // },[CartItems])
-
-  // useEffect(()=>{
-  //   if(wishItems.length <= 0){
-  //     console.log("NO Alert ");
-  //   }else{
-  //     showToastMessage(' This Item Added To Wish List')
-  //   }
-  // },[wishItems])
 
 
   return (
@@ -99,7 +58,7 @@ function PopularProducts() {
 
           {ProductsData.map((Product,ind)=>{
             return(
-              <ProductsCard  key={ind} id={Product.id} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg}  productName={Product.name} Price={Product.price} className={" h-[24rem] w-[18rem] "} />
+              <ProductsCard  key={ind} id={Product.id} FirstImg={Product.FirstImg} SecondeImg={Product.SecondeImg} quantity={Product.quantity}  name={Product.name} price={Product.price} className={" h-[24rem] w-[18rem] "} />
             )
           })}
 

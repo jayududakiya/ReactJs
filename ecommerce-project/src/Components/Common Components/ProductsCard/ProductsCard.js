@@ -46,18 +46,6 @@ const showErrorMessage = (text) => {
     });
 };
 
-const showMessage = (text) => {
-  toast(text, {
-    position: "bottom-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    });
-};
 
 function ProductsCard(Product_data) {
     const cartItems = useSelector(state =>  state.cartReducer.cartList)
@@ -65,7 +53,7 @@ function ProductsCard(Product_data) {
     const wishItem = useSelector(state =>  state.cartReducer.wishList)
     const [wishCount,setWishCount] = useState(null)
 
-    let {id=1,firstProductImg,secondeProductImg,productName,Price,className} = Product_data;
+    let {id=1,FirstImg,SecondeImg,name,price,className} = Product_data;
 
     const dispatch = useDispatch()
 
@@ -73,10 +61,10 @@ function ProductsCard(Product_data) {
         dispatch(ADD_CART(Product_data))
         setCartCount(cartItems.length)
         if(cartCount === null){
-            showSuccessMessage("this Item Was Added In Cart")
+            showSuccessMessage("Your item has been added to the cart list!")
         }
         else{
-            showErrorMessage("This Item Is Already In The Cart")
+            showErrorMessage("Item already in cart. Please review and checkout promptly.")
         }
     }
 
@@ -84,14 +72,14 @@ function ProductsCard(Product_data) {
         dispatch(ADD_WISHLIST(Product_data))
         setWishCount(wishItem.length)
         if(wishCount === null){
-            showSuccessMessage("this Item Was Added In WishList")
+            showSuccessMessage("Your item has been added to the Wish list!")
         }
         else{
-            showMessage("❤ This Item Is Already In The WishList")
+            showErrorMessage("Item already in Wish List. Please review and checkout promptly.")
         }
     }
 
-    let  Classes = className += " ProductCard  PRODUCTCARD  ";
+    let  Classes = className += " ProductCard  ";
 
     const shopDetailsPage = useNavigate();
     const neviGetWishlist = useNavigate();
@@ -100,8 +88,8 @@ function ProductsCard(Product_data) {
     <div id='PRODUCTCARD' className={Classes}>
         <div className='ProductCard-Head mx-3.5 my-3 relative'>
             <Link id='ProductCard-link' to={`/shop-details2/${id}`} className='block rounded-md overflow-hidden relative '>
-                <img src={firstProductImg} alt={productName + "image"} className='black object-contain w-full h-full mx-auto ' />
-                <img src={secondeProductImg} alt={productName + "image"} className='black object-contain mx-auto absolute top-0 z-[1]' />
+                <img src={FirstImg} alt={name + "image"} className='black object-contain w-full h-full mx-auto ' />
+                <img src={SecondeImg} alt={name + "image"} className='black object-contain mx-auto absolute top-0 z-[1]' />
             </Link>
             <div className='ProductCard-Buttons mx-auto flex items-stretch justify-center rounded-md absolute '>
                     <ul id={id} className='bg-white w-full flex items-center justify-evenly rounded-md'>
@@ -112,7 +100,7 @@ function ProductsCard(Product_data) {
                     </li>
                     <li className='flex items-center justify-center'>
                         <button onClick={()=>neviGetWishlist("/wishlist")} className='flex items-center justify-center hover:text-[#D51243] transition-all'>
-                        <LuArrowDownUp className='text-2xl rotate-90 ' />
+                            <LuArrowDownUp className='text-2xl rotate-90 ' />
                         </button>
                     </li>
                     <li className='flex items-center justify-center'>
@@ -129,8 +117,8 @@ function ProductsCard(Product_data) {
             </div>
         </div>
         <div className='ProductCard-body mx-3.5'>
-            <Link to={`/shop-details2/${id}`} className='text-[1rem] capitalize block text-gray-400 ' >{productName}</Link>
-            <p className='text-[1.1rem] font-bold mt-1'>{Price}</p>
+            <Link to={`/shop-details2/${id}`} className='text-[1rem] capitalize block text-gray-400 ' >{name}</Link>
+            <p className='text-[1.1rem] font-bold mt-1'> $ {price} </p>
         </div>
         <div className='ProductCard-Review flex items-center justify-between mt-1 px-3.5'>
             <ul className='ProductCard-Colors'>

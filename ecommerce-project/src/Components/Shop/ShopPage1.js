@@ -9,6 +9,7 @@ import './ShopPage.css'
 //ICONS
 import { IoListOutline } from "react-icons/io5";
 import { BsGrid3X3 } from "react-icons/bs";
+import { ToastContainer } from "react-toastify";
 
 function ShopPage1() {
   return (
@@ -54,11 +55,12 @@ function ShopPage1() {
       <div className="ShopP1-card-warp py-20  flex flex-wrap items-center justify-center lg:grid lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center gap-x-4 lg:gap-x-6">
           {ProductsData.map((Product,ind)=>{
             return(
-              <ProductsCard key={ind} id={Product.id} firstProductImg={Product.FirstImg} secondeProductImg={Product.SecondeImg} productName={Product.name} Price={Product.price} className={" h-[24rem] w-[18rem]  "} />
+              <ProductsCard key={ind} id={Product.id} FirstImg={Product.FirstImg} SecondeImg={Product.SecondeImg} name={Product.name} price={Product.price} quantity={Product.quantity} className={" h-[24rem] w-[18rem]  "} />
             )
           })}
       </div>
     </div>
+    <ToastContainer />
     </section>
   );
 }

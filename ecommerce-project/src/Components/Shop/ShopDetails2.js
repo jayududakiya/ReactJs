@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React  from "react";
 import ProductsData from '../Data/ProductsData'
 import {Link , useParams} from 'react-router-dom'
 import PageHeading from "../Common Components/PageHeading/PageHeading";
@@ -23,23 +23,46 @@ import { FaBehance } from "react-icons/fa";
 import { BsYoutube } from "react-icons/bs";
 import { RxLinkedinLogo } from "react-icons/rx";
 
+//redux
+import { useDispatch } from "react-redux"; 
+import {ADD_CART,ADD_WISHLIST,CART_QUT_DECREASE,CART_QUT_INCREASE} from '../../redux/actions/action'
 
 
 
+// main function
 function ShopDetails2() {
-  const [prodCount , setProdCount ] = useState(1);
-  if(prodCount <= 0){
-    setProdCount(1)
-  } 
 
+  
   // URL ID
   const ID =  useParams();
   const ProductInfo = ProductsData.filter((ProductsData)=>{
     return (ProductsData.id === Number(ID.id))
   })
+  
+  const {name,price,FirstImg,SecondeImg,id,quantity} = ProductInfo[0]
+  
+  const dispatch = useDispatch();
+  
+  // Product Quantity
+  // const increment_Qut = (ProductInfo) => {
+  //   console.log(ProductInfo);
+  //   Add_cart(ProductInfo)
+  //   dispatch(CART_QUT_INCREASE(ProductInfo))
+  // }
+  // const decrease_Qut = (ProductInfo) => {
+  //   dispatch(CART_QUT_DECREASE(ProductInfo))
+  // }
 
-  const {name,price,FirstImg,SecondeImg,id} = ProductInfo[0]
 
+  
+  // Add To cart DATA 
+  const Add_cart = (ProductInfo) => {
+    dispatch(ADD_CART(ProductInfo))
+  }
+  // Add To wishlist DATA 
+  const ADD_wish = (ProductInfo) => {
+    dispatch(ADD_WISHLIST(ProductInfo))
+  }
   
 
   return (
@@ -56,6 +79,7 @@ function ShopDetails2() {
             <img src={SecondeImg} alt=".." className="rounded-lg block object-contain " />
 
         </div>
+
       </div>
 
         <div className="ShopD2-info col-span-12 px-4 md:px-0 md:col-span-8 lg:sticky lg:top-[140px] lg:h-[max-content] lg:col-span-5 ">
@@ -79,7 +103,6 @@ function ShopDetails2() {
             </div>
 
             <h1 className="text-3xl capitalize font-bold flex flex-wrap items-center justify-start gap-x-2 mb-2">
-              {/* Bradley Burgess 2 */}
               {name}
               <span className="block mt-2 text-xs text-[#d51243] font-bold px-2.5 py-0.6 rounded border border-gray-500">
                 in Stock
@@ -90,7 +113,7 @@ function ShopDetails2() {
               <span className="text-[#CFCFCF] line-through text-2xl pe-1.5 mt-2">
                 $9.35
               </span>
-              {price}
+              $ {price}
             </h1>
 
             <p className="text-base capitalize  text-gray-400 mt-6">
@@ -105,31 +128,29 @@ function ShopDetails2() {
               <p className="count-buttons flex justify-center items-stretch border border-[#CFCFCF] gap-x-3 text-2xl p-3.5 rounded-md">
                 <button
                   className="flex items-center text-[#CFCFCF]"
-                  onClick={() => {
-                    setProdCount(prodCount - 1);
-                  }}
-                >
+                  // onClick={() =>decrease_Qut(ProductInfo[0])}
+                  >
                   <LuMinus className="text-xl" />
                 </button>
-                {prodCount}
+                {quantity}
                 <button
                   className="flex items-center text-[#CFCFCF]"
-                  onClick={() => {
-                    setProdCount(prodCount + 1);
-                  }}
+                  // onClick={() =>increment_Qut(ProductInfo[0])}
                 >
                   <FiPlus className="text-xl" />
                 </button>
               </p>
             </li>
             <li className="flex items-stretch justify-center">
-              <button className="text-xl font-semibold text-white flex items-center justify-center bg-[#d51243] gap-x-3 py-3.5 px-6 rounded-md hover:bg-black transition-all">
+              <button
+               onClick={()=>Add_cart(ProductInfo[0])} 
+               className="text-xl font-semibold text-white flex items-center justify-center bg-[#d51243] gap-x-3 py-3.5 px-6 rounded-md hover:bg-black transition-all">
                 <BsCart2 className="" />
                 Add to Cart
               </button>
             </li>
             <li className="flex items-stretch justify-center">
-              <button className="flex items-center justify-center py-3.5 px-4 text-gray-400  border border-[#CFCFCF] rounded-md hover:bg-[#d51243] hover:text-[#CFCFCF] transition-all">
+              <button onClick={()=>ADD_wish(ProductInfo[0])} className="flex items-center justify-center py-3.5 px-4 text-gray-400  border border-[#CFCFCF] rounded-md hover:bg-[#d51243] hover:text-[#CFCFCF] transition-all">
                 <CiHeart className="text-2xl" />
               </button>
             </li>
@@ -316,6 +337,7 @@ function ShopDetails2() {
           </div>
 
         </div>
+        {/* <ToastContainer/> */}
       </div>
     </section>
   );

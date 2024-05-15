@@ -1,22 +1,82 @@
 import React from "react";
 import "./WishListTb.css";
 
-import { useSelector } from "react-redux";
+//ICONS
 import { BsArrowLeft } from "react-icons/bs";
-import { REMOVE_WISHLIST } from "../../../redux/actions/action";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { VscTriangleUp , VscTriangleDown} from "react-icons/vsc";
+
+// REDUX
+import { ADD_CART , REMOVE_WISHLIST, WISH_QUT_INCREASE ,WISH_QUT_DECREASE } from "../../../redux/actions/action";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+
+// Alert
+import { ToastContainer, toast,Flip,Zoom } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+const ShowSuccessAlert  = (text) => {
+  
+toast.success(text, {
+  position: "bottom-right",
+  autoClose: 3000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  transition: Flip,
+  });
+}
+
+
+const ShowErrorAlert = (text) => {
+   toast.error(text, {
+  position: "bottom-right",
+  autoClose: 3000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  transition: Zoom,
+  })
+}
 
 
 function WishListTb() {
-
   const backToHome = useNavigate()
 
   const wishItems = useSelector(state => state.wishReducer.wishList)
+  
+  // DISPATCH
   const dispatch = useDispatch()
+
+  // WISHLIST 
   const Remove_list = (id) => {
-    // console.log(id);
     dispatch(REMOVE_WISHLIST(id))
+    ShowErrorAlert('a quick reminder that you have an item that removed from the list')
+  }
+
+  // WISHLIST TO CART 
+  const ADD_cart = (item) => {
+    dispatch(ADD_CART(item))
+    dispatch(REMOVE_WISHLIST(item.id))
+    ShowSuccessAlert('Your item has been added to the cart list!')
+  }
+
+  // increment_Qut
+  const increment_Qut = (item) => {
+    //console.log(item);
+    dispatch(WISH_QUT_INCREASE(item))
+  }
+
+  const decrease_Qut = (item) => {
+    //console.log(item);
+    dispatch(WISH_QUT_DECREASE(item))
   }
 
   return (
@@ -51,7 +111,7 @@ function WishListTb() {
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-center text-lg capitalize font-medium"
+                        className="px-12 py-3.5 text-center text-lg capitalize font-medium"
                       >
                         Quantity
                       </th>
@@ -78,7 +138,7 @@ function WishListTb() {
                   <tbody className="divide-y divide-gray-200 bg-white">
 
                     {wishItems.map((item , ind) => {
-                      let {firstProductImg,productName,Price,id} = item
+                      let {FirstImg,name,price,id,quantity} = item
                       return (
 
                         <tr key={ind} className="divide-x divide-gray-200">
@@ -87,41 +147,39 @@ function WishListTb() {
                             <div className="h-32 w-32 flex-shrink-0 mx-auto">
                               <img
                                 className="h-full w-full block mx-auto  object-cover"
-                                src={firstProductImg}
-                                alt={productName + "Img"}
+                                src={FirstImg}
+                                alt={name + "Img"}
                               />
                             </div>
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-base font-semibold text-center">
-                            {productName}
+                            {name}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-center text-base font-medium">
-                            $ {Price}
+                            $ {price}
                           </h1>
                         </td>
-                        <td className="whitespace-nowrap">
-                          <div className="">
-                            <input
-                              type="number"
-                              id="InputQuantity"
-                              min={1}
-                              defaultValue={1}
-                              className="block InputQuantitys mx-auto outline-none py-4 px-3 font-semibold border border-gray-300 rounded-md text-lg"
-                            />
+                        <td className="whitespace-nowrap px-2">
+                          <div className="quantity_input border rounded-md flex items-center justify-between p-4 cursor-pointer">
+                            <p className='text-xl font-semibold'>{quantity}</p>
+                            <p className='QUT-btn flex flex-col items-stretch justify-center opacity-0'>
+                              <button onClick={()=>increment_Qut(item)} className='INCREASE_count flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-all py-[1.5px]' ><VscTriangleUp className='text-sm' /></button>
+                              <button onClick={()=>decrease_Qut(item)} className='DECREASE_count flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-all p-[1.5px]'><VscTriangleDown className='text-sm' /></button>
+                            </p>
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                         <h1 className="text-center text-base font-medium">
-                          {Price}
+                          $ {quantity * price}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap ">
                             <div className="flex items-center justify-center">
-                                <button id="addToCart-btn" className="BtnCase inline-block border h-14 w-[150px] rounded-md bg-[#D51243] text-white font-medium text-base relative">
+                                <button onClick={()=>ADD_cart(item)} id="addToCart-btn" className="BtnCase inline-block border h-14 w-[150px] rounded-md bg-[#D51243] text-white font-medium text-base relative">
                                     Add To Cart
                                 </button>
                             </div>
@@ -142,13 +200,15 @@ function WishListTb() {
                   </tbody>
                 </table>
               </div>
-
+            </div>
+          </div>
+              {/* Alert  */}
+              <ToastContainer/>
+              {/* Button */}
               {!wishItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
                             <BsArrowLeft />
                             Back To Home
               </button> : ""}
-            </div>
-          </div>
         </div>
       </section>
     </div>

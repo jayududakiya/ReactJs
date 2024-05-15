@@ -11,6 +11,7 @@ import "./ShopPage.css";
 //ICONS
 import { IoListOutline } from "react-icons/io5";
 import { BsGrid3X3 } from "react-icons/bs";
+import { ToastContainer } from "react-toastify";
 
 function ShopPage2() {
   const [value , setValue] = useState([9, 100])
@@ -64,15 +65,18 @@ function ShopPage2() {
                 <ProductsCard
                   key={ind}
                   id={Product.id} 
-                  firstProductImg={Product.FirstImg}
-                  secondeProductImg={Product.SecondeImg}
-                  productName={Product.name}
-                  Price={Product.price}
+                  FirstImg={Product.FirstImg}
+                  SecondeImg={Product.SecondeImg}
+                  name={Product.name}
+                  price={Product.price}
+                  quantity={Product.quantity}
                   className={" h-[22.5rem] w-[17rem] "}
                 />
               );
             })}
           </div>
+            {/* alert */}
+          
         </div>
 
         <aside className="col-span-12 lg:col-span-2 ">
@@ -328,6 +332,7 @@ function ShopPage2() {
           </ul>
         </aside>
       </div>
+      <ToastContainer  />
     </section>
   );
 }

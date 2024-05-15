@@ -1,28 +1,81 @@
-import React , { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import './Cart.css'
 
+// ICONS
 import { BsArrowLeft } from "react-icons/bs";
+import { VscTriangleUp , VscTriangleDown} from "react-icons/vsc";
 
-
-import { useSelector } from 'react-redux';
+// Router DOM
 import { useNavigate } from 'react-router-dom';
 
-import { REMOVE_CART }  from '../../redux/actions/action'
-import { useDispatch } from 'react-redux';
+//REDUX
+import { REMOVE_CART , CART_QUT_INCREASE , CART_QUT_DECREASE}  from '../../redux/actions/action'
+import { useDispatch , useSelector } from 'react-redux';
+
+// ALERT
+import { ToastContainer, toast , Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const ShowErrorAlert = (text) =>{
+  toast.error(text, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    transition: Zoom,
+    });
+}
+// ==================================================================================
 
 function Cart() {
 
+  let Subtotal = 0;
+  const GST = 18.00;
+  let GSTCount = 0;
+
+  const neviGatShop = useNavigate()
+  const neviGatCheckout = useNavigate()
+  
   const backToHome = useNavigate()
   const dispatch = useDispatch()
   function remove_cart (id) {
-    // console.log("id",id);
     dispatch(REMOVE_CART(id))
+    ShowErrorAlert('Your item has been removed from the cart list!')
+  }
+  const CartItems = useSelector((state)=> state.cartReducer.cartList )
+
+  // SUBTOTAL FUN
+  // let Total = [];
+  // let newX = []
+  const SubTotal = (item) =>{
+    let FindInd = CartItems.findIndex((X)=>X.id == item.id)
+    let SubT = item.quantity * item.price + item.price
+    // Total[FindInd] = SubT
+    // console.log("X",SubT);
+    // Total = Total.splice(FindInd , 1 , SubT)
+    // console.log("X",Total);
+    // newX = [...Total,SubT]
   }
 
-  const CartItems = useSelector((state)=> state.cartReducer.cartList )
-  
-  console.log(CartItems);
+  const increment_Qut = (item) => {
+    // SubTotal(item);
+    // CountGST();
+    dispatch(CART_QUT_INCREASE(item))
+  }
+  const decrease_Qut = (item) => {
+    dispatch(CART_QUT_DECREASE(item))
+  }
+
+  // function CountGST () {
+    GSTCount +=  Subtotal * GST
+    // return GSTCount;
+  // }
+
   return (
     <div className="sm:container mx-auto">
       <section className="mx-auto w-full py-20">
@@ -31,7 +84,7 @@ function Cart() {
 
           <div className="overflow-x-auto ">
 
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+            <div className="inline-block min-w-full py-2 align-middle px-6 lg:px-0">
 
               <div className="overflow-hidden border border-gray-200 ">
 
@@ -61,7 +114,7 @@ function Cart() {
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-center text-lg capitalize font-medium"
+                        className="px-10 py-3.5 text-center text-lg capitalize font-medium"
                       >
                         Quantity
                       </th>
@@ -81,7 +134,9 @@ function Cart() {
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
                     {CartItems.map((item, ind) => {
-                        let {firstProductImg,productName,Price,id} = item
+                      let {FirstImg,price,name,id,quantity} = item
+                      Subtotal += quantity * price 
+                      GSTCount =  (Subtotal * GST)/100;
                       return (
                         <tr key={ind} className="divide-x divide-gray-200">
                         <td className="whitespace-nowrap px-2 py-4">
@@ -89,7 +144,7 @@ function Cart() {
                             <div className="h-32 w-32 flex-shrink-0 mx-auto">
                               <img
                                 className="h-full w-full block mx-auto  object-cover"
-                                src={firstProductImg}
+                                src={FirstImg}
                                 alt={"Img"}
                               />
                             </div>
@@ -97,28 +152,26 @@ function Cart() {
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-base font-semibold text-center">
-                            {productName}
+                            {name}
                           </h1>
                         </td>
                         <td className="whitespace-nowrap">
                           <h1 className="text-center text-base font-medium">
-                            {Price}
+                            $ {price}
                           </h1>
                         </td>
-                        <td className="whitespace-nowrap">
-                          <div className="">
-                            <input
-                              type="number"
-                              id="InputQuantity"
-                              min={1}
-                              defaultValue={1}
-                              className="block InputQuantitys mx-auto outline-none py-4 px-3 font-semibold border border-gray-300 rounded-md text-lg"
-                            />
+                        <td className="whitespace-nowrap px-8">
+                          <div className="quantity_input border rounded-md flex items-center justify-between p-4 cursor-pointer">
+                            <p className='text-xl font-semibold'>{quantity}</p>
+                            <p className='QUT-btn flex flex-col items-stretch justify-center opacity-0'>
+                              <button onClick={()=>increment_Qut(item)} className='INCREASE_count flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-all py-[1.5px]' ><VscTriangleUp className='text-sm' /></button>
+                              <button onClick={()=>decrease_Qut(item)} className='DECREASE_count flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-all p-[1.5px]'><VscTriangleDown className='text-sm' /></button>
+                            </p>
                           </div>
                         </td>
                         <td className="whitespace-nowrap">
                         <h1 className="text-center text-base font-medium">
-                          {Price}
+                         $ {quantity * price}
                         </h1>
                         </td>
                         <td className="whitespace-nowrap ">
@@ -137,15 +190,17 @@ function Cart() {
               </div>
 
             </div>
-              
+
+          </div>
+              {/* Alert  */}
+              <ToastContainer/>
+              {/* BuTton */}
               {!CartItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
                             <BsArrowLeft />
                             Back To Home
               </button> : ""}
-
-          </div>
           {/* End For Table Div */}
-          <div className='sm:container mx-auto pt-8'>
+          <div className='w-[95%] lg:w-full  mx-auto pt-8 '>
             <ul className='flex flex-col md:flex-row items-stretch justify-between gap-y-3'>
               <li className='flex flex-col sm:flex-row items-stretch justify-start gap-x-3 gap-y-3'>
                 <input type="text" name="" id="" placeholder='Coupon code' className='text-black text-xl py-2.5 pl-2  rounded-md outline-none border ' />
@@ -154,7 +209,7 @@ function Cart() {
                 </button>
               </li>
               <li className='flex items-stretch justify-start'>
-                <button id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                <button id='Coupon-BTN' onClick={()=>neviGatShop('/shop')} className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
                   Update cart
                 </button>
               </li>
@@ -165,13 +220,16 @@ function Cart() {
                     <h1 className='font-normal text-2xl py-4'>Cart Totals</h1>
                 </li>
                 <li className='border '>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ 70.00</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ {Subtotal}</span></p>
+                </li>
+                <li className='border '>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>SGST & CGST </span> <span>$ {GSTCount}</span></p>
                 </li>
                 <li className='border'>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ 70.00</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ {Subtotal + GSTCount}</span></p>
                 </li>
                 <li className='mt-4'>
-                <button id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
+                <button  onClick={()=>neviGatCheckout('/checkout')} id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
                   Proceed to Checkout 
                 </button>
                 </li>

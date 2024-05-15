@@ -307,28 +307,30 @@ function Checkout() {
                     scope="row"
                     className="py-6 px-0 font-normal  whitespace-nowrap"
                   >
-                    Vestibulum suscipit <span className="font-bold"> × 1 </span>
-                  </th>
-                  <td className="py-6 px-0"> $165.00</td>
-                </tr>
-                <tr className="border-b">
-                  <th
-                    scope="row"
-                    className="py-6 px-0 font-normal  whitespace-nowrap"
-                  >
-                    Vestibulum dictum magna{" "}
+                    Cart Subtotal
                     <span className="font-bold"> × 1 </span>
                   </th>
-                  <td className="py-6 px-0"> $50.00</td>
+                  <td className="py-6 px-0"> $ 100.00</td>
                 </tr>
                 <tr className="border-b">
                   <th
                     scope="row"
                     className="py-6 px-0 font-normal  whitespace-nowrap"
                   >
-                    Cart Subtotal
+                    Discount  
+                    <span className="font-bold"> × 5 % </span>
                   </th>
-                  <td className="py-6 px-0">$215.00</td>
+                  <td className="py-6 px-0"> $ 5.00</td>
+                </tr>
+                <tr className="border-b">
+                  <th
+                    scope="row"
+                    className="py-6 px-0 font-normal  whitespace-nowrap"
+                  >
+                    GST 
+                    <span className="font-bold"> × 18 % </span>
+                  </th>
+                  <td className="py-6 px-0">$ 18 .00</td>
                 </tr>
                 <tr className="border-b">
                   <th
@@ -350,7 +352,7 @@ function Checkout() {
                         htmlFor="FlatRate"
                         className="ms-2 text-sm font-light text-gray-900"
                       >
-                        Flat Rate: $7.00
+                        Flat Rate: $ 7.00
                       </label>
                     </div>
                     <div className="flex items-center me-4">
@@ -377,7 +379,7 @@ function Checkout() {
                   >
                     Order Total
                   </th>
-                  <td className="py-6 px-0 font-medium">$215.00</td>
+                  <td className="py-6 px-0 font-medium">$ 113.00</td>
                 </tr>
               </tbody>
             </table>
