@@ -25,6 +25,13 @@ function SignIn() {
     evn.preventDefault();
     localStorage.setItem("email", Email);
     localStorage.setItem("password", Password);
+    Swal.fire({
+      title: 'Welcome',
+      text: 'YOU ARE REGISTER WAS SUSSED',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    })
+    document.getElementById("Sign-Up-Form").reset()
   }
 
   function loginNow(evn) {
