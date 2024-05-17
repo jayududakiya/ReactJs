@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './Cart.css'
 
@@ -14,22 +14,10 @@ import { REMOVE_CART , CART_QUT_INCREASE , CART_QUT_DECREASE}  from '../../redux
 import { useDispatch , useSelector } from 'react-redux';
 
 // ALERT
-import { ToastContainer, toast , Zoom } from 'react-toastify';
+import { ToastContainer,Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { showErrorMessage } from '../Common Components/Alerts/Alerts';
 
-const ShowErrorAlert = (text) =>{
-  toast.error(text, {
-    position: "bottom-right",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-    transition: Zoom,
-    });
-}
 // ==================================================================================
 
 function Cart() {
@@ -45,36 +33,19 @@ function Cart() {
   const dispatch = useDispatch()
   function remove_cart (id) {
     dispatch(REMOVE_CART(id))
-    ShowErrorAlert('Your item has been removed from the cart list!')
+    showErrorMessage('Your item has been removed from the cart list!',"bottom-right")
   }
   const CartItems = useSelector((state)=> state.cartReducer.cartList )
 
-  // SUBTOTAL FUN
-  // let Total = [];
-  // let newX = []
-  const SubTotal = (item) =>{
-    let FindInd = CartItems.findIndex((X)=>X.id == item.id)
-    let SubT = item.quantity * item.price + item.price
-    // Total[FindInd] = SubT
-    // console.log("X",SubT);
-    // Total = Total.splice(FindInd , 1 , SubT)
-    // console.log("X",Total);
-    // newX = [...Total,SubT]
-  }
-
   const increment_Qut = (item) => {
-    // SubTotal(item);
-    // CountGST();
     dispatch(CART_QUT_INCREASE(item))
   }
   const decrease_Qut = (item) => {
     dispatch(CART_QUT_DECREASE(item))
   }
 
-  // function CountGST () {
-    GSTCount +=  Subtotal * GST
-    // return GSTCount;
-  // }
+  GSTCount +=  Subtotal * GST
+
 
   return (
     <div className="sm:container mx-auto">
@@ -193,7 +164,7 @@ function Cart() {
 
           </div>
               {/* Alert  */}
-              <ToastContainer/>
+              <ToastContainer transition={Zoom} />
               {/* BuTton */}
               {!CartItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
                             <BsArrowLeft />

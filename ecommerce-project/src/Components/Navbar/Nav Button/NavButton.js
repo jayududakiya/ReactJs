@@ -10,6 +10,7 @@ import './NavButton.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 function NavButton({className}) {
 
   const neviGetCart = useNavigate();
@@ -18,6 +19,7 @@ function NavButton({className}) {
 
   const Cart_count = useSelector((state)=> state.cartReducer.cartList );
   const Wish_count = useSelector((state)=> state.wishReducer.wishList );
+  
 
   const Classes = "navButton w-full flex items-center justify-around " + className;
   return (

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Link ,useNavigate } from 'react-router-dom'
 
 
@@ -18,40 +18,12 @@ import {ADD_CART , ADD_WISHLIST} from '../../../redux/actions/action'
 import './ProductsCard.css'
 
 // ALERT 
-import {toast} from "react-toastify";
-
-const showSuccessMessage = (text) => {
-  toast.success(text, {
-    position: "bottom-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-    });
-};
-
-const showErrorMessage = (text) => {
-  toast.error(text, {
-    position: "bottom-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-    });
-};
+import { showSuccessMessage , showErrorMessage} from '../Alerts/Alerts';
 
 
 function ProductsCard(Product_data) {
     const cartItems = useSelector(state =>  state.cartReducer.cartList)
-    const [cartCount,setCartCount] = useState(null)
-    const wishItem = useSelector(state =>  state.cartReducer.wishList)
-    const [wishCount,setWishCount] = useState(null)
+    const wishItem = useSelector(state => state.wishReducer.wishList)
 
     let {id=1,FirstImg,SecondeImg,name,price,className} = Product_data;
 
@@ -59,24 +31,14 @@ function ProductsCard(Product_data) {
 
     const Cart_Data = (Product_data) =>{
         dispatch(ADD_CART(Product_data))
-        setCartCount(cartItems.length)
-        if(cartCount === null){
-            showSuccessMessage("Your item has been added to the cart list!")
-        }
-        else{
-            showErrorMessage("Item already in cart. Please review and checkout promptly.")
-        }
+        let find = cartItems.findIndex(item => item.id === Product_data.id);
+        find === -1 ? showSuccessMessage("Your item has been added to the Cart list!","bottom-right") : showErrorMessage("Item already in Cart List. Please review and checkout promptly.","bottom-right")
     }
-
+    
     const Wish_Data = (Product_data) =>{
         dispatch(ADD_WISHLIST(Product_data))
-        setWishCount(wishItem.length)
-        if(wishCount === null){
-            showSuccessMessage("Your item has been added to the Wish list!")
-        }
-        else{
-            showErrorMessage("Item already in Wish List. Please review and checkout promptly.")
-        }
+        let find =  wishItem.findIndex(item => item.id === Product_data.id);
+        find === -1 ? showSuccessMessage("Your item has been added to the Wish list!","bottom-right") : showErrorMessage("Item already in Wish List. Please review and checkout promptly.","bottom-right")
     }
 
     let  Classes = className += " ProductCard  ";

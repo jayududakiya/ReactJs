@@ -24,9 +24,14 @@ import { BsYoutube } from "react-icons/bs";
 import { RxLinkedinLogo } from "react-icons/rx";
 
 //redux
-import { useDispatch } from "react-redux"; 
-import {ADD_CART,ADD_WISHLIST,CART_QUT_DECREASE,CART_QUT_INCREASE} from '../../redux/actions/action'
+import { useDispatch, useSelector } from "react-redux"; 
+import {ADD_CART,ADD_WISHLIST} from '../../redux/actions/action'
 
+
+// ALERT
+import { ToastContainer ,Flip } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { showErrorMessage,showSuccessMessage } from '../Common Components/Alerts/Alerts'
 
 
 // main function
@@ -42,26 +47,21 @@ function ShopDetails2() {
   const {name,price,FirstImg,SecondeImg,id,quantity} = ProductInfo[0]
   
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cartReducer.cartList)
+  const wishItems = useSelector(state => state.wishReducer.wishList)
   
-  // Product Quantity
-  // const increment_Qut = (ProductInfo) => {
-  //   console.log(ProductInfo);
-  //   Add_cart(ProductInfo)
-  //   dispatch(CART_QUT_INCREASE(ProductInfo))
-  // }
-  // const decrease_Qut = (ProductInfo) => {
-  //   dispatch(CART_QUT_DECREASE(ProductInfo))
-  // }
 
-
-  
   // Add To cart DATA 
   const Add_cart = (ProductInfo) => {
     dispatch(ADD_CART(ProductInfo))
+    let find = cartItems.findIndex(item => item.id === ProductInfo.id);
+    find === -1 ? showSuccessMessage("Your item has been added to the Cart list!","top-right") : showErrorMessage("Item already in Cart List. Please review and checkout promptly.","top-right")
   }
   // Add To wishlist DATA 
   const ADD_wish = (ProductInfo) => {
     dispatch(ADD_WISHLIST(ProductInfo))
+    let find =  wishItems.findIndex(item => item.id === ProductInfo.id);
+    find === -1 ? showSuccessMessage("Your item has been added to the Wish list!","top-right") : showErrorMessage("Item already in Wish List. Please review and checkout promptly.","top-right")
   }
   
 
@@ -127,16 +127,12 @@ function ShopDetails2() {
             <li className="flex items-stretch justify-center">
               <p className="count-buttons flex justify-center items-stretch border border-[#CFCFCF] gap-x-3 text-2xl p-3.5 rounded-md">
                 <button
-                  className="flex items-center text-[#CFCFCF]"
-                  // onClick={() =>decrease_Qut(ProductInfo[0])}
-                  >
+                  className="flex items-center text-[#CFCFCF]">
                   <LuMinus className="text-xl" />
                 </button>
                 {quantity}
                 <button
-                  className="flex items-center text-[#CFCFCF]"
-                  // onClick={() =>increment_Qut(ProductInfo[0])}
-                >
+                  className="flex items-center text-[#CFCFCF]">
                   <FiPlus className="text-xl" />
                 </button>
               </p>
@@ -337,7 +333,8 @@ function ShopDetails2() {
           </div>
 
         </div>
-        {/* <ToastContainer/> */}
+        {/* Alert  */}
+        <ToastContainer transition={Flip} />
       </div>
     </section>
   );

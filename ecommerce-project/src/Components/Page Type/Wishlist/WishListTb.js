@@ -13,38 +13,9 @@ import { useSelector } from "react-redux";
 
 
 // Alert
-import { ToastContainer, toast,Flip,Zoom } from 'react-toastify';
+import { ToastContainer , Zoom } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
-const ShowSuccessAlert  = (text) => {
-  
-toast.success(text, {
-  position: "bottom-right",
-  autoClose: 3000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "colored",
-  transition: Flip,
-  });
-}
-
-
-const ShowErrorAlert = (text) => {
-   toast.error(text, {
-  position: "bottom-right",
-  autoClose: 3000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "colored",
-  transition: Zoom,
-  })
-}
+import { showErrorMessage,showSuccessMessage } from "../../Common Components/Alerts/Alerts";
 
 
 function WishListTb() {
@@ -58,24 +29,22 @@ function WishListTb() {
   // WISHLIST 
   const Remove_list = (id) => {
     dispatch(REMOVE_WISHLIST(id))
-    ShowErrorAlert('a quick reminder that you have an item that removed from the list')
+    showErrorMessage('a quick reminder that you have an item that removed from the list','bottom-right')
   }
 
   // WISHLIST TO CART 
   const ADD_cart = (item) => {
     dispatch(ADD_CART(item))
     dispatch(REMOVE_WISHLIST(item.id))
-    ShowSuccessAlert('Your item has been added to the cart list!')
+    showSuccessMessage('Your item has been added to the cart list!','bottom-right')
   }
 
   // increment_Qut
   const increment_Qut = (item) => {
-    //console.log(item);
     dispatch(WISH_QUT_INCREASE(item))
   }
 
   const decrease_Qut = (item) => {
-    //console.log(item);
     dispatch(WISH_QUT_DECREASE(item))
   }
 
@@ -203,7 +172,7 @@ function WishListTb() {
             </div>
           </div>
               {/* Alert  */}
-              <ToastContainer/>
+              <ToastContainer transition={Zoom} />
               {/* Button */}
               {!wishItems.length ? <button className="Back-HomeBtn mx-auto transition-all flex items-center justify-evenly my-2" onClick={()=> backToHome("/")}>
                             <BsArrowLeft />

@@ -109,7 +109,7 @@ function Contact() {
 
             <div className="grid  grid-cols-1 lg:grid-cols-12 gap-x-0 lg:gap-x-6 gap-y-6 lg:gap-y-0 pb-6">
               <input
-                type="number"
+                type="text"
                 id="large-input"
                 name="Number"
                 className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
