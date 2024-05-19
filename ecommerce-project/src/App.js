@@ -1,38 +1,55 @@
+
+// React Dom
 import {BrowserRouter , Routes ,Route} from 'react-router-dom'
-
-import ErrorPage from './Components/Page Type/Error Page/ErrorPage';
-
-import NavBar from "./Components/Navbar/NavBar";
-import Footer from "./Components/Footer/Footer";
-
-import WoodenHome from './Pages/Home page/WoodenHome'
-
-import ContactPages from './Pages/Contact page/ContactPages';
-
-import AboutPage from './Pages/Layout Pages/AboutPage'
-
-import RegistrationPage from './Pages/Layout Pages/RegistrationPage'
-
-import ShopPages from './Pages/Shop page/ShopPages'
-
-import {ShopPage2 ,ShopDetails1 ,  ShopDetails2 , ShopLocation} from './Pages/Shop page/ShopPages'
-
-import CartPage from './Pages/Layout Pages/CartPage'
-
-import WishListPage from './Pages/Types Pages/WishListPage'
-
-import CheckoutPage from './Pages/Layout Pages/CheckoutPage'
-
-import TrackPage from './Components/Page Type/Product Track/Track';
-
+//TOP SCROLL 
 import ScrollToTop from './Components/Common Components/Scroll To Top/ScrollToTop'
-
+// REDUX
 import { Provider } from 'react-redux';
 import Store from './store'
 
+//NAVBAR & FOOTER
+import NavBar from "./Components/Navbar/NavBar";
+import Footer from "./Components/Footer/Footer";
+
+// ERROR PAGE
+import ErrorPage from './Pages/Error Page/ErrorPage.js';
+
+//HOME PAGE
+import WoodenHome from './Pages/Home page/WoodenHome'
+
+//CONTACT PAGE
+import Contact from './Pages/ContactPage/Contact';
+
+//ABOUT PAGE
+import About from './Pages/AboutPage/About'
+
+// LOGIN & SIGNUP PAGE
+import LoginPage from './Pages/Login&SignupPage/LoginPage'
+import SignupPage from './Pages/Login&SignupPage/SignupPage'
+
+//CART & WISH PAGE
+import CartPage from './Pages/CartPage/CartPage'
+import WishListPage from './Pages/WishPage/WishListPage'
+
+//CHECKOUT & TRACK PAGE
+import Checkout from './Pages/CheckoutPage/Checkout'
+import TrackPage from './Pages/TrackPage/Track';
+
+//SHOP LOCATION PAGE
+import ShopLocation from './Pages/LocationPage/ShopLocation'
+
+// SHOP PAGES ALL 
+import ShopDetails1 from './Pages/ShopPage/ShopDetailsPage/ShopDetails1'
+import ShopDetails2 from './Pages/ShopPage/ShopDetailsPage/ShopDetails2'
+
+import ShopPage1 from './Pages/ShopPage/ShopPages/ShopPage1'
+import ShopPage2 from './Pages/ShopPage/ShopPages/ShopPage2'
+
+
+
 function App() {
   return (
-    <div className="App mt-[124px] xl:mt-0">
+    <div className="App mt-[128px] xl:mt-0">
       <Provider store={Store}>
        <BrowserRouter>
         <ScrollToTop/>
@@ -40,21 +57,24 @@ function App() {
         <Routes>
 
           <Route path="/" element={<WoodenHome/>}/>
-          <Route path="/about" element={<AboutPage/>}/>
-          <Route path="/sign-in" element={<RegistrationPage/>}/>
-          <Route path="/login" element={<RegistrationPage/>}/>
-          <Route path="contact" element={<ContactPages/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="contact" element={<Contact/>}/>
+          <Route path="/sign-in" element={<SignupPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
+          
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/wishlist" element={<WishListPage/>}/>
           <Route path="/product-track" element={<TrackPage/>}/>
-          <Route path="*" element={<ErrorPage/>}/>
-
-          <Route path="/shop" element={<ShopPages/>}/>
+          <Route path="/checkout" element={<Checkout/>}/>
+          
+          <Route path="/shop" element={<ShopPage1/>}/>
           <Route path="/shop2" element={<ShopPage2/>}/>
           <Route path="/shop-details" element={<ShopDetails1/>}/>
           <Route path="/shop-details2/:id" element={<ShopDetails2/>}/>
+
           <Route path="/shop-location" element={<ShopLocation/>}/>
-          <Route path="/checkout" element={<CheckoutPage/>}/>
+          
+          <Route path="*" element={<ErrorPage/>}/>
 
         </Routes>
         <Footer/>

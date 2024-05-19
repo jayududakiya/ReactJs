@@ -1,7 +1,7 @@
 import React from "react";
 
 // Data 
-import ProductsData from "../../Data/ProductsData";
+import ProductsData from "../../../Data/ProductsData";
 
 // Data Card
 import ProductsCard from '../../Common Components/ProductsCard/ProductsCard'
