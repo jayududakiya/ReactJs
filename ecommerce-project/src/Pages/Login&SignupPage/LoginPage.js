@@ -1,49 +1,86 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
+import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 //Page heading
 import PageHeading from "../../Components/Common Components/PageHeading/PageHeading";
 // IMAGES
 import LoginImg from "../../Assets/login-bg.png";
+
+import {showWarningMessage , showErrorMessage } from '../../Components/Common Components/Alerts/Alerts'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // ICONS
 import { GoLock } from "react-icons/go";
 import { GoKey } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 import { BsArrowRight } from "react-icons/bs";
+import { VscEyeClosed } from "react-icons/vsc";
+import { VscEye } from "react-icons/vsc";
 
 // DOM
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const NavigateHome = useNavigate();
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  //local store data get
+  const [prevUsers,setPrevUsers]=useState([]);
+
+  useEffect(()=>{
+    setPrevUsers(JSON.parse(localStorage.getItem("nicicoUser")))
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Bot Id and Password",
+      text: `email : admin@gmail.com & password : admin1234`,
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },[])
+
+  const [passwordType , setPasswordType ] = useState("password");
+
+  const handelShowPassword =()=> {
+    if(passwordType === "password"){
+      setPasswordType("text")
+    }else{
+      setPasswordType("password")
+    }
+  }
 
   // FUNCTION
   function loginNow(even) {
     even.preventDefault();
-    const logEmail = localStorage.getItem("email");
-    const LogPass = localStorage.getItem("password");
-    if (Email !== logEmail || Password !== LogPass) {
-      Swal.fire({
-        title: "Error!",
-        text: "YOU ARE NOT LOGIN TRY TO Register First ",
-        icon: "error",
-        confirmButtonText: "Close",
-      });
-    } else {
-      Swal.fire({
-        title: "Welcome",
-        text: "YOU ARE LOGIN WAS SUSSED",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-      NavigateHome("/");
+    console.log(prevUsers);
+    if(email === "" || password === ""){
+      showErrorMessage("fil Out the Email & Password Fild",'top-center')
+    }else{
+      const findUser = prevUsers.find(X=>X.email === email && X.password === password)
+      console.log("local User",findUser);
+      if(findUser !== undefined){
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Welcome To Ninico E Commerce",
+          text: "LogIn Was Success Full",
+          showConfirmButton: false,
+          timer: 2000
+        });
+        setTimeout(() => {
+          NavigateHome("/")
+        }, 2200);
+        even.target.reset();
+      }else{
+        showWarningMessage("Email Or Password Is Invalid")
+      }
     }
   }
 
   return (
     <section>
+      <ToastContainer/>
       <PageHeading goBackLink="Home" pageTitle="Log in" />
       <div className="sm:container mx-auto py-9">
         {/* LOGIN FROM */}
@@ -91,7 +128,6 @@ function LoginPage() {
                   }}
                   className="border-none p-6 text-sm rounded-lg block w-full ps-12  outline-none"
                   placeholder="Username / email address"
-                  required
                 />
               </div>
               {/* Password */}
@@ -105,15 +141,21 @@ function LoginPage() {
                   </label>
                 </div>
                 <input
-                  type="password"
+                  type={passwordType}
                   id="input-Login-Password"
                   onChange={(even) => {
                     setPassword(even.target.value);
                   }}
                   className="border-none p-6 text-sm rounded-lg block w-full ps-12  outline-none"
                   placeholder="Password"
-                  required
                 />
+                <button 
+                  onClick={()=>handelShowPassword()}
+                  type="button"
+                  className="absolute inset-y-0 right-2 flex items-center cursor-pointer w-10 justify-center z-[1]"
+                >
+                  {passwordType === "password" ? <VscEyeClosed className="text-xl" /> :  <VscEye className="text-xl" />  } 
+                </button>
               </div>
               <div className="validation-box flex items-center justify-between py-3.5">
                 <div className="flex items-center">
@@ -127,11 +169,13 @@ function LoginPage() {
                     Remember me
                   </label>
                 </div>
+                <div className="validation-box flex items-center justify-between py-3.5">
                 <div className="flex items-center">
-                  <a href="/" className="flex items-center text-sm underline">
-                    Forget Password
-                  </a>
+                  <Link to="/sign-in" className="flex items-center text-sm underline">
+                    Do Not Have Account?
+                  </Link>
                 </div>
+              </div>
               </div>
               {/* Button */}
               <div className="w-full">
