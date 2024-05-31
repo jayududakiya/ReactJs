@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
+import Swal from "sweetalert2";
 // Page Heading 
 import PageHeading from '../../Components/Common Components/PageHeading/PageHeading'
 
@@ -15,24 +16,62 @@ import { BsArrowRight } from "react-icons/bs";
 function SignupPage() {
     // validFlag
     const [validFlag , setValidFlag ] = useState({email : false , password : false }) 
+    // ERROR
     const [error , setError ] = useState({emailError : "" , passwordError : "" }) 
-  
+    //User DATA
+    const [User , setUser] = useState([]);
+
+    useEffect(()=>{
+      setUser(JSON.parse(localStorage.getItem("userData")))
+    },[])
+
+    console.log("EFFECT",User);
+    
     //REGEX
-    //  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     let Email_regex = /^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/;
-    // "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
     let strongPass_Regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%&])(?=.{8,})");
     let mediumPass_Regex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
     //FUNCTION
     function registerNow(even) {
       even.preventDefault();
-      console.log("Value OK",validFlag);
-      console.log("Error OK",error);
-      // let form = new FormData(even.target)
-      // let formVal = Object.fromEntries(form.entries())
-  
-      // document.getElementById("Sign-Up-Form").reset()
+      let form = new FormData(even.target)
+      let formVal = Object.fromEntries(form.entries())
+
+    // Email 
+    if(Email_regex.test(formVal.email)){
+      setValidFlag({email : validFlag.email = true , password : validFlag.password})
+    }else{
+      setValidFlag({ email : validFlag.email = false ,password : validFlag.password})
+    }
+    //PASSWORD
+    if(mediumPass_Regex.test(formVal.password)){
+      setValidFlag({email : validFlag.email , password : validFlag.password = true})
+    }else{
+      setValidFlag({email : validFlag.email , password : validFlag.password = false})
+    }
+
+    // SET DATA IN LOCAL STORAGE
+    // localStorage.setItem("userData" ,JSON.stringify(user))
+    if(validFlag.email && validFlag.password ){
+      console.log(formVal);
+        // if(User.length === 0){
+        // if(!localStorage.getItem("userData")){
+        // console.log("DATA",formVal);
+        // user.push(formVal)
+        // setUser(User = [formVal])
+        // console.log("J_USER",User);
+        // localStorage.setItem("userData" ,JSON.stringify([formVal]))
+      // }
+      // else{
+        // console.log("X_DATA",formVal);
+        // setUser((prevUser) => [...prevUser,formVal])
+        // setUser(User = [...User,formVal])
+        // localStorage.setItem("userData" ,JSON.stringify([...User,formVal]))
+      // }
+      // console.log("D_USER",User);
+      // console.log("DD_USER",user);
+      // console.log(JSON.parse(localStorage.getItem("userData")));
       // // Alert 
       // Swal.fire({
       //   title: 'Welcome',
@@ -40,31 +79,34 @@ function SignupPage() {
       //   icon: 'success',
       //   confirmButtonText: 'OK'
       // })
+      setError({emailError : error.emailError = "" , passwordError : error.passwordError = ""})
+      document.getElementById("Sign-Up-Form").reset()
+    }else{
+      console.log("Not Valid Data");
+      console.log(validFlag);
+      console.log(formVal);
     }
+  }
 
+    // EMAIL 
     const EMAIL_input = (even) => {
-      // Email 
        if(Email_regex.test(even.target.value)){
-          setValidFlag({email : validFlag.email = true , password : validFlag.password})
           setError({emailError : error.emailError = "your email is valid", passwordError : error.passwordError })
         }else{
-          setValidFlag({email : validFlag.email = false , password : validFlag.password})
           setError({emailError : error.emailError = "email is not valid", passwordError : error.passwordError })
       }
     }
   
+    //PASSWORD
     const PASSWORD_input = (even) => {
       if(strongPass_Regex.test(even.target.value)){
         setError({emailError : error.emailError , passwordError : error.passwordError = "password is Strong"})
-        setValidFlag({email : validFlag.email , password : validFlag.password = true })
       }
       else if(mediumPass_Regex.test(even.target.value)){
         setError({emailError : error.emailError ,passwordError : error.passwordError = "password is Medium"})
-        setValidFlag({email : validFlag.email ,password : validFlag.password = true })
       }
       else{
         setError({emailError : error.emailError , passwordError : error.passwordError = "password is not valid"})
-        setValidFlag({ email : validFlag.email ,password : validFlag.password = false })
       }
     }
 
@@ -99,7 +141,7 @@ function SignupPage() {
               </div>
             </div>
             {/* Form  */}
-            <form id="Sign-Up-Form" onSubmit={registerNow} className="">
+            <form id="Sign-Up-Form" onSubmit={registerNow} >
               {/* User Email */}
               <div className="relative my-3">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
@@ -118,11 +160,13 @@ function SignupPage() {
                   placeholder="Email address"
                   onChange={(even)=>{EMAIL_input(even)}}
                 />
+
                 {/* Error */}
                 <span className={errorClasses}>
                   {error.emailError}
 		            </span>
               </div>
+
               {/* Password */}
               <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
@@ -141,6 +185,7 @@ function SignupPage() {
                   placeholder="Password"
                   onChange={(even) => {PASSWORD_input(even)}}
                 />
+
                 {/* Error */}
                 
                 <span className={errorClasses}>
