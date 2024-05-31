@@ -1,0 +1,191 @@
+{
+  "users": [
+    {
+      "id": "76f9",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/33.jpg",
+      "name": "Luanna Waiden",
+      "email": "luannawaiden@gmail.com",
+      "job": "Front-End Developer",
+      "role": "Developer",
+      "gender": "female",
+      "date": "2024-05-26",
+      "password": "JSd_012345"
+    },
+    {
+      "id": "b86b",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/63.jpg",
+      "name": "Hertha Hathawaay",
+      "email": "HerthaH@gmail.com",
+      "job": "Back-End Developer",
+      "role": "Developer",
+      "gender": "female",
+      "date": "2024-05-27",
+      "password": "HH_01234s"
+    },
+    {
+      "id": "819d",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/26.jpg",
+      "name": "Patrick Shei",
+      "email": "patrickShei@yahho.com",
+      "job": "QA Tester",
+      "role": "Tester",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "PSs_1234"
+    },
+    {
+      "id": "a84m",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/44.jpg",
+      "name": "Antwan Marynowski",
+      "email": "antwanmarynowski@yahho.com",
+      "job": "IOS Developer",
+      "role": "Developer",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "AMd_012345"
+    },
+    {
+      "id": "b92k",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/20.jpg",
+      "name": "Emily Rosales",
+      "email": "emilyrosales@example.com",
+      "job": "Full-Stack Developer",
+      "role": "Developer",
+      "gender": "female",
+      "date": "2024-05-27",
+      "password": "ERf_987654"
+    },
+    {
+      "id": "c73n",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/64.jpg",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "job": "System Administrator",
+      "role": "Administrator",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "JDm_123456"
+    },
+    {
+      "id": "d84p",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/58.jpg",
+      "name": "Anna Smith",
+      "email": "annasmith@example.com",
+      "job": "Data Scientist",
+      "role": "Scientist",
+      "gender": "female",
+      "date": "2024-05-27",
+      "password": "ASf_654321"
+    },
+    {
+      "id": "e95q",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/17.jpg",
+      "name": "Mark Johnson",
+      "email": "markjohnson@example.com",
+      "job": "Network Engineer",
+      "role": "Engineer",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "MJm_789012"
+    },
+    {
+      "id": "f06r",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/44.jpg",
+      "name": "Sara Lee",
+      "email": "saralee@example.com",
+      "job": "Cybersecurity Analyst",
+      "role": "Analyst",
+      "gender": "female",
+      "date": "2024-05-27",
+      "password": "SLf_345678"
+    },
+    {
+      "id": "g17s",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/28.jpg",
+      "name": "David Brown",
+      "email": "davidbrown@example.com",
+      "job": "DevOps Engineer",
+      "role": "Engineer",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "DBm_901234"
+    },
+    {
+      "id": "h28t",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/37.jpg",
+      "name": "Theresa Matzinger",
+      "email": "theresamatzinger@example.com",
+      "job": "UX/UI Designer",
+      "role": "Designer",
+      "gender": "female",
+      "date": "2024-05-27",
+      "password": "LWf_567890"
+    },
+    {
+      "id": "i39u",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/52.jpg",
+      "name": "Michael Davis",
+      "email": "michaeldavis@example.com",
+      "job": "Cloud Architect",
+      "role": "Architect",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "MDm_234567"
+    },
+    {
+      "id": "ff37",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/57.jpg",
+      "name": "Owen Aubourg",
+      "email": "Owenaubourg@gmail.com",
+      "job": "Cloud Architect",
+      "role": "Architect",
+      "gender": "male",
+      "date": "2024-05-27",
+      "password": "OAs_12345"
+    },
+    {
+      "id": "c08c",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/31.jpg",
+      "name": "Nicole Vielbig",
+      "email": "theresamatzinger@example.com",
+      "job": "UX/UI Designer",
+      "role": "Designer",
+      "gender": "female",
+      "date": "2024-05-31",
+      "password": "NVs_01234"
+    },
+    {
+      "id": "a867",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/73.jpg",
+      "name": "Theresa Matzinger",
+      "email": "mark@devui.com",
+      "job": "Data Scientist",
+      "role": "Scientist",
+      "gender": "male",
+      "date": "2024-06-07",
+      "password": "Tm_09837513"
+    },
+    {
+      "id": "d348",
+      "image": "https://xsgames.co/randomusers/assets/avatars/female/39.jpg",
+      "name": "Jadwiga Brasko",
+      "email": "jadwigabrasko@gmail.com",
+      "job": "Network Engineer",
+      "role": "Engineer",
+      "gender": "female",
+      "date": "2024-05-28",
+      "password": "Jb_08983124"
+    },
+    {
+      "id": "c624",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/44.jpg",
+      "name": "SahilKumar Dudhat",
+      "email": "sahilKumar@gmail.com",
+      "job": "Front-End Developer",
+      "role": "Developer",
+      "gender": "male",
+      "date": "2024-05-28",
+      "password": "Sk_09305235"
+    }
+  ]
+}
