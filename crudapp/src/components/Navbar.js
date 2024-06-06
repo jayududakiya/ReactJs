@@ -1,37 +1,76 @@
-import React from 'react'
-import { Menu, X } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState} from "react";
+import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { Context } from "../App";
+
 
 const menuItems = [
-    {
-      name: 'Home',
-      to : '/'
-    },
-    {
-      name: 'Create',
-      to : '/create'
-    },
-    {
-      name: 'LogIn',
-      to : '/login'
-    },
-]
+  {
+    name: "Home",
+    to: "/",
+  },
+  {
+    name: "Sign Up",
+    to: "/signup",
+  },
+  {
+    name: "LogIn",
+    to: "/login",
+  },
+];
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const setSearchData = useContext(Context);
+
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const [data,setData]=useState([])
+  const [search , setSearch]=useState("")
+
+  useEffect(()=>{
+    async function FetchData () {
+      await axios.get("http://localhost:4000/users")
+      .then((response)=>(setData(response.data)))
+      .catch(error=>(console.log(error)))
+    }
+    // Call Function 
+    FetchData();
+  },[])
+  
+
+  function HandelSearch (even) {
+    setSearch(even.target.value.toLowerCase());
+    setSearchData(data.filter(X => X.name.toLowerCase().includes(search)))
   }
+
 
   return (
     <div className="relative w-full bg-white shadow-md mx-auto">
       <div className="mx-auto flex items-center justify-between py-5 px-14">
         <div className="inline-flex items-center space-x-2">
-          <a href='/' className="font-bold text-2xl">MUI</a>
+          <a href="/" className="font-bold text-2xl">
+            MUI
+          </a>
         </div>
-        <div className="hidden grow items-start lg:flex justify-end">
-          <ul className="ml-12 inline-flex space-x-8">
+        <div className="grow items-start lg:flex justify-end">
+          {/* Search  */}
+          <div className="hidden sm:flex grow justify-end mr-6 lg:mr-0">
+            <input
+              className="flex h-10 w-[250px] rounded-md bg-gray-100 px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+              type="search"
+              onChange={(even)=>HandelSearch(even)}
+              placeholder="Search"
+            ></input>
+          </div>
+
+          <ul className="ml-12 hidden lg:flex items-center h-10 gap-x-8">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
@@ -67,6 +106,14 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div className="mt-6">
+                  {/* Search  */}
+                  <div className="flex sm:hidden grow justify-end mb-2">
+                    <input
+                      className="flex h-10 w-full rounded-md bg-gray-100 px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="search"
+                      placeholder="Search"
+                    ></input>
+                  </div>
                   <nav className="grid gap-y-4">
                     {menuItems.map((item) => (
                       <Link
@@ -87,5 +134,5 @@ export default function Navbar() {
         )}
       </div>
     </div>
-  )
+  );
 }

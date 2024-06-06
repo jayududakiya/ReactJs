@@ -1,14 +1,67 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import React, { useEffect, useState } from 'react'
+import {Link, useNavigate} from 'react-router-dom'
+
+import { Error_Alert,Success_Alert } from './Alerts'
+import { Toaster } from 'react-hot-toast'
 
 function Login() {
+    
+  const [localData,setLocalData]=useState([])    
+
+  //NAVIGATE LINK
+  const neviGatHome = useNavigate()
+  
+  // Alert Position
+  const [position] = useState("top-right")
+
+  useEffect(()=>{
+    setLocalData(JSON.parse(localStorage.getItem('crudUser')))
+  },[])
+
+  const loginSchema = Yup.object({
+    email:Yup.string().email('Email is Not valid ').required('* this Fild is Required'),
+    password:Yup.string().min(5).max(10).required('* this Fild is Required')
+  })
+  
+  function handleLogin (values) {
+    const findUser = localData.find(X=>(X.email === values.email && X.password === values.password))
+    if(findUser !== undefined){
+        Success_Alert('Login Was Success Full')
+        setTimeout(() => {
+            neviGatHome('/')
+        },2000);
+        handleReset()
+    }
+    else{
+        Error_Alert('Login was Felid try To Sign Up First')
+        handleReset()
+    }
+  }
+
+  const {touched,values,errors,handleBlur,handleChange,handleSubmit,handleReset} = useFormik({
+    initialValues:{
+        email:"",
+        password:"",
+    },
+    validationSchema:loginSchema,
+    onSubmit:values=>{
+        handleLogin(values)
+    },
+  })
+
   return (
     <div className="py-6">
+    <Toaster
+      position={position}
+      reverseOrder={true}
+    />
     <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
         <div className="hidden lg:block lg:w-1/2 bg-cover" style={{backgroundImage:"url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')"}}></div>
         <div className="w-full p-8 lg:w-1/2">
             <p className="text-xl text-gray-600 text-center">Welcome back!</p>
-            <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+            <a href="/" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                 <div className="px-4 py-3">
                     <svg className="h-6 w-6" viewBox="0 0 40 40">
                         <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107"/>
@@ -24,22 +77,35 @@ function Login() {
                 <p className="text-xs text-center text-gray-500 uppercase">or login with email</p>
                 <span className="border-b w-1/5 lg:w-1/4"></span>
             </div>
+            <form onSubmit={handleSubmit} >
             <div className="mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" placeholder="exmpale@gamil.com" name="email" />
+                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" placeholder="exmpale@gamil.com"
+                 name="email" 
+                 value={values.email} 
+                 onChange={handleChange}
+                 onBlur={handleBlur} 
+                 />
+                <p className="pt-1 text-red-500">{errors.email && touched.email ? errors.email : null}</p>
             </div>
             <div className="mt-4">
                 <div className="flex justify-between">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                 </div>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" placeholder="Password" name="password" />
+                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" placeholder="Password" name="password"
+                value={values.password} 
+                onChange={handleChange}
+                onBlur={handleBlur}  
+                />
+                <p className="pt-1 text-red-500">{errors.password && touched.password ? errors.password : null}</p>
             </div>
             <div className="mt-8">
-                <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Login</button>
+                <button type='submit' className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Login</button>
             </div>
+            </form>
             <div className="mt-4 flex items-center justify-between">
                 <span className="border-b w-1/5 md:w-1/4"></span>
-                <Link to="/create" className="text-xs text-blue-600 uppercase underline hover:no-underline">or sign up</Link>
+                <Link to="/signup" className="text-xs text-blue-600 uppercase underline hover:no-underline">or sign up</Link>
                 <span className="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>

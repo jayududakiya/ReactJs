@@ -31,9 +31,9 @@ export default function Edit () {
       setEmployee(response.data)
     }).catch((error)=>console.log(error))
   }
-  useEffect(function () {
+  useEffect(() => {
     getData();
-  } , [])
+  },[])
 
 
   const getInputVal = (even) => {
