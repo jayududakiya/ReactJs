@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -6,6 +6,8 @@ import {
 } from "@material-tailwind/react";
 
 import PageHeading from "../../Components/Common Components/PageHeading/PageHeading";
+
+import { useSelector } from "react-redux";
 
 function Icon({ id, open }) {
   return (
@@ -22,10 +24,23 @@ function Icon({ id, open }) {
   );
 }
 
+
 function Checkout() {
-  const [open, setOpen] = React.useState(0);
+
+  const [open, setOpen] = useState(0);
  
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+
+  const [shippingAmount , setShippingAmount] = useState(7)
+
+  const [isShipping,setIsShipping] = useState(true)
+
+  const CartTotals = useSelector((state)=>state.totalAmountReducer.totalAmount)
+  const CartList = useSelector((state)=>state.cartReducer.cartList)
+  
+  console.log("CartTotals",CartTotals); 
+  console.log("CartList",CartList.length); 
+
   return (
     <section>
       <PageHeading goBackLink="Home" pageTitle="Checkout" />
@@ -308,9 +323,9 @@ function Checkout() {
                     className="py-6 px-0 font-normal  whitespace-nowrap"
                   >
                     Cart Subtotal
-                    <span className="font-bold"> × 1 </span>
+                    <span className="font-bold"> × {CartList.length} </span>
                   </th>
-                  <td className="py-6 px-0"> $ 100.00</td>
+                  <td className="py-6 px-0"> $ {CartTotals.subTotal.toFixed(2)}</td>
                 </tr>
                 <tr className="border-b">
                   <th
@@ -318,9 +333,9 @@ function Checkout() {
                     className="py-6 px-0 font-normal  whitespace-nowrap"
                   >
                     Discount  
-                    <span className="font-bold"> × 5 % </span>
+                    <span className="font-bold"> × {CartTotals.Discount} % </span>
                   </th>
-                  <td className="py-6 px-0"> $ 5.00</td>
+                  <td className="py-6 px-0"> $ {CartTotals.discountAmount.toFixed(2)}</td>
                 </tr>
                 <tr className="border-b">
                   <th
@@ -328,9 +343,9 @@ function Checkout() {
                     className="py-6 px-0 font-normal  whitespace-nowrap"
                   >
                     GST 
-                    <span className="font-bold"> × 18 % </span>
+                    <span className="font-bold"> × {CartTotals.GST} % </span>
                   </th>
-                  <td className="py-6 px-0">$ 18 .00</td>
+                  <td className="py-6 px-0">$ {CartTotals.GSTAmount.toFixed(2)}</td>
                 </tr>
                 <tr className="border-b">
                   <th
@@ -344,7 +359,9 @@ function Checkout() {
                       <input
                         id="FlatRate"
                         type="radio"
-                        value=""
+                        value={shippingAmount}
+                        checked={isShipping  === true}
+                        onChange={()=>setIsShipping(!isShipping)}
                         name="colored-radio"
                         className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 "
                       />
@@ -352,14 +369,16 @@ function Checkout() {
                         htmlFor="FlatRate"
                         className="ms-2 text-sm font-light text-gray-900"
                       >
-                        Flat Rate: $ 7.00
+                        Flat Rate: $ {shippingAmount.toFixed(2)}
                       </label>
                     </div>
                     <div className="flex items-center me-4">
                       <input
                         id="FreeShip"
                         type="radio"
-                        value=""
+                        value={0}
+                        checked={isShipping === false}
+                        onChange={()=>setIsShipping(!isShipping)}
                         name="colored-radio"
                         className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 "
                       />
@@ -379,7 +398,7 @@ function Checkout() {
                   >
                     Order Total
                   </th>
-                  <td className="py-6 px-0 font-medium">$ 113.00</td>
+                  <td className="py-6 px-0 font-medium">$ {(CartTotals.subTotal + CartTotals.GSTAmount + (isShipping ? shippingAmount : 0)).toFixed(2)}</td>
                 </tr>
               </tbody>
             </table>

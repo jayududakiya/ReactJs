@@ -1,7 +1,28 @@
 const initial_state = {
     cartList : [] ,
-    wishList : []
+    wishList : [],
+    totalAmount:{
+        GST : 18.00,
+        Discount : 10.00,
+        subTotal : 0,
+        GSTAmount : 0,
+        discountAmount : 0,
+        },
 }
+
+export const totalAmountReducer = (state=initial_state,action) => {
+    switch (action.type) {
+        case "SET_TOTAL_AMOUNT" : {
+            return{
+                ...state,
+                totalAmount:action.payload,
+            }
+        }
+        default : return state
+
+     }
+}
+
 
 export const cartReducer = (state=initial_state,action) => {
     switch (action.type) {
@@ -23,22 +44,19 @@ export const cartReducer = (state=initial_state,action) => {
             }
         }
         case "INCREASE_CART_COUNT" : {
-            // console.log("payload",action.payload.quantity);
-            // state.cartList = state.cartList.map((item) => item.quantity = item.quantity + 1 )
-            // console.log("map",state.cartList);
             let updatedCartList = state.cartList.map(item => {
                 if (item.id === action.payload.id) {
                     return {
                         ...item,
-                        quantity: item.quantity + 1
-                    };
+                        quantity: item.quantity + 1,
+                    }
                 }
                 return item;
             })
             return {
                 ...state,
-                cartList: updatedCartList
-            };
+                cartList: updatedCartList,
+            }
         }
         case "DECREASE_CART_COUNT" : {
             let updatedCartList = state.cartList ;

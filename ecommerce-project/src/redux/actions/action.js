@@ -19,6 +19,13 @@ export const CART_QUT_DECREASE  = (item) => {
     }
 }
 
+export const TOTAL_AMOUNT = (amount) => {
+    return {
+        type:"SET_TOTAL_AMOUNT",
+        payload :amount,
+    }
+} 
+
 
 
 export const REMOVE_CART = (id) => {

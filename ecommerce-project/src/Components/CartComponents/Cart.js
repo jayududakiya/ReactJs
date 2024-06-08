@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import './Cart.css'
 
@@ -10,7 +10,7 @@ import { VscTriangleUp , VscTriangleDown} from "react-icons/vsc";
 import { useNavigate } from 'react-router-dom';
 
 //REDUX
-import { REMOVE_CART , CART_QUT_INCREASE , CART_QUT_DECREASE}  from '../../redux/actions/action'
+import { REMOVE_CART , CART_QUT_INCREASE , CART_QUT_DECREASE,TOTAL_AMOUNT }  from '../../redux/actions/action'
 import { useDispatch , useSelector } from 'react-redux';
 
 // ALERT
@@ -20,33 +20,54 @@ import { showErrorMessage } from '../Common Components/Alerts/Alerts';
 
 //==================================================================================
 
-function Cart() {
 
-  let Subtotal = 0;
-  const GST = 18.00;
-  let GSTCount = 0;
+function Cart() {
+  
+const TotalAmount = {
+  GST : 18.00,
+  Discount : 10.00,
+  subTotal : 0,
+  GSTAmount : 0,
+  discountAmount:0,
+  }
 
   const neviGatShop = useNavigate()
   const neviGatCheckout = useNavigate()
   
   const backToHome = useNavigate()
+
   const dispatch = useDispatch()
+
   function remove_cart (id) {
     dispatch(REMOVE_CART(id))
     showErrorMessage('Your item has been removed from the cart list!',"bottom-right")
   }
-  const CartItems = useSelector((state)=> state.cartReducer.cartList )
+
+  const CartItems = useSelector((state)=> state.cartReducer.cartList)
+
+  const CartTotals = useSelector(state => state.totalAmountReducer.totalAmount)
+
 
   const increment_Qut = (item) => {
     dispatch(CART_QUT_INCREASE(item))
   }
+
   const decrease_Qut = (item) => {
     dispatch(CART_QUT_DECREASE(item))
   }
 
-  GSTCount +=  Subtotal * GST
+  const setTotalAmount  = (amount)  => {
+    dispatch(TOTAL_AMOUNT(amount))
+  }
 
+  useEffect(()=>{
+    setTotalAmount(TotalAmount)
+  },[CartItems])
 
+  
+  // CALCULATING GST AMOUNT 
+  TotalAmount.GSTAmount += (TotalAmount.subTotal * TotalAmount.GST);
+    
   return (
     <div className="sm:container mx-auto">
       <section className="mx-auto w-full py-20">
@@ -105,9 +126,14 @@ function Cart() {
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
                     {CartItems.map((item, ind) => {
+              
                       let {FirstImg,price,name,id,quantity} = item
-                      Subtotal += quantity * price 
-                      GSTCount =  (Subtotal * GST)/100;
+
+                      //TOTAL AMOUNT OBJECT COUNT 
+                      TotalAmount.subTotal += quantity * price ;
+                      TotalAmount.GSTAmount += (TotalAmount.subTotal * TotalAmount.GST) / 100 ;
+
+                      
                       return (
                         <tr key={ind} className="divide-x divide-gray-200">
                         <td className="whitespace-nowrap px-2 py-4">
@@ -191,13 +217,13 @@ function Cart() {
                     <h1 className='font-normal text-2xl py-4'>Cart Totals</h1>
                 </li>
                 <li className='border '>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ {Subtotal}</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ {CartTotals.subTotal}</span></p>
                 </li>
                 <li className='border '>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>SGST & CGST </span> <span>$ {GSTCount}</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>SGST & CGST </span> <span>$ {CartTotals.GSTAmount.toFixed(2)}</span></p>
                 </li>
                 <li className='border'>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ {Subtotal + GSTCount}</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Total</span> <span>$ {(CartTotals.subTotal + CartTotals.GSTAmount).toFixed(2)}</span></p>
                 </li>
                 <li className='mt-4'>
                 <button  onClick={()=>neviGatCheckout('/checkout')} id='Coupon-BTN' className='relative BtnCase text-white bg-[#D51243] text-lg font-semibold px-4 rounded-md py-2.5 '>
