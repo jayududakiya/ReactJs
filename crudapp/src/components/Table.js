@@ -35,18 +35,13 @@ export default function Table() {
 
   // Pagination
   const [currentPages, setCurrentPages] = useState(1);
-  const [parPageData] = useState(6);
+  const [parPageData] = useState(5);
 
   const lastIndex = currentPages * parPageData;
   const firstIndex = lastIndex - parPageData;
 
-  const showPageUsers = users.slice(firstIndex,lastIndex);
-  
-  useEffect(()=>{
-    // console.log("hello");
-    // console.log("X",searchData);
-  },[searchData])
-
+  const showPageUsers = (searchData.length === users.length ? users : searchData).slice(firstIndex,lastIndex);
+  console.log("show",showPageUsers);
   return (
     <>
       <section className="mx-auto w-[95%] px-4 py-4">
@@ -58,7 +53,7 @@ export default function Table() {
               or delete existing ones.
             </p>
           </div>
-          <div>
+          <div className="flex gap-x-3">
             <button
               type="button"
               onClick={() => naviGateRegister("/create")}
@@ -130,7 +125,7 @@ export default function Table() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {searchData.length === 0?showPageUsers.map((person, ind) => (
+                    {showPageUsers.map((person, ind) => (
                       <tr key={person.id}>
                         <td className="whitespace-nowrap px-4 py-4">
                           <div className="text-sm text-gray-900 ">
@@ -195,72 +190,8 @@ export default function Table() {
                           </button>
                         </td>
                       </tr>
-                    )):searchData.map((person, ind) => (
-                      <tr key={person.id}>
-                        <td className="whitespace-nowrap px-4 py-4">
-                          <div className="text-sm text-gray-900 ">
-                            { ind + firstIndex + 1}
-                          </div>
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4">
-                          <div className="flex items-center">
-                            <div className="h-10 w-10 flex-shrink-0">
-                              <img
-                                className="h-10 w-10 rounded-full object-cover"
-                                src={person.image}
-                                alt={person.name}
-                              />
-                            </div>
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">
-                                {person.name}
-                              </div>
-                              <div className="text-sm text-gray-700">
-                                {person.email}
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4">
-                          <div className="text-sm text-gray-900 capitalize">
-                            {person.gender}
-                          </div>
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          {person.job}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          {person.role}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          {person.date}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                          EP_{person.id}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4">
-                          <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                            Active
-                          </span>
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium flex justify-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => naviGateEdit(`/edit/${person.id}`)}
-                            className="rounded-full bg-black px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                          >
-                            <Pencil className="h-4 w-4" />
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => DeleteEmployee(person.id)}
-                            className="rounded-full bg-black px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                    ))
+                    }
                   </tbody>
                 </table>
               </div>

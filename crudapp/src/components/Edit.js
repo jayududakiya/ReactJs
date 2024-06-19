@@ -205,7 +205,7 @@ export default function Edit () {
                     <option value="DevOps Engineer">		DevOps Engineer</option>
                     <option value="Cloud Architect">		Cloud Architect</option>
                     <option value="Data Scientist">	Data Scientist</option>
-                    <option value="UX/UI Designer"> UX/UI Designer</option>
+                    <option value="UI/UX Designer"> UI/UX  Designer</option>
               </select>
               </div>
               <div className="flex items-center w-full">

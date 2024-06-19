@@ -249,6 +249,7 @@ function Create() {
                 className="pl-8 w-full border-2 py-2 rounded-2xl flex items-center focus:outline-blue-500"
                 type="text"
                 name="name"
+                autoComplete="off"
                 onChange={getInputVal}
                 placeholder="Full name"
               />
@@ -272,6 +273,7 @@ function Create() {
                 className="pl-8 border-2 flex items-center w-full focus:outline-blue-500 py-2 px-3 rounded-2xl"
                 type="text"
                 name="email"
+                autoComplete="off"
                 onChange={getInputVal}
                 placeholder="Email Address"
               />
@@ -296,7 +298,7 @@ function Create() {
                     <option value="DevOps Engineer">		DevOps Engineer</option>
                     <option value="Cloud Architect">		Cloud Architect</option>
                     <option value="Data Scientist">	Data Scientist</option>
-                    <option value="UX/UI Designer"> UX/UI Designer</option>
+                    <option value="UI/UX Designer"> UI/UX Designer</option>
               </select>
               </div>
               <div className="flex items-center w-full lg:w-[160px]">
@@ -316,7 +318,7 @@ function Create() {
               <div className="relative flex items-center w-full lg:w-[180px]">
               <CalendarDays className="h-5 w-5 text-gray-400 absolute ml-2 " />
               <input
-                className="pl-8 w-full border-2 py-2 text-gray-400 focus:text-black uppercas<e rounded-2xl flex items-center focus:outline-blue-500"
+                className="pl-8 w-full border-2 py-2 text-gray-400 focus:text-black uppercas<e rounded-2xl flex items-center focus:outline-blue-500 uppercase"
                 type="date"
                 name="date"
                 onChange={getInputVal}

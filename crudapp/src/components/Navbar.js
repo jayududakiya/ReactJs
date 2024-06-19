@@ -23,6 +23,7 @@ const menuItems = [
 export default function Navbar() {
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchBy,setSearchBy]=useState("name")
 
   const setSearchData = useContext(Context);
 
@@ -33,6 +34,7 @@ export default function Navbar() {
 
   const [data,setData]=useState([])
   const [search , setSearch]=useState("")
+  const [filterSearch , setFilterSearch ] =useState([])
 
   useEffect(()=>{
     async function FetchData () {
@@ -47,9 +49,12 @@ export default function Navbar() {
 
   function HandelSearch (even) {
     setSearch(even.target.value.toLowerCase());
-    setSearchData(data.filter(X => X.name.toLowerCase().includes(search)))
+    setFilterSearch(data.filter(X => X[searchBy].toLowerCase().includes(search) ))
   }
 
+  useEffect(()=>{
+    search === "" ? setSearchData(data) : setSearchData(filterSearch)
+  })
 
   return (
     <div className="relative w-full bg-white shadow-md mx-auto">
@@ -61,13 +66,22 @@ export default function Navbar() {
         </div>
         <div className="grow items-start lg:flex justify-end">
           {/* Search  */}
-          <div className="hidden sm:flex grow justify-end mr-6 lg:mr-0">
+          <div className="hidden sm:flex grow justify-end mr-6 lg:mr-0 gap-x-3 items-stretch">
             <input
               className="flex h-10 w-[250px] rounded-md bg-gray-100 px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
               type="search"
               onChange={(even)=>HandelSearch(even)}
               placeholder="Search"
             ></input>
+            <p className="leading-9 text-sm">
+              By
+            </p>
+            <select  name="searchBy" id="searchBy" onChange={(even)=> setSearchBy(even.target.value)} className="text-sm capitalize rounded-md border outline-blue-300 w-20 px-1" >
+              <option value="name">name</option>
+              <option value="job">job</option>
+              <option value="email">email</option>
+              <option value="role">role</option>
+            </select>
           </div>
 
           <ul className="ml-12 hidden lg:flex items-center h-10 gap-x-8">
@@ -111,6 +125,7 @@ export default function Navbar() {
                     <input
                       className="flex h-10 w-full rounded-md bg-gray-100 px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="search"
+                      onChange={(even)=>HandelSearch(even)}
                       placeholder="Search"
                     ></input>
                   </div>
