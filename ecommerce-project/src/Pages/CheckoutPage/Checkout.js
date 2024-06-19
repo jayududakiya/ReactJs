@@ -31,15 +31,12 @@ function Checkout() {
  
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-  const [shippingAmount , setShippingAmount] = useState(7)
+  const [shippingAmount] = useState(7)
 
   const [isShipping,setIsShipping] = useState(true)
 
   const CartTotals = useSelector((state)=>state.totalAmountReducer.totalAmount)
   const CartList = useSelector((state)=>state.cartReducer.cartList)
-  
-  console.log("CartTotals",CartTotals); 
-  console.log("CartList",CartList.length); 
 
   return (
     <section>

@@ -61,7 +61,6 @@ function LoginPage() {
       console.log("local User",findUser);
       if(findUser !== undefined){
         Swal.fire({
-          position: "top-center",
           icon: "success",
           title: "Welcome To Ninico E Commerce",
           text: "LogIn Was Success Full",

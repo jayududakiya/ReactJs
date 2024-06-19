@@ -1,14 +1,73 @@
-import React,{useRef} from "react";
+import React,{ useState }  from "react";
 import "./Contact.css";
+import { Formik , Field , ErrorMessage , Form} from "formik";
+import * as Yup from 'yup'
+import axios from "axios";
+
 import Location from "../../Assets/Icons/location-pin.svg";
 import Call from "../../Assets/Icons/call-receive.svg";
 import Clock from "../../Assets/Icons/clock-0500.svg";
 import HeadPhone from "../../Assets/Icons/headset.svg";
 import RightArrow from "../../Assets/Icons/right-arrow.svg";
 
-function Contact() {
+// ICONS
+import { LuCheckCircle } from "react-icons/lu";
+import { CgClose } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
-  const Contact_FormREF = useRef()
+const PhoneRegex =  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+const initialValues = {
+  Name : "",
+  Email : "",
+  Number : "",
+  Subject : "",
+  Message : "",
+}
+
+const formSchema = Yup.object().shape({
+  Name : Yup.string().min(2).max(18).required("* This Fild Is Required"),
+  Email : Yup.string().email("Email Is Not Valid").required("* This Fild Is Required"),
+  Subject : Yup.string().min(5,"Enter Valid Product Name").max(20).required("* this Fils Is Required"),
+  Message : Yup.string().min(30).max(100).required("* this Fils Is Required"),
+  Number : Yup.string().matches(PhoneRegex,"Number Is Not Valid").required("* this Fils Is Required"),
+});
+
+
+function Contact() {
+    /* Navigate */ 
+    const NavigateHome = useNavigate()
+
+   /* Server State Handling */
+   const [serverState, setServerState] = useState();
+   const [ showAlert , setShowAlert] = useState(false);
+
+   const handleServerResponse = (ok, msg) => {
+     setServerState({ok, msg});
+   };
+
+   const handleOnSubmit = (values, actions) => {
+     axios({
+       method: "POST",
+       url: "https://formspree.io/f/mdoqbrjo",
+       data: values,
+     })
+    .then(response => {
+        actions.setSubmitting(false);
+        actions.resetForm();
+        handleServerResponse(true, "Thank You For This is informational ");
+        setShowAlert(true)
+        setTimeout(() => {
+          setShowAlert(false)
+          NavigateHome("/")
+        }, 2000);
+        })
+        .catch(error => {
+          actions.setSubmitting(false);
+          handleServerResponse(false, error.response.data.error);
+          setShowAlert(false)
+    });
+   };
 
   return (
     <div id="Contact" className=" mx-auto pt-28">
@@ -85,66 +144,106 @@ function Contact() {
             </p>
           </div>
           {/* Form  */}
-          <form 
-           action="https://formspree.io/f/mdoqbrjo"
-           method="POST"
-           ref={Contact_FormREF}
-           className="">
-
+          <Formik
+          initialValues={initialValues}
+          onSubmit={handleOnSubmit}
+          validationSchema={formSchema}
+          >
+          {({ isSubmitting }) => (
+          <Form id="fs-frm" noValidate >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-0 lg:gap-x-6 gap-y-6 lg:gap-y-0 py-6">
-              <input
+              <div className="col-span-6">
+              <label htmlFor="Name"></label>
+              <Field
                 type="text"
-                id="large-input"
+                id="Name"
                 name="Name"
-                className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
+                className="block w-full px-5 py-4 border rounded-lg text-[1.2rem] mb-1"
                 placeholder="Full name"
                 title="Please fill out this field"
               />
-              <input
+              <ErrorMessage name="Name" className="errorMsg text-red-500 text-sm" component="p" />
+              </div>
+              <div className="col-span-6">
+              <label htmlFor="Email"></label>
+              <Field 
                 type="email"
-                id="large-input"
+                id="Email"
                 name="Email"
-                className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
+                className="block w-full px-5 py-4 border rounded-lg text-[1.2rem] mb-1"
                 placeholder="Email address"
                 title="Please fill out this field"
               />
+              <ErrorMessage name="Email" className="errorMsg text-red-500 text-sm" component="p" />
+              </div>
             </div>
 
             <div className="grid  grid-cols-1 lg:grid-cols-12 gap-x-0 lg:gap-x-6 gap-y-6 lg:gap-y-0 pb-6">
-              <input
+              <div className="col-span-6">
+              <label htmlFor="Number"></label>
+              <Field
                 type="text"
-                id="large-input"
+                id="Number"
                 name="Number"
-                className="col-span-6 block w-full px-5 py-3 border rounded-lg text-[1.2rem] "
+                className=" block w-full px-5 py-4 border rounded-lg text-[1.2rem] mb-1"
                 placeholder="Phone number"
                 title="Please fill out this field"
               />
-              <input
-                type="text"
-                id="large-input"
-                name="Subject"
-                className="col-span-6 block w-full px-5 py-4 border rounded-lg text-[1.2rem] "
-                placeholder="Subject"
-                title="Please fill out this field"
-              />
+              <ErrorMessage name="Number" className="errorMsg text-red-500 text-sm" component="p" />
+              </div>
+              <div className="col-span-6">
+                <label htmlFor="Subject"></label>
+                <Field
+                  type="text"
+                  id="Subject"
+                  name="Subject"
+                  className="block w-full px-5 py-4 border rounded-lg text-[1.2rem] mb-1"
+                  placeholder="Subject"
+                  title="Please fill out this field"
+                />
+                <ErrorMessage name="Subject" className="errorMsg text-red-500 text-sm" component="p" />
+              </div>
             </div>
 
             <div className="pb-8">
-              <textarea
-                id="message"
-                name="Review"
+              <label htmlFor="Message"></label>
+              <Field
+                as="textarea"
+                id="Message"
+                name="Message"
                 rows="7"
-                className="block px-5 py-[18px] w-full text-[1.2rem] border rounded-lg"
+                className="block px-5 py-[18px] w-full text-[1.2rem] border rounded-lg mb-1"
                 placeholder="Enter massage"
                 title="Please fill out this field"
-              ></textarea>
+              ></Field>
+              <ErrorMessage name="Message" className="errorMsg text-red-500 text-sm" component="p" />
             </div>
 
-            <button  className="bg-[#D51243] form-button flex items-center justify-evenly text-[#FFFFFF] font-bold text-[1.1rem] min-w-[185px] min-h-[55px] px-2 rounded-[5px]">
+            <div>
+            <button  type="submit" disabled={isSubmitting} className="bg-[#D51243] form-button flex items-center justify-evenly text-[#FFFFFF] font-bold text-[1.1rem] min-w-[185px] min-h-[55px] px-2 rounded-[5px]">
                 Get A Quote <span className="icons w-[20px] h-[20px] mt-[4px] flex items-center justify-center"><img src={RightArrow} alt="Right Arrow" className="block w-full h-full object-contain " /></span>
             </button>
-
-          </form>
+            {serverState && showAlert ? (
+               <div className="rounded-md border-l-4 border-green-500 bg-green-100 p-4 mt-2">
+               <div className="flex items-center justify-between space-x-4">
+                 <div>
+                   <LuCheckCircle className="h-6 w-6 text-green-600" />
+                 </div>
+                 <div>
+                   <p className={`text-sm font-medium text-green-600 ${!serverState.ok ? "errorMsg" : ""}`} >
+                     {serverState.msg}
+                   </p>
+                 </div>
+                 <div>
+                   <CgClose className="h-6 w-6 cursor-pointer text-green-600" />
+                 </div>
+               </div>
+             </div>
+            ):null}
+          </div>
+          </Form>
+          )}
+          </Formik>
         </div>
 
       </div>
