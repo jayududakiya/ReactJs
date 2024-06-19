@@ -10,7 +10,7 @@ function Pagination({totalPost,postPerPage,setCurrentPage,currentPage}) {
       <button>
         priv
       </button>
-      {Pages.map((page,ind)=>{
+      {Pages.map( (page,ind) => {
         return(
              <button 
              key={ind}
