@@ -29,15 +29,19 @@ function LoginPage() {
   const [prevUsers,setPrevUsers]=useState([]);
 
   useEffect(()=>{
-    setPrevUsers(JSON.parse(localStorage.getItem("nicicoUser")))
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Bot Id and Password",
-      text: `email : admin@gmail.com & password : admin1234`,
-      showConfirmButton: false,
-      timer: 3000
-    });
+    setPrevUsers(localStorage.getItem("nicicoUser")!==null ? JSON.parse(localStorage.getItem("nicicoUser")) : [])
+    
+    if(localStorage.getItem("nicicoUser") === null){
+      localStorage.setItem('nicicoUser',JSON.stringify([{email: "admin@gmail.com", password: "admin1234"}]))
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bot Id and Password",
+        text: `email : admin@gmail.com & password : admin1234`,
+        showConfirmButton: true,
+        timer: 3600
+      });
+    }
   },[])
 
   const [passwordType , setPasswordType ] = useState("password");
