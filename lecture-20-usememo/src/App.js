@@ -1,11 +1,14 @@
 import './App.css';
-import UMemo from './UseMemos/Umemo';
+import Sum from './Components/Sum'
+import Count from './Components/Count'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <UMemo/>
+        {/* <From/> */}
+        <Sum/>
+        <Count/>
       </header>
     </div>
   );
