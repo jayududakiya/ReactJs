@@ -1,0 +1,24 @@
+{
+  "name": "sentry-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^8.35.0",
+    "next": "^15.0.1",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "next": "^12.0.0",
+    "@babel/core": "^7.15.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^12.0.0"
+  }
+}

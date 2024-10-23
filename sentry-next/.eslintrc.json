@@ -1,0 +1,6 @@
+{
+  "extends": "next",
+  "rules": {
+    // You can add or override any custom ESLint rules here
+  }
+}
