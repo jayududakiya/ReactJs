@@ -41,7 +41,7 @@ export default function Table() {
   const firstIndex = lastIndex - parPageData;
 
   const showPageUsers = (searchData.length === users.length ? users : searchData).slice(firstIndex,lastIndex);
-  console.log("show",showPageUsers);
+  // console.log("show",showPageUsers);
   return (
     <>
       <section className="mx-auto w-[95%] px-4 py-4">

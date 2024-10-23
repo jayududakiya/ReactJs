@@ -12,17 +12,6 @@
       "password": "JSd_012345"
     },
     {
-      "id": "b86b",
-      "image": "https://xsgames.co/randomusers/assets/avatars/female/63.jpg",
-      "name": "Hertha Hathawaay",
-      "email": "HerthaH@gmail.com",
-      "job": "Back-End Developer",
-      "role": "Developer",
-      "gender": "female",
-      "date": "2024-05-27",
-      "password": "HH_01234s"
-    },
-    {
       "id": "819d",
       "image": "https://xsgames.co/randomusers/assets/avatars/male/26.jpg",
       "name": "Patrick shei",
@@ -196,6 +185,17 @@
       "role": "Developer",
       "gender": "male",
       "date": "2024-06-10",
+      "password": "Jayan@1234"
+    },
+    {
+      "id": "ed17",
+      "image": "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+      "name": "jayan",
+      "email": "jayan@gamil.com",
+      "job": "System Administrator",
+      "role": "Designer",
+      "gender": "male",
+      "date": "2024-10-19",
       "password": "Jayan@1234"
     }
   ]

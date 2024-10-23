@@ -72,6 +72,7 @@ export default function Navbar() {
               type="search"
               onChange={(even)=>HandelSearch(even)}
               placeholder="Search"
+              autoCapitalize="off"
             ></input>
             <p className="leading-9 text-sm">
               By
