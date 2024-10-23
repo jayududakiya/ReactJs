@@ -217,7 +217,7 @@ const TotalAmount = {
                     <h1 className='font-normal text-2xl py-4'>Cart Totals</h1>
                 </li>
                 <li className='border '>
-                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ {CartTotals.subTotal}</span></p>
+                  <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>Subtotal</span> <span>$ {CartTotals.subTotal === undefined ? 0 : CartTotals.subTotal}</span></p>
                 </li>
                 <li className='border '>
                   <p className='flex items-center justify-between text-base py-3.5 px-4' ><span>SGST & CGST </span> <span>$ {CartTotals.GSTAmount.toFixed(2)}</span></p>

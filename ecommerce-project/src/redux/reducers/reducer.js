@@ -9,13 +9,13 @@ const initialWishState = {
 };
 
 const initialTotalAmountState = {
-    totalAmount: localStoreData.totalAmount.subTotal === 0 ? {
+    totalAmount: localStoreData.totalAmount === undefined ? {
         GST: 18.00,
         Discount: 10.00,
         subTotal: 0,
         GSTAmount: 0,
         discountAmount: 0,
-    } : localStoreData.totalAmount
+    } : localStoreData.totalAmount 
 };
 
 const updateLocalStorage = (key, data) => {
@@ -25,6 +25,7 @@ const updateLocalStorage = (key, data) => {
     currentData[key] = data;
     localStorage.setItem('Ninico_data', JSON.stringify(currentData));
 };
+
 
 export const cartReducer = (state = initialCartState, action) => {
     let newState;
